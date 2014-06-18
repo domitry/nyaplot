@@ -1,3 +1,4 @@
+require_relative 'ecolirb/version'
 require_relative 'ecolirb/base'
 require_relative 'ecolirb/core'
 require_relative 'ecolirb/data'
