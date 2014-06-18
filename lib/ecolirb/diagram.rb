@@ -1,6 +1,7 @@
 module Ecolirb
   class Diagram
     include Ecolirb::Base
+
     define_properties(String, :type)
     define_properties(String, :data)
     define_properties(Hash, :options)
