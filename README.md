@@ -17,12 +17,12 @@ Or install it yourself as:
     $ gem install ecolirb
 
 ## Usage
-   ```ruby
-   require 'ecolirb'
-   Ecolirb.init_iruby
-   bar = Ecolirb.Bar.new([5,14,2,9])
-   bar.show
-   ```
+```ruby
+require 'ecolirb'
+Ecolirb.init_iruby
+bar = Ecolirb.Bar.new([5,14,2,9])
+bar.show
+```
 
 ## Contributing
 
