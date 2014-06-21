@@ -10,14 +10,14 @@ module Ecolirb
     define_properties(Hash, :options)
 
     def initialize(&block)
-      self.instance_eval(block) if block_given?
+      self.instance_eval(&block) if block_given?
     end
 
     def to_html
       path = File.expand_path("../templates/static_html.erb", __FILE__)
       template = File.read(path)
       model = self.to_json
-      html = Erb.new(template).result(binding)
+      html = ERB.new(template).result(binding)
       return html
     end
 
@@ -26,7 +26,7 @@ module Ecolirb
       template = File.read(path)
       id = SecureRandom.uuid()
       model = self.to_json
-      html = Erb.new(template).result(binding)
+      html = ERB.new(template).result(binding)
       return IRuby.html(html)
     end
   end

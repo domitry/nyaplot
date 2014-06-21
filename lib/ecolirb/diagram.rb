@@ -7,7 +7,7 @@ module Ecolirb
     define_properties(Hash, :options)
 
     def initialize(&block)
-      self.instance_eval(block) if block_given?
+      self.instance_eval(&block) if block_given?
     end
   end
 end
