@@ -1,4 +1,5 @@
 # Ecolirb
+![alt text](https://dl.dropboxusercontent.com/u/47978121/gsoc/top_rb.png)
 
 the Ruby front-end library of Ecoli.js
 
@@ -16,7 +17,7 @@ Or install it yourself as:
 
     $ gem install ecolirb
 
-## Usage
+## How to use
 ```ruby
 require 'ecolirb'
 Ecolirb.init_iruby
