@@ -13,7 +13,7 @@ module Nyaplot
       self.instance_eval(&block) if block_given?
     end
 
-    def to_html
+    def export_html
       path = File.expand_path("../templates/static_html.erb", __FILE__)
       template = File.read(path)
       model = self.to_json
