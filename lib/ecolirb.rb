@@ -1,8 +1,0 @@
-require_relative 'ecolirb/version'
-require_relative 'ecolirb/base'
-require_relative 'ecolirb/core'
-require_relative 'ecolirb/data'
-require_relative 'ecolirb/diagram'
-require_relative 'ecolirb/pane'
-require_relative 'ecolirb/stage'
-require_relative 'ecolirb/quick'

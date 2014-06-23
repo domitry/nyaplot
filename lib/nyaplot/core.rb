@@ -1,4 +1,4 @@
-module Ecolirb
+module Nyaplot
   def self.init_iruby
     raise "IRuby notebook is not loaded." unless defined? IRuby
 

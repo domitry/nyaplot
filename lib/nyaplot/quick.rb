@@ -1,6 +1,6 @@
-require 'ecolirb'
+require 'nyaplot'
 
-module Ecolirb
+module Nyaplot
   module Venn
   end
 

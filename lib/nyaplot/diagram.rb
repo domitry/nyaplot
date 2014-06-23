@@ -1,9 +1,9 @@
-module Ecolirb
-  class Pane
-    include Ecolirb::Base
+module Nyaplot
+  class Diagram
+    include Nyaplot::Base
 
-    define_properties(Array, :diagrams)
     define_properties(String, :type)
+    define_properties(String, :data)
     define_properties(Hash, :options)
 
     def initialize(&block)

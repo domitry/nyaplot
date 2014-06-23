@@ -1,6 +1,6 @@
 require 'json'
 
-module Ecolirb
+module Nyaplot
   module Base
     def self.included(cls)
       cls.extend ClassMethod

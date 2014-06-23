@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Ecolirb do
+describe Nyaplot do
   it 'should have a version number' do
-    Ecolirb::VERSION.should_not be_nil
+    Nyaplot::VERSION.should_not be_nil
   end
 
   it 'should do something useful' do

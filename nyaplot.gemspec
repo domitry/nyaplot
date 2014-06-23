@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ecolirb/version'
+require 'nyaplot/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ecolirb"
-  spec.version       = Ecolirb::VERSION
+  spec.name          = "nyaplot"
+  spec.version       = Nyaplot::VERSION
   spec.authors       = ["domitry"]
   spec.email         = ["domitry@gmail.com"]
   spec.summary       = %q{the Ruby front-end library of Ecoli.js}

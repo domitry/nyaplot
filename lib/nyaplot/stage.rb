@@ -1,9 +1,9 @@
 require 'erb'
 require 'securerandom'
 
-module Ecolirb
+module Nyaplot
   class Stage
-    include Ecolirb::Base
+    include Nyaplot::Base
 
     define_properties(Hash, :data)
     define_properties(Array, :panes)

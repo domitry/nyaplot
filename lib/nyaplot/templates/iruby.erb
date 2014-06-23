@@ -1,0 +1,12 @@
+<div id='vis-<%= id %>'></div>
+<script>
+(function(){
+    var render = function(){
+        var model = <%= model %>
+        Nyaplot.core.parse(model, '#vis-<%= id %>');
+    };
+    if(window['Nyaplot']==undefined){
+        window.addEventListener('load_nyaplot', render, false);
+    }else render();
+})();
+</script>
