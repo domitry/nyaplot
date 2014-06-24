@@ -2,12 +2,11 @@ require 'erb'
 require 'securerandom'
 
 module Nyaplot
-  class Stage
+  class Frame
     include Nyaplot::Base
 
     define_properties(Hash, :data)
     define_properties(Array, :panes)
-    define_properties(Hash, :options)
 
     def initialize(&block)
       self.instance_eval(&block) if block_given?

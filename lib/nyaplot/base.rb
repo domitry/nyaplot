@@ -21,6 +21,16 @@ module Nyaplot
           }
         end
       end
+
+      def define_group_properties(name, symbols)
+        hash = {}
+        symbols.each do |symbol|
+          define_method(symbol) {|val|
+            hash[symbol] = val
+          }
+        end
+        @properties[name] = hash
+      end
     end
   end
 end
