@@ -1,6 +1,6 @@
 module Nyaplot
   class Diagram
-    include Nyaplot::Base
+    include Jsonizable
 
     define_properties(String, :type)
     define_properties(String, :data)

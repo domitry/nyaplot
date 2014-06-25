@@ -1,7 +1,7 @@
 require 'json'
 
 module Nyaplot
-  module Base
+  module Jsonizable
     def self.included(cls)
       cls.extend ClassMethod
     end

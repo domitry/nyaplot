@@ -3,7 +3,7 @@ require 'securerandom'
 
 module Nyaplot
   class Frame
-    include Nyaplot::Base
+    include Jsonizable
 
     define_properties(Hash, :data)
     define_properties(Array, :panes)
