@@ -7,13 +7,13 @@ module Nyaplot
 
     def add(type, *data)
       diagram = Diagram.new(type, data)
-      #register data to current frame
-      @properties[:diagrams].push(diagram)
+      diagrams = get_property(:diagrams)
+      diagrams.push(diagram)
       return diagram
     end
 
     def show()
-      
+      frame = Frame.instance
       frame.add(self)
       frame.show
     end

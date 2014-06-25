@@ -11,6 +11,18 @@ module Nyaplot
       @properties.to_json
     end
 
+    def init_properties
+      @properties = {}
+    end
+
+    def set_property(symbol, val)
+      @properties[symbol] = val
+    end
+
+    def get_property(symbol)
+      @properties[symbol]
+    end
+
     module ClassMethod
       def define_properties(type, *symbols)
         symbols.each do |symbol|
