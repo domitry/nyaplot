@@ -55,7 +55,7 @@ module Nyaplot
       html += '</tr>'
       @rows.each do |row|
         html += '<tr>'
-        row.each{|val| html.concat('<td>' + val.to_s + '</td>')}
+        row.each{|key, val| html.concat('<td>' + val.to_s + '</td>')}
         html += '</tr>'
       end
       html += '</table>'
