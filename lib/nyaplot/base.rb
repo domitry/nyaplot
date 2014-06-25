@@ -16,10 +16,12 @@ module Nyaplot
     end
 
     def set_property(symbol, val)
+      @properties ||= {}
       @properties[symbol] = val
     end
 
     def get_property(symbol)
+      @properties ||= {}
       @properties[symbol]
     end
 
@@ -41,6 +43,7 @@ module Nyaplot
             hash[symbol] = val
           }
         end
+        @properties ||= {}
         @properties[name] = hash
       end
     end

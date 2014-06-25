@@ -12,6 +12,8 @@ module Nyaplot
 
     def initialize()
       init_properties
+      set_property(:panes, [])
+      set_property(:data, {})
     end
 
     def add(plot)
@@ -38,6 +40,7 @@ module Nyaplot
 
     def register_data(df)
       data = get_property(:data)
+      set_property(:data, data)
       data[df.name] = df
     end
 

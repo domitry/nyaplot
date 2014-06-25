@@ -23,6 +23,10 @@ module Nyaplot
       end
     end
 
+    def name
+      @name
+    end
+
     def insert_column(name, arr)
       arr.each_with_index{|val| @rows[i][name]=val}
     end
@@ -41,7 +45,7 @@ module Nyaplot
       @rows[index]
     end
 
-    def to_json()
+    def to_json(*args)
       @rows.to_json
     end
 
@@ -58,7 +62,7 @@ module Nyaplot
     end
 
     def method_missing(name, *args)
-      if md = name.match(/(*+)=/)
+      if md = name.match(/(.+)\=/)
         self.insert_column(md[1], args[0])
         return
       else

@@ -2,8 +2,7 @@ module Nyaplot
   class Diagram
     include Jsonizable
 
-    define_properties(String, :type)
-    define_properties(String, :data)
+    define_properties(String, :type, :data)
 
     def initialize(type, data)
       set_property(:type, type)
