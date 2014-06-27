@@ -16,82 +16,97 @@ module Nyaplot
     def configure(&block)
       self.instance_eval(&block) if block_given?
     end
+
+    def xrange
+      @xrange
+    end
+
+    def yrange
+      @yrange
+    end
   end
 
   module Diagrams
     module Bar
-      def extended
-        define_group_properties(:options, [:value, :x, :y, :width, :color])
-      end
+      include Jsonizable
+      define_group_properties(:options, [:value, :x, :y, :width, :color])
 
       def proceed_data(data)
         case data.length
         when 1
           df = DataFrame.new({value: data[0]})
           set_property(:data, df.name)
-          set_property(:value, 'value')
+          value('value')
+          @xrange = df.value.uniq
+          @yrange = [0, df.value.length]
           return df
         when 2
           df = DataFrame.new({x: data[0], y: data[1]})
           set_property(:data, df.name)
-          set_property(:x, 'x')
-          set_property(:y, 'y')
+          x('x')
+          y('y')
+          @xrange = df.x
+          @yrange = [(df.y.min < 0 ? df.y.min : 0), df.y.max]
           return df
         end
       end
     end
 
     module Histogram
-      def extended
-        define_group_properties(:options, [:title, :value, :bin_num, :width, :color, :stroke_color, :stroke_width])
-      end
+      include Jsonizable
+      define_group_properties(:options, [:title, :value, :bin_num, :width, :color, :stroke_color, :stroke_width])
 
       def proceed_data(data)
         df = DataFrame.new({value: data[0]})
         set_property(:data, df.name)
-        set_property(:value, 'value')
+        value('value')
+        @xrange = [df.value.min, df.value.max]
+        @yrange = [0, df.value.length]
         return df
       end
     end
 
     module Venn
-      def extended
-        define_group_properties(:options, [:title, :category, :count, :area_names, :filter_control, :opacity, :color, :stroke_color, :stroke_width])
-      end
+      include Jsonizable
+      define_group_properties(:options, [:title, :category, :count, :area_names, :filter_control, :opacity, :color, :stroke_color, :stroke_width])
 
       def proceed_data(data)
         df = DataFrame.new({category: data[0], count: data[1]})
         set_property(:data, df.name)
-        set_property(:category, 'category')
-        set_property(:count, 'count')
+        category('category')
+        count('count')
+        @xrange = [0, 10]
+        @yrange = [0, 10]
         return df
       end
     end
 
     module Scatter
-      def extended
-        define_group_properties(:options, [:title, :x, :y, :r, :shape, :color, :stroke_color, :stroke_width])
-      end
+      include Jsonizable
+      define_group_properties(:options, [:title, :x, :y, :r, :shape, :color, :stroke_color, :stroke_width])
 
       def proceed_data(data)
         df = DataFrame.new({x: data[0], y: data[1]})
-p        set_property(:data, df.name)
-        set_property(:x, 'x')
-        set_property(:y, 'y')
+        set_property(:data, df.name)
+        x('x')
+        y('y')
+        @xrange = [df.x.min, df.x.max]
+        @yrange = [df.y.min, df.y.max]
         return df
       end
     end
 
     module Line
-      def extended
-        define_group_properties(:options, [:title, :value, :color, :stroke_width])
-      end
+      include Jsonizable
+      define_group_properties(:options, [:title, :x, :y, :color, :stroke_width])
 
       def proceed_data(data)
         df = DataFrame.new({x: data[0], y: data[1]})
         set_property(:data, df.name)
-        set_property(:x, 'x')
-        set_property(:y, 'y')
+        x('x')
+        y('y')
+        @xrange = [df.x.min, df.x.max]
+        @yrange = [df.y.min, df.y.max]
         return df
       end
     end

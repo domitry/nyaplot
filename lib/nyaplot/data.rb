@@ -20,6 +20,13 @@ module Nyaplot
           keys.each{|key| hash[key] = source[key][i]}
           @rows.push(hash)
         end
+
+        # transform String to Symbol as a key
+        unless @rows.all? {|row| row.keys.all? {|el| el.is_a?(Symbol)}}
+          @rows.map do |row|
+            return row.inject({}) {|hash, (key, val)| hash[key.intern]=val; hash}
+          end
+        end
       end
     end
 
@@ -33,7 +40,8 @@ module Nyaplot
 
     def column(name)
       column = []
-      @rows.each{|row| column.push(row[name])}
+      id = (name.is_a?(String) ? name.intern : name)
+      @rows.each{|row| column.push(row[id])}
       return column
     end
 
@@ -66,7 +74,7 @@ module Nyaplot
         self.insert_column(md[1], args[0])
         return
       else
-        return self.column(args[0])
+        return self.column(name)
       end
     end
   end

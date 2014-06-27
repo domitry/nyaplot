@@ -6,7 +6,11 @@ module Nyaplot
       cls.extend ClassMethod
     end
 
+    def before_to_json
+    end
+
     def to_json(*args)
+      before_to_json
       @properties ||= {}
       @properties.to_json
     end
@@ -37,14 +41,12 @@ module Nyaplot
       end
 
       def define_group_properties(name, symbols)
-        hash = {}
         symbols.each do |symbol|
           define_method(symbol) {|val|
-            hash[symbol] = val
+            @properties[name] ||= {}
+            @properties[name][symbol] = val
           }
         end
-        @properties ||= {}
-        @properties[name] = hash
       end
     end
   end

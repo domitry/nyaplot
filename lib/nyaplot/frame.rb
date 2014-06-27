@@ -10,10 +10,14 @@ module Nyaplot
     define_properties(Hash, :data)
     define_properties(Array, :panes)
 
-    def initialize()
+    def initialize
       init_properties
       set_property(:panes, [])
       set_property(:data, {})
+    end
+
+    def init_panes
+      set_property(:panes, [])
     end
 
     def add(plot)
