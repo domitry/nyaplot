@@ -75,7 +75,7 @@ module Nyaplot
 
       def proceed_data(data)
         df = DataFrame.new({x: data[0], y: data[1]})
-        set_property(:data, df.name)
+p        set_property(:data, df.name)
         set_property(:x, 'x')
         set_property(:y, 'y')
         return df

@@ -16,7 +16,7 @@ module Nyaplot
       return diagram
     end
 
-    def show()
+    def show
       frame = Frame.instance
       frame.add(self)
       frame.show
