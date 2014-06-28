@@ -1,7 +1,7 @@
 # Nyaplot
 ![alt text](https://dl.dropboxusercontent.com/u/47978121/gsoc/nyaoplot_top.png)
 
-Nyaplot is a interactive plots generator for Ruby users. Its goal is to provide the way to create interactive plots in their favorite styles and still allows fast prototyping, customizability, and integration to SciRuby components. 
+Nyaplot is an interactive plots generator for Ruby users. Its goal is to provide the way to create interactive plots in their favorite styles and still allows fast prototyping, customizability, and integration to SciRuby components. 
 
 Nyaplot is a compound word from 'Nya' and 'plot.' The word 'Nya' comes from a onomatopoeia of cat's meow in Japanese.
 
