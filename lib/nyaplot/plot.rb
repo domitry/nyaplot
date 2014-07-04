@@ -7,6 +7,7 @@ module Nyaplot
 
     def initialize
       set_property(:diagrams, [])
+      set_property(:options, {})
     end
 
     def add(type, *data)
@@ -27,7 +28,7 @@ module Nyaplot
       diagrams = get_property(:diagrams)
 
       [:xrange, :yrange].each do |symbol|
-        if get_property(symbol).nil?
+        if get_property(:options)[symbol].nil?
           range = []
           diagrams.each{|diagram| range.push(diagram.send(symbol))}
 
