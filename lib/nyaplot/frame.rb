@@ -1,11 +1,9 @@
 require 'erb'
 require 'securerandom'
-require 'singleton'
 
 module Nyaplot
   class Frame
     include Jsonizable
-    include Singleton
 
     define_properties(Hash, :data)
     define_properties(Array, :panes)
@@ -16,11 +14,11 @@ module Nyaplot
       set_property(:data, {})
     end
 
-    def init_panes
-      set_property(:panes, [])
-    end
-
     def add(plot)
+      data = get_property(:data)
+      plot.df_list.each do |name|
+        data[name] = DataBase.instance.fetch(name)
+      end
       panes = get_property(:panes)
       panes.push(plot)
     end
@@ -40,12 +38,6 @@ module Nyaplot
       model = self.to_json
       html = ERB.new(template).result(binding)
       return IRuby.html(html)
-    end
-
-    def register_data(df)
-      data = get_property(:data)
-      set_property(:data, data)
-      data[df.name] = df
     end
 
     def configure(&block)

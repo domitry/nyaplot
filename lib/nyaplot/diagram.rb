@@ -9,8 +9,7 @@ module Nyaplot
       mod = Kernel.const_get("Nyaplot").const_get("Diagrams").const_get(type.to_s.capitalize)
       self.extend(mod)
       df = self.proceed_data(data)
-      frame = Frame.instance
-      frame.register_data(df)
+      DataBase.instance.add(df)
     end
 
     def configure(&block)
@@ -23,6 +22,10 @@ module Nyaplot
 
     def yrange
       @yrange
+    end
+
+    def df_name
+      get_property(:data)
     end
   end
 

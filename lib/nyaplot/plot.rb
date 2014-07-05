@@ -18,10 +18,16 @@ module Nyaplot
     end
 
     def show
-      frame = Frame.instance
-      frame.init_panes # TODO: remove this line
+      frame = Frame.new
       frame.add(self)
       frame.show
+    end
+
+    def df_list
+      arr=[]
+      diagrams = get_property(:diagrams)
+      diagrams.each{|d| arr.push(d.df_name)}
+      return arr
     end
 
     def before_to_json
