@@ -37,19 +37,33 @@ module Nyaplot
       def proceed_data(data)
         case data.length
         when 1
-          df = DataFrame.new({value: data[0]})
+          if data[0].is_a? Series
+            df = data[0].parent
+            label = data[0].label
+          else
+            df = DataFrame.new({value: data[0]})
+            label = 'value'
+          end
+          value(label)
           set_property(:data, df.name)
-          value('value')
-          @xrange = df.value.uniq
-          @yrange = [0, df.value.length]
+          @xrange = df[label].to_a.uniq
+          @yrange = [0, df[label].to_a.length]
           return df
         when 2
-          df = DataFrame.new({x: data[0], y: data[1]})
+          if data[0].is_a?(Series) && data[1].is_a?(Series)
+            df = data[0].parent
+            label_x = data[0].label
+            label_y = data[1].label
+          else
+            df = DataFrame.new({x: data[0], y: data[1]})
+            label_x = 'x'
+            label_y = 'y'
+          end
           set_property(:data, df.name)
-          x('x')
-          y('y')
-          @xrange = df.x
-          @yrange = [(df.y.min < 0 ? df.y.min : 0), df.y.max]
+          x(label_x)
+          y(label_y)
+          @xrange = df.column(label_x).to_a
+          @yrange = [(df[label_y].to_a.min < 0 ? df[label_y].to_a.min : 0), df[label_y].to_a.max]
           return df
         end
       end
@@ -60,12 +74,18 @@ module Nyaplot
       define_group_properties(:options, [:title, :value, :bin_num, :width, :color, :stroke_color, :stroke_width])
 
       def proceed_data(data)
-        df = DataFrame.new({value: data[0]})
-        set_property(:data, df.name)
-        value('value')
-        @xrange = [df.value.min, df.value.max]
-        @yrange = [0, df.value.length]
-        return df
+          if data[0].is_a? Series
+            df = data[0].parent
+            label = data[0].label
+          else
+            df = DataFrame.new({value: data[0]})
+            label = 'value'
+          end
+          value(label)
+          set_property(:data, df.name)
+          @xrange = [(df[label].to_a.min < 0 ? df[label].to_a.min : 0), df[label].to_a.max]
+          @yrange = [0, df[label].to_a.length]
+          return df
       end
     end
 
@@ -89,12 +109,20 @@ module Nyaplot
       define_group_properties(:options, [:title, :x, :y, :r, :shape, :color, :stroke_color, :stroke_width])
 
       def proceed_data(data)
-        df = DataFrame.new({x: data[0], y: data[1]})
+        if data[0].is_a? Series
+          df = data[0].parent
+          label_x = data[0].label
+          label_y = data[1].label
+        else
+          df = DataFrame.new({x: data[0], y: data[1]})
+          label_x = 'x'
+          label_y = 'y'
+        end
         set_property(:data, df.name)
-        x('x')
-        y('y')
-        @xrange = [df.x.min, df.x.max]
-        @yrange = [df.y.min, df.y.max]
+        x(label_x)
+        y(label_y)
+        @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
+        @yrange = [df[label_y].to_a.min, df[label_y].to_a.max]
         return df
       end
     end
@@ -104,12 +132,20 @@ module Nyaplot
       define_group_properties(:options, [:title, :x, :y, :color, :stroke_width])
 
       def proceed_data(data)
-        df = DataFrame.new({x: data[0], y: data[1]})
+        if data[0].is_a? Series
+          df = data[0].parent
+          label_x = data[0].label
+          label_y = data[1].label
+        else
+          df = DataFrame.new({x: data[0], y: data[1]})
+          label_x = 'x'
+          label_y = 'y'
+        end
         set_property(:data, df.name)
-        x('x')
-        y('y')
-        @xrange = [df.x.min, df.x.max]
-        @yrange = [df.y.min, df.y.max]
+        x(label_x)
+        y(label_y)
+        @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
+        @yrange = [df[label_y].to_a.min, df[label_y].to_a.max]
         return df
       end
     end
