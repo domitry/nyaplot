@@ -44,6 +44,14 @@ module Nyaplot
       df = self.new(rows)
     end
 
+    def filter(&block)
+      DataFrame.new(@rows.select(&block))
+    end
+
+    def filter!(&block)
+      @rows.select!(&block)
+    end
+
     def name
       @name
     end
