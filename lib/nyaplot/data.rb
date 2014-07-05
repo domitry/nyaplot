@@ -1,6 +1,7 @@
 require 'nyaplot'
 require 'securerandom'
 require 'json'
+require 'csv'
 
 module Nyaplot
   class DataFrame
@@ -20,14 +21,27 @@ module Nyaplot
           keys.each{|key| hash[key] = source[key][i]}
           @rows.push(hash)
         end
+      end
 
-        # transform String to Symbol as a key
-        unless @rows.all? {|row| row.keys.all? {|el| el.is_a?(Symbol)}}
-          @rows.map do |row|
-            return row.inject({}) {|hash, (key, val)| hash[key.intern]=val; hash}
-          end
+      # transform Symbol to String as a key
+      unless @rows.all? {|row| row.keys.all? {|el| el.is_a?(String)}}
+        @rows.map! do |row|
+          row.inject({}) {|hash, (key, val)| hash[key.to_s]=val; hash}
         end
       end
+    end
+
+    def self.from_csv(path, sep=',', header=true)
+      csv = CSV.open(path,"r",{col_sep: sep, :converters => :numeric})
+      head = csv.readline if header
+      head.map{|el| el.is_a?(String) ? el : el.to_s}
+      rows=[]
+      csv.each do |row|
+        hash = {}
+        row.each_with_index{|el,i| hash[head[i]] = el}
+        rows.push(hash)
+      end
+      df = self.new(rows)
     end
 
     def name
@@ -40,9 +54,9 @@ module Nyaplot
 
     def column(name)
       column = []
-      id = (name.is_a?(String) ? name.intern : name)
+      id = name.is_a?(String) ? name : name.to_s
       @rows.each{|row| column.push(row[id])}
-      return column
+      return Series.new(self, name, column)
     end
 
     def insert_row(row, index=@rows.length)
@@ -57,16 +71,27 @@ module Nyaplot
       @rows.to_json
     end
 
-    def to_html()
+    def to_html(threshold = 15)
       html = '<table><tr>'
       @rows[0].each {|key, val| html.concat('<th>' + key.to_s + '</th>')}
       html += '</tr>'
-      @rows.each do |row|
+
+      @rows.each_with_index do |row, i|
+        next if i > threshold && i < @rows.length-1
         html += '<tr>'
         row.each{|key, val| html.concat('<td>' + val.to_s + '</td>')}
         html += '</tr>'
+        if i == threshold
+          html += '<tr>'
+          row.length.times {html.concat('<td>...</td>')}
+          html += '</tr>'
+        end
       end
       html += '</table>'
+    end
+
+    def [](name)
+      return self.column(name)
     end
 
     def method_missing(name, *args)
@@ -76,6 +101,40 @@ module Nyaplot
       else
         return self.column(name)
       end
+    end
+  end
+
+  class Series
+    def initialize(parent, label, arr)
+      @parent = parent
+      @arr = arr
+      @label = label
+    end
+
+    def to_html(threshold=15)
+      html = '<table><tr><th>' + label + '</th></tr>>'
+      @arr.each_with_index do |el,i|
+        next if threshold < i && i < @arr.length-1
+        content = i == threshold ? '...' : el.to_s
+        html.concat('<tr><td>' + content  + '</td></tr>')
+      end
+      html += '</table>'
+    end
+
+    def to_json(*args)
+      @arr.to_json
+    end
+
+    def parent
+      @parent
+    end
+
+    def to_a
+      @arr
+    end
+
+    def label
+      @label
     end
   end
 end
