@@ -149,5 +149,40 @@ module Nyaplot
         return df
       end
     end
+
+    module Box
+      include Jsonizable
+      define_group_properties(:options, [:title, :value, :width, :color, :stroke_color, :stroke_width, :outlier_r])
+
+      def proceed_data(data)
+        yrange = [Float::INFINITY, -Float::INFINITY]
+
+        proc = Proc.new do |column|
+          yrange[0] = [yrange[0], column.min].min
+          yrange[1] = [yrange[1], column.max].max
+        end
+
+        if (data.length == 1) && (data[0].is_a? DataFrame)
+          df = data[0]
+          @xrange = df.column_labels
+          df.each_column(proc)
+        elsif data.all? {|d| d.is_a? Series}
+          df = data[0].parent
+          @xrange = data.map {|d| d.label}
+          columns = data.map {|d| d.to_a}
+          columns.each(&proc)
+        else
+          labels = Array.new(data.length, 'data').map.with_index{|label, i| label.clone.concat(i.to_s)}
+          raw = data.inject({}){|hash, d| hash[labels.pop] = d; next hash}
+          df = DataFrame.new(raw)
+          @xrange = df.column_labels
+          df.each_column(&proc)
+        end
+        @yrange = yrange
+        set_property(:data, df.name)
+        value @xrange
+        return df
+      end
+    end
   end
 end

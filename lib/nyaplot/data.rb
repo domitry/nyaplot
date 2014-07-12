@@ -61,9 +61,8 @@ module Nyaplot
     end
 
     def column(name)
-      column = []
       id = name.is_a?(String) ? name : name.to_s
-      @rows.each{|row| column.push(row[id])}
+      column = @rows.map{|row| row[id]}
       return Series.new(self, name, column)
     end
 
@@ -77,6 +76,18 @@ module Nyaplot
 
     def to_json(*args)
       @rows.to_json
+    end
+
+    def each_column(&block)
+      self.column_labels.each do |label|
+        block.call(column(label).to_a)
+      end
+    end
+
+    def each_row(&block)
+      @rows.each do |row|
+        block.call(row)
+      end
     end
 
     def to_html(threshold = 15)
@@ -100,6 +111,10 @@ module Nyaplot
 
     def [](name)
       return self.column(name)
+    end
+
+    def column_labels
+      @rows[0].keys
     end
 
     def method_missing(name, *args)
