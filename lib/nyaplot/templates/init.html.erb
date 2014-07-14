@@ -3,11 +3,11 @@ if(window['d3'] === undefined ||
    window['Nyaplot'] === undefined){
     var path = <%= dep_libraries.to_json %>;
 
-    var shim = {
-    'd3': {exports: 'd3'},
-	'THREE': {exports: 'THREE'},
-    'Elegans': {exports: 'Elegans'}
-    };
+<%
+shim = dep_libraries.inject({}){|hash, (k, v)| hash[k]={exports: k};next hash}
+%>
+
+    var shim = <%= shim.to_json %>;
 
     require.config({paths: path, shim:shim});
 
