@@ -1,14 +1,23 @@
+<script>
 if(window['d3'] === undefined ||
    window['Nyaplot'] === undefined){
-    var path = {
-	d3: 'http://d3js.org/d3.v3.min'
+    var path = <%= dep_libraries.to_json %>;
+
+    var shim = {
+    'd3': {exports: 'd3'},
+	'THREE': {exports: 'THREE'},
+    'Elegans': {exports: 'Elegans'}
     };
 
-    require.config({paths: path});
+    require.config({paths: path, shim:shim});
 
-    require(['d3'], function(d3){
-	window['d3'] = d3;
-	console.log('Finished loading d3.js');
+<%
+str=""
+dep_libraries.each do |key, val|
+  str.concat("require(['%s'], function(%s){window['%s']=%s;console.log('finished loading %s');"% Array.new(5, key))
+end
+%>
+<%= str %>
 
 	var script = d3.select("head")
 	    .append("script")
@@ -21,5 +30,10 @@ if(window['d3'] === undefined ||
 	    window.dispatchEvent(event);
 	    console.log('Finished loading Nyaplotjs');
 	};
-    });
+
+<%
+ str = Array.new(dep_libraries.length, "});").join("")
+%>
+<%= str %>
 }
+</script>
