@@ -7,6 +7,7 @@ module Nyaplot
 
     define_properties(Hash, :data)
     define_properties(Array, :panes)
+    define_properties(Array, :extension)
 
     def initialize
       init_properties
@@ -42,6 +43,10 @@ module Nyaplot
 
     def configure(&block)
       self.instance_eval(&block) if block_given?
+    end
+
+    def before_to_json
+      set_property(:extension, Nyaplot.extension_lists)
     end
   end
 end

@@ -9,6 +9,7 @@ module Nyaplot
       mod = Kernel.const_get("Nyaplot").const_get("Diagrams").const_get(type.to_s.capitalize)
       self.extend(mod)
       df = self.proceed_data(data)
+      set_property(:data, df.name)
       DataBase.instance.add(df)
     end
 
@@ -45,7 +46,6 @@ module Nyaplot
             label = 'value'
           end
           value(label)
-          set_property(:data, df.name)
           @xrange = df[label].to_a.uniq
           @yrange = [0, df[label].to_a.length]
           return df
@@ -59,7 +59,6 @@ module Nyaplot
             label_x = 'x'
             label_y = 'y'
           end
-          set_property(:data, df.name)
           x(label_x)
           y(label_y)
           @xrange = df.column(label_x).to_a
@@ -82,7 +81,6 @@ module Nyaplot
             label = 'value'
           end
           value(label)
-          set_property(:data, df.name)
           @xrange = [(df[label].to_a.min < 0 ? df[label].to_a.min : 0), df[label].to_a.max]
           @yrange = [0, df[label].to_a.length]
           return df
@@ -95,7 +93,6 @@ module Nyaplot
 
       def proceed_data(data)
         df = DataFrame.new({category: data[0], count: data[1]})
-        set_property(:data, df.name)
         category('category')
         count('count')
         @xrange = [0, 10]
@@ -118,7 +115,6 @@ module Nyaplot
           label_x = 'x'
           label_y = 'y'
         end
-        set_property(:data, df.name)
         x(label_x)
         y(label_y)
         @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
@@ -141,7 +137,6 @@ module Nyaplot
           label_x = 'x'
           label_y = 'y'
         end
-        set_property(:data, df.name)
         x(label_x)
         y(label_y)
         @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
@@ -179,7 +174,6 @@ module Nyaplot
           df.each_column(&proc)
         end
         @yrange = yrange
-        set_property(:data, df.name)
         value @xrange
         return df
       end

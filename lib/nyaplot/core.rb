@@ -5,6 +5,12 @@ module Nyaplot
     d3:'http://d3js.org/d3.v3.min'
   }
 
+  @@extension_lists = []
+
+  def self.extension_lists
+    @@extension_lists
+  end
+
   def self.init_iruby
     raise "IRuby notebook is not loaded." unless defined? IRuby
 
@@ -13,6 +19,10 @@ module Nyaplot
     dep_libraries = @@dep_libraries
     html = ERB.new(template).result(binding)
     return IRuby.html(html)
+  end
+
+  def self.add_extension(name)
+    @@extension_lists.push(name)
   end
 
   def self.add_dependency(name, url)
