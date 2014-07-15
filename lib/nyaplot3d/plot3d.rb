@@ -13,7 +13,7 @@ module Nyaplot
     end
 
     def add(type, *data)
-      diagram = Diagram.new(type, data)
+      diagram = Diagram3D.new(type, data)
       diagrams = get_property(:diagrams)
       diagrams.push(diagram)
       return diagram

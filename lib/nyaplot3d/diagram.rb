@@ -1,5 +1,28 @@
 module Nyaplot
-  module Diagrams
+  class Diagram3D
+    include Jsonizable
+
+    define_properties(String, :type, :data)
+
+    def initialize(type, data)
+      set_property(:type, type)
+      mod = Kernel.const_get("Nyaplot").const_get("Diagrams3D").const_get(type.to_s.capitalize)
+      self.extend(mod)
+      df = self.proceed_data(data)
+      set_property(:data, df.name)
+      DataBase.instance.add(df)
+    end
+
+    def configure(&block)
+      self.instance_eval(&block) if block_given?
+    end
+
+    def df_name
+      get_property(:data)
+    end
+  end
+
+  module Diagrams3D
     module MatrixType
       include Jsonizable
       define_group_properties(:options, [:x, :y, :z])
