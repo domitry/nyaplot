@@ -12,7 +12,14 @@ module Nyaplot
     end
 
     def add(type, *data)
-      diagram = Diagram.new(type, data)
+      labels = data.map.with_index{|d, i| 'data' + i.to_s}
+      raw_data = data.each.with_index.reduce({}){|memo, (d, i)| memo[labels[i]]=d;next memo}
+      df = DataFrame.new(raw_data)
+      return add_with_df(df, type, *labels)
+    end
+
+    def add_with_df(df, type, *labels)
+      diagram = Diagram.new(df, type, labels)
       diagrams = get_property(:diagrams)
       diagrams.push(diagram)
       return diagram
