@@ -2,11 +2,11 @@ module Nyaplot
   class Plot3D
     include Jsonizable
 
-    define_properties(Array, :diagrams)
-    define_properties(String, :extension)
+    define_properties(:diagrams, :extension)
     define_group_properties(:options, [:width, :height])
 
     def initialize
+      init_properties
       set_property(:diagrams, [])
       set_property(:options, {})
       set_property(:extension, 'Elegans')

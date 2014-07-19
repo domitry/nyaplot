@@ -5,9 +5,7 @@ module Nyaplot
   class Frame
     include Jsonizable
 
-    define_properties(Hash, :data)
-    define_properties(Array, :panes)
-    define_properties(Array, :extension)
+    define_properties(:data, :panes, :extension)
 
     def initialize
       init_properties

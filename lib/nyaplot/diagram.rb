@@ -2,14 +2,16 @@ module Nyaplot
   class Diagram
     include Jsonizable
 
-    define_properties(String, :type, :data)
+    define_properties(:type, :data)
 
     def initialize(df, type, labels)
-      set_property(:type, type)
+      init_properties
       mod = Kernel.const_get("Nyaplot").const_get("Diagrams").const_get(type.to_s.capitalize)
       self.extend(mod)
-      self.proceed_data(df, labels)
+      set_property(:type, type)
+      set_property(:options, {})
       set_property(:data, df.name)
+      self.proceed_data(df, labels)
       DataBase.instance.add(df)
     end
 
@@ -51,6 +53,10 @@ module Nyaplot
           @yrange = [(df[label_y].to_a.min < 0 ? df[label_y].to_a.min : 0), df[label_y].to_a.max]
         end
       end
+
+      def zoom?
+        false
+      end
     end
 
     module Histogram
@@ -63,6 +69,10 @@ module Nyaplot
         @xrange = [(df[label].to_a.min < 0 ? df[label].to_a.min : 0), df[label].to_a.max]
         @yrange = [0, df[label].to_a.length]
       end
+
+      def zoom?
+        false
+      end
     end
 
     module Venn
@@ -74,6 +84,10 @@ module Nyaplot
         count(labels[1])
         @xrange = [0, 10]
         @yrange = [0, 10]
+      end
+
+      def zoom?
+        false
       end
     end
 
@@ -89,6 +103,10 @@ module Nyaplot
         @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
         @yrange = [df[label_y].to_a.min, df[label_y].to_a.max]
       end
+
+      def zoom?
+        true
+      end
     end
 
     module Line
@@ -102,6 +120,10 @@ module Nyaplot
         y(label_y)
         @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
         @yrange = [df[label_y].to_a.min, df[label_y].to_a.max]
+      end
+
+      def zoom?
+        true
       end
     end
 
@@ -122,6 +144,10 @@ module Nyaplot
         raw_data.each{|column| proc.call(column)}
         @xrange = labels
         @yrange = yrange
+      end
+
+      def zoom?
+        false
       end
     end
   end

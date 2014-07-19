@@ -63,7 +63,7 @@ module Nyaplot
     def column(name)
       id = name.is_a?(String) ? name : name.to_s
       column = @rows.map{|row| row[id]}
-      return Series.new(self, name, column)
+      return Series.new(name, column)
     end
 
     def insert_row(row, index=@rows.length)
@@ -128,8 +128,7 @@ module Nyaplot
   end
 
   class Series
-    def initialize(parent, label, arr)
-      @parent = parent
+    def initialize(label, arr)
       @arr = arr
       @label = label
     end
@@ -146,10 +145,6 @@ module Nyaplot
 
     def to_json(*args)
       @arr.to_json
-    end
-
-    def parent
-      @parent
     end
 
     def to_a

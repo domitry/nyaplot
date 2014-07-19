@@ -2,14 +2,16 @@ module Nyaplot
   class Diagram3D
     include Jsonizable
 
-    define_properties(String, :type, :data)
+    define_properties(:type, :data)
 
-    def initialize(type, data)
-      set_property(:type, type)
+    def initialize(df, type, data)
+      init_properties
       mod = Kernel.const_get("Nyaplot").const_get("Diagrams3D").const_get(type.to_s.capitalize)
       self.extend(mod)
-      df = self.proceed_data(data)
+      set_property(:type, type)
+      set_property(:options, {})
       set_property(:data, df.name)
+      df = self.proceed_data(data)
       DataBase.instance.add(df)
     end
 
