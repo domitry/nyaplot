@@ -57,7 +57,7 @@ module Nyaplot
     end
 
     def insert_column(name, arr)
-      arr.each_with_index{|val| @rows[i][name]=val}
+      arr.each_with_index{|val, i| @rows[i][name]=val}
     end
 
     def column(name)
@@ -119,7 +119,7 @@ module Nyaplot
 
     def method_missing(name, *args)
       if md = name.match(/(.+)\=/)
-        self.insert_column(md[1], args[0])
+        self.insert_column(name[/(.+)\=/].delete("="), args[0])
         return
       else
         return self.column(name)
