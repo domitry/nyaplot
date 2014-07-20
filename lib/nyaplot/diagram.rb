@@ -150,5 +150,25 @@ module Nyaplot
         false
       end
     end
+
+    module Heatmap
+      include Jsonizable
+      define_group_properties(:options, [:title, :x, :y, :fill, :width, :height, :color, :stroke_color, :stroke_width, :hover])
+
+      def proceed_data(df, labels)
+        label_x = labels[0]
+        label_y = labels[1]
+        label_fill = labels[2]
+        x(label_x)
+        y(label_y)
+        fill(label_fill)
+        @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
+        @yrange = [df[label_y].to_a.min, df[label_y].to_a.max]
+      end
+
+      def zoom?
+        true
+      end
+    end
   end
 end
