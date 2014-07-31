@@ -5,6 +5,14 @@ require 'csv'
 
 module Nyaplot
   class DataFrame
+    DEFAULT_OPTS = {
+                :col_sep => ',',
+                :headers => true,
+                :converters => :numeric
+              }
+
+    attr_reader :rows
+
     def initialize(source, name=SecureRandom.uuid())
       @name = name
       @rows = []
@@ -31,17 +39,33 @@ module Nyaplot
       end
     end
 
-    def self.from_csv(path, sep=',', header=true)
-      csv = CSV.open(path,"r",{col_sep: sep, :converters => :numeric})
-      head = csv.readline if header
-      head.map{|el| el.is_a?(String) ? el : el.to_s}
-      rows=[]
+    def self.from_csv(*args)
+      path   = args.shift
+
+      opts      = DEFAULT_OPTS
+      if args.size > 0 && args.first.is_a?(Hash)
+        opts    = opts.merge(args.shift)
+      else
+        opts[:col_sep] = args.shift if args.size > 0
+        opts[:headers] = args.shift if args.size > 0
+      end
+
+      csv  = CSV.open(path, "r", opts)
+      yield csv if block_given?
+
+      head = if opts[:headers]
+        csv.headers if opts[:headers]
+      end
+       # head.map { |el| el.is_a?(String) ? el : el.to_s }
+      rows = []
       csv.each do |row|
         hash = {}
-        row.each_with_index{|el,i| hash[head[i]] = el}
-        rows.push(hash)
+        row.each_with_index do |el,i|
+          hash[el[0]] = el[1]
+        end
+        rows << hash
       end
-      df = self.new(rows)
+      self.new(rows)
     end
 
     def filter(&block)
@@ -128,9 +152,17 @@ module Nyaplot
   end
 
   class Series
+    include Enumerable
+
     def initialize(label, arr)
       @arr = arr
       @label = label
+    end
+
+    def each
+      @arr.each do |item|
+        yield item
+      end
     end
 
     def to_html(threshold=15)
