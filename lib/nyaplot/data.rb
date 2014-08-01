@@ -6,10 +6,10 @@ require 'csv'
 module Nyaplot
   class DataFrame
     DEFAULT_OPTS = {
-                :col_sep => ',',
-                :headers => true,
-                #:converters => :numeric
-              }
+      :col_sep => ',',
+      :headers => true,
+      :converters => :numeric
+    }
 
     attr_reader :rows
 
@@ -32,9 +32,9 @@ module Nyaplot
       end
 
       # transform Symbol to String as a key
-      unless @rows.all? {|row| row.keys.all? {|el| el.is_a?(String)}}
+      unless @rows.all? {|row| row.keys.all? {|el| el.is_a?(Symbol)}}
         @rows.map! do |row|
-          row.inject({}) {|hash, (key, val)| hash[key.to_s]=val; hash}
+          row.inject({}) {|hash, (key, val)| hash[key.to_sym]=val; hash}
         end
       end
     end
@@ -54,10 +54,11 @@ module Nyaplot
       yield csv if block_given?
 
       head = if opts[:headers]
-        csv.readline
-        csv.headers if opts[:headers]
-      end
-       # head.map { |el| el.is_a?(String) ? el : el.to_s }
+               csv.headers
+             else
+               csv.readline
+             end
+
       rows = []
       csv.each do |row|
         hash = {}
@@ -82,11 +83,12 @@ module Nyaplot
     end
 
     def insert_column(name, arr)
+      name = name.is_a?(Symbol) ? name : name.to_sym
       arr.each_with_index{|val, i| @rows[i][name]=val}
     end
 
     def column(name)
-      id = name.is_a?(String) ? name : name.to_s
+      id = name.is_a?(Symbol) ? name : name.to_sym
       column = @rows.map{|row| row[id]}
       return Series.new(name, column)
     end
@@ -167,7 +169,7 @@ module Nyaplot
     end
 
     def to_html(threshold=15)
-      html = '<table><tr><th>' + label + '</th></tr>>'
+      html = '<table><tr><th>' + label.to_s + '</th></tr>>'
       @arr.each_with_index do |el,i|
         next if threshold < i && i < @arr.length-1
         content = i == threshold ? '...' : el.to_s
