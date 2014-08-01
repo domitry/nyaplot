@@ -27,16 +27,19 @@ module Nyaplot
       template = File.read(path)
       model = self.to_json
       html = ERB.new(template).result(binding)
-      return html
+      html
     end
 
-    def show
+    def to_iruby
       path = File.expand_path("../templates/iruby.erb", __FILE__)
       template = File.read(path)
       id = SecureRandom.uuid()
       model = self.to_json
-      html = ERB.new(template).result(binding)
-      return IRuby.html(html)
+      ['text/html', ERB.new(template).result(binding)]
+    end
+
+    def show
+      IRuby.display(self)
     end
 
     def configure(&block)

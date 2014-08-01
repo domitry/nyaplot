@@ -8,7 +8,8 @@
     if(window['Nyaplot']==undefined){
         window.addEventListener('load_nyaplot', render, false);
 	return;
+    } else {
+       render();
     }
-    render();
 })();
 </script>

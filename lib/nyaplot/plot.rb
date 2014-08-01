@@ -27,10 +27,12 @@ module Nyaplot
       return diagram
     end
 
+    def to_iruby
+      Frame.new.tap {|f| f.add(self) }.to_iruby
+    end
+
     def show
-      frame = Frame.new
-      frame.add(self)
-      frame.show
+      Frame.new.tap {|f| f.add(self) }.show
     end
 
     def df_list
