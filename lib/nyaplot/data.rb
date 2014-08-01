@@ -54,10 +54,8 @@ module Nyaplot
       yield csv if block_given?
 
       head = if opts[:headers]
-               csv.headers
-             else
-               csv.readline
-             end
+        csv.headers if opts[:headers]
+      end
 
       rows = []
       csv.each do |row|
