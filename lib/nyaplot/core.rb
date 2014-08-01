@@ -11,16 +11,6 @@ module Nyaplot
     @@extension_lists
   end
 
-  def self.init_iruby
-    raise "IRuby notebook is not loaded." unless defined? IRuby
-
-    path = File.expand_path("../templates/init.html.erb", __FILE__)
-    template = File.read(path)
-    dep_libraries = @@dep_libraries
-    html = ERB.new(template).result(binding)
-    return IRuby.html(html)
-  end
-
   def self.add_extension(name)
     @@extension_lists.push(name)
   end
@@ -28,4 +18,14 @@ module Nyaplot
   def self.add_dependency(name, url)
     @@dep_libraries[name]=url;
   end
+
+  def self.init_iruby
+    path = File.expand_path("../templates/init.js.erb", __FILE__)
+    template = File.read(path)
+    dep_libraries = @@dep_libraries
+    js = ERB.new(template).result(binding)
+    IRuby.display(IRuby.javascript(js))
+  end
+
+  init_iruby if defined? IRuby
 end
