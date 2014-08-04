@@ -11,7 +11,7 @@ module Nyaplot
       set_property(:type, type)
       set_property(:options, {})
       set_property(:data, df.name)
-      self.proceed_data(df, labels)
+      self.process_data(df, labels)
       DataBase.instance.add(df)
     end
 
@@ -37,7 +37,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:value, :x, :y, :width, :color])
 
-      def proceed_data(df, labels)
+      def process_data(df, labels)
         case labels.length
         when 1
           label = labels[0]
@@ -63,7 +63,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:title, :value, :bin_num, :width, :color, :stroke_color, :stroke_width])
 
-      def proceed_data(df, labels)
+      def process_data(df, labels)
         label = labels[0]
         value(label)
         @xrange = [(df[label].to_a.min < 0 ? df[label].to_a.min : 0), df[label].to_a.max]
@@ -79,7 +79,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:title, :category, :count, :area_names, :filter_control, :opacity, :color, :stroke_color, :stroke_width])
 
-      def proceed_data(df, labels)
+      def process_data(df, labels)
         category(labels[0])
         count(labels[1])
         @xrange = [0, 10]
@@ -95,7 +95,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:title, :x, :y, :tooltip_contents, :r, :shape, :color, :stroke_color, :stroke_width])
 
-      def proceed_data(df, labels)
+      def process_data(df, labels)
         label_x = labels[0]
         label_y = labels[1]
         x(label_x)
@@ -113,7 +113,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:title, :x, :y, :color, :stroke_width])
 
-      def proceed_data(df, labels)
+      def process_data(df, labels)
         label_x = labels[0]
         label_y = labels[1]
         x(label_x)
@@ -131,7 +131,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:title, :value, :width, :color, :stroke_color, :stroke_width, :outlier_r])
 
-      def proceed_data(df, labels)
+      def process_data(df, labels)
         value(labels)
         yrange = [Float::INFINITY, -Float::INFINITY]
 
@@ -155,7 +155,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:title, :x, :y, :fill, :width, :height, :color, :stroke_color, :stroke_width, :hover])
 
-      def proceed_data(df, labels)
+      def process_data(df, labels)
         label_x = labels[0]
         label_y = labels[1]
         label_fill = labels[2]
