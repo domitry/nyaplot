@@ -8,7 +8,8 @@ module Nyaplot
     DEFAULT_OPTS = {
       :col_sep => ',',
       :headers => true,
-      :converters => :numeric
+      :converters => :numeric,
+      :header_converters => :symbol
     }
 
     attr_reader :rows
@@ -31,10 +32,13 @@ module Nyaplot
         end
       end
 
-      # transform Symbol to String as a key
+      # transform String to Symbol as a key
       unless @rows.all? {|row| row.keys.all? {|el| el.is_a?(Symbol)}}
         @rows.map! do |row|
-          row.inject({}) {|hash, (key, val)| hash[key.to_sym]=val; hash}
+          row.inject({}) do |hash, (key, val)|
+            hash[key.to_sym]=val
+            hash
+          end
         end
       end
     end
@@ -53,15 +57,12 @@ module Nyaplot
       csv  = CSV.open(path, "r", opts)
       yield csv if block_given?
 
-      head = if opts[:headers]
-        csv.headers if opts[:headers]
-      end
-
       rows = []
       csv.each do |row|
         hash = {}
         row.each_with_index do |el,i|
-          hash[el[0]] = el[1]
+          next if el[0].nil? && el[1].nil?
+          hash[el[0].to_sym] = el[1]
         end
         rows << hash
       end
