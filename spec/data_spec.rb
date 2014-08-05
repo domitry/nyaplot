@@ -7,7 +7,7 @@ describe Nyaplot::DataFrame do
       df = Nyaplot::DataFrame.from_csv("./spec/matrix_test.csv", col_sep: ' ', headers: true) do |csv|
         csv.convert do |field, info|
           case info[:header]
-          when 'true_transform'
+          when :true_transform
             field.split(',').map { |s| s.to_f }
           else
             field
@@ -15,9 +15,9 @@ describe Nyaplot::DataFrame do
         end
       end
 
-      expect(df.column_labels).to eq(["image_resolution", "true_transform", "mls"])
-      expect(df["image_resolution"].first).to eq(6.55779)
-      expect(df.column('true_transform').first[15]).to eq(1.0)
+      expect(df.column_labels).to eq([:image_resolution, :true_transform, :mls])
+      expect(df[:image_resolution].first).to eq(6.55779)
+      expect(df.column(:true_transform).first[15]).to eq(1.0)
     end
   end
 end
