@@ -11,7 +11,7 @@ module Nyaplot
       set_property(:type, type)
       set_property(:options, {})
       set_property(:data, df.name)
-      df = self.proceed_data(data)
+      df = self.process_data(data)
       DataBase.instance.add(df)
     end
 
@@ -29,7 +29,7 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:x, :y, :z])
 
-      def proceed_data(df=nil, data)
+      def process_data(df=nil, data)
         case data.length
         when 3
           if df == nil
