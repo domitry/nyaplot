@@ -13,7 +13,12 @@ module Nyaplot
     end
 
     def add(type, *data)
-      diagram = Diagram3D.new(type, data)
+      df = DataFrame.new({x: data[0], y: data[1], z: data[2]})
+      return add_with_df(df, type, :x, :y, :z)
+    end
+
+    def add_with_df(df, type, *labels)
+      diagram = Diagram3D.new(df, type, labels)
       diagrams = get_property(:diagrams)
       diagrams.push(diagram)
       return diagram

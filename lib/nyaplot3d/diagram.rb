@@ -4,14 +4,14 @@ module Nyaplot
 
     define_properties(:type, :data)
 
-    def initialize(df, type, data)
+    def initialize(df, type, labels)
       init_properties
       mod = Kernel.const_get("Nyaplot").const_get("Diagrams3D").const_get(type.to_s.capitalize)
       self.extend(mod)
       set_property(:type, type)
       set_property(:options, {})
       set_property(:data, df.name)
-      df = self.process_data(data)
+      self.process_data(df, labels)
       DataBase.instance.add(df)
     end
 
@@ -29,21 +29,10 @@ module Nyaplot
       include Jsonizable
       define_group_properties(:options, [:x, :y, :z])
 
-      def process_data(df=nil, data)
-        case data.length
-        when 3
-          if df == nil
-            df = DataFrame.new({x: data[0].flatten, y: data[1].flatten, z: data[2].flatten})
-            x(:x)
-            y(:y)
-            z(:z)
-          else
-            x(data[0])
-            y(data[1])
-            z(data[2])
-          end
-          return df
-        end
+      def process_data(df, labels)
+        self.x(labels[0])
+        self.y(labels[1])
+        self.z(labels[2])
       end
     end
 
