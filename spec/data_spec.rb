@@ -9,7 +9,8 @@ describe Nyaplot::DataFrame do
   context ".from_csv" do
     it "should accept a CSV-style converter in a block" do
 
-      df = Nyaplot::DataFrame.from_csv("./spec/matrix_test.csv", col_sep: ' ', headers: true) do |csv|
+      path = File.expand_path("../matrix_test.csv", __FILE__)
+      df = Nyaplot::DataFrame.from_csv(path, col_sep: ' ', headers: true) do |csv|
         csv.convert do |field, info|
           case info[:header]
           when :true_transform
