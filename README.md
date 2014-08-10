@@ -49,6 +49,7 @@ And then build and install using gem command:
     gem build nyaplot.gemspec
     gem install nyaplot-0.0.1.gem
 
+
 <!--
 Add this line to your application's Gemfile:
 
@@ -93,6 +94,18 @@ Nyaplot.init_iruby
 plot.show
 ```
 See [an example](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Introduction.ipynb). 
+
+#### Mac OS X
+
+On Mac OS X the IRuby notebook installation is a little bit tricky.
+You would be better off using [Anaconda](https://store.continuum.io/cshop/anaconda/) for The IPython notebook dependencies except for **zeromq**.
+Please be sure to remove conda zeromq package, and install zeromq with homebrew.
+
+```shell
+conda remove zeromq
+brew install zeromq
+```
+
 
 ## Contributing
 
