@@ -1,10 +1,10 @@
 <script>
 if(window['d3'] === undefined ||
    window['Nyaplot'] === undefined){
-    var path = <%= dep_libraries.to_json %>;
+    var path = <%= dep_libraries.merge(additional_libraries).to_json %>;
 
 <%
-shim = dep_libraries.inject({}){|hash, (k, v)| hash[k]={exports: k};next hash}
+shim = dep_libraries.merge(additional_libraries).inject({}){|hash, (k, v)| hash[k]={exports: k};next hash}
 %>
 
     var shim = <%= shim.to_json %>;
@@ -25,10 +25,20 @@ end
 	    .attr("async", true);
 
 	script[0][0].onload = script[0][0].onreadystatechange = function(){
+<%
+   str=""
+   additional_libraries.each do |key, val|
+   str.concat("require(['%s'], function(%s){window['%s']=%s;console.log('finished loading %s');"% Array.new(5, key))
+   end
+   %>
+<%= str %>
 	    var event = document.createEvent("HTMLEvents");
 	    event.initEvent("load_nyaplot",false,false);
 	    window.dispatchEvent(event);
 	    console.log('Finished loading Nyaplotjs');
+<%=
+ str = Array.new(additional_libraries.length, "});").join("")
+%>
 	};
 
 <%
