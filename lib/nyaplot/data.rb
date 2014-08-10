@@ -135,6 +135,10 @@ module Nyaplot
       html += '</table>'
     end
 
+    def to_s
+      to_html
+    end
+
     def [](name)
       return self.column(name)
     end
@@ -165,6 +169,14 @@ module Nyaplot
       @arr.each do |item|
         yield item
       end
+    end
+
+    def min
+      @arr.min
+    end
+
+    def max
+      @arr.max
     end
 
     def to_html(threshold=15)
