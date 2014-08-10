@@ -1,0 +1,16 @@
+<html lang='en'>
+<head>
+  <title>Bionya example -- Circular plot</title>
+  <script src='http://d3js.org/d3.v3.min.js'></script>
+  <script src='../../../../../Ecolijs/release/nyaplot.js'></script>
+  <script src='../release/bionya.js'></script>
+</head>
+<body>
+<div id='vis'></div>
+<script>
+var models = {extension: 'Bionya', data:{data1: [{group:'type1',df: [{axis: '1', val: 5}, {axis: '2', val: 6}]}, {group:'type2',df: [{axis: '1', val: 2}, {axis: '2', val: 3}]}, {group:'type3', df:[{axis: '1', val: 9}, {axis: '2', val: 3}]}, {group:'type4',df: [{axis: '1', val: 4}, {axis: '2', val:8}]}, {group:'type5',df: [{axis: '1', val: 2}, {axis: '2', val: 1}]}]},panes: [{type:'rectangular', diagrams:[{type: 'arc', data: 'data1', options:{x: 'axis', y: 'val', layer: 1, range:[0, 10]}}],options:{width:700, height:700, xrange: [0, 10], yrange: [0,50], axis_extra_options: {df_id: 'data1', group_by: 'group', axis: 'axis', inner_num: 0, outer_num: 1}}, extension:'Bionya'}]};
+
+window.onload = function(){Nyaplot.core.parse(models, '#vis');};
+</script>
+</body>
+</html>
