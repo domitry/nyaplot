@@ -12,7 +12,13 @@ module Nyaplot
       @inner_num = 0
       @outer_num = 1
       @matrix = nil
+      @color = '#253494'
       extension('Bionya')
+    end
+
+    def color(color=nil)
+      return @color if color.nil?
+      @color = color
     end
 
     def add_chord(matrix)
@@ -44,7 +50,8 @@ module Nyaplot
         outer_num: @outer_num,
         matrix: @matrix,
         df_id: @df.name,
-        axis: @axis
+        axis: @axis,
+        color: @color
       }
     end
   end
