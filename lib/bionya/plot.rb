@@ -22,6 +22,9 @@ module Nyaplot
       @matrix = matrix
     end
 
+    def add_connector()
+    end
+
     def add(layer, type, *labels)
       if(layer>0)
         @outer_num += 1
@@ -47,7 +50,6 @@ module Nyaplot
       axis(@axis)
 
       self.options[:axis_extra_options] = axis_extra_options
-      print options
     end
   end
 end
