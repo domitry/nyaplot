@@ -14,5 +14,15 @@ module Nyaplot
         range([0, max])
       end
     end
+
+    module Labels
+      include Jsonizable
+      define_group_properties(:options, [:color, :fill_by, :x, :text, :stroke_width, :layer, :text_size])
+
+      def process_data(df, labels)
+        x(labels[0])
+        text(labels[1])
+      end
+    end
   end
 end
