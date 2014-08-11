@@ -3,22 +3,19 @@ module Nyaplot
     include Jsonizable
     undef_method :add_with_df
     define_properties(:extension)
+    define_group_properties(:axis_extra_options, [:df_id, :inner_radius, :outer_radius, :group_by, :axis, :chord, :matrix, :inner_num, :outer_num, :color, :text_color, :text_size])
 
     def initialize(df, group_label, nested_label)
       super()
       @df = df
-      @group_by = group_label
-      @nested_label = nested_label
       @inner_num = 0
       @outer_num = 1
-      @matrix = nil
-      @color = '#253494'
-      extension('Bionya')
-    end
+      @nested_label = nested_label
 
-    def color(color=nil)
-      return @color if color.nil?
-      @color = color
+      set_property(:axis_extra_options, {})
+      group_by(group_label)
+      color(['#253494'])
+      extension('Bionya')
     end
 
     def add_chord(matrix)
@@ -44,15 +41,13 @@ module Nyaplot
       width(800) if width.nil?
       height(800) if height.nil?
 
-      self.options[:axis_extra_options] = {
-        group_by: @group_by,
-        inner_num: @inner_num,
-        outer_num: @outer_num,
-        matrix: @matrix,
-        df_id: @df.name,
-        axis: @axis,
-        color: @color
-      }
+      inner_num(@inner_num)
+      outer_num(@outer_num)
+      df_id(@df.name)
+      axis(@axis)
+
+      self.options[:axis_extra_options] = axis_extra_options
+      print options
     end
   end
 end
