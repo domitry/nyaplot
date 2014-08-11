@@ -35,6 +35,14 @@ Here is an example, the Lorenz curve generated from a solution by the Euler meth
 
 To learn more, see [the notebook](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb).
 
+### Bionya
+
+Bionya is an extension library for Nyaplot that allows us to create plots for Biology. The main content of Bionya is the circular plot, that is usually used to visualize information of genes like relationship among them. This library is inspired by [circos](http://circos.ca/).
+
+![Bionya](https://dl.dropboxusercontent.com/u/47978121/gsoc/bionya.png)
+
+See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb) to learn more.
+
 ## Installation
 
 This gem is still under development and is not registered to RubyGems.org. Therefore clone this repository and build gem by yourself to try it.
