@@ -86,6 +86,13 @@ module Nyaplot
       arr.each_with_index{|val, i| @rows[i][name]=val}
     end
 
+    def delete_column(name)
+      name = name.is_a?(Symbol) ? name : name.to_sym
+      @rows.each do |row|
+        row.delete(name)
+      end
+    end
+
     def column(name)
       id = name.is_a?(Symbol) ? name : name.to_sym
       column = @rows.map{|row| row[id]}
