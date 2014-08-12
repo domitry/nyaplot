@@ -4,7 +4,7 @@ module Nyaplot
     define_properties(:extension)
     define_group_properties(:axis_extra_options, [:map_data, :color, :text_color, :text_size, :stroke_color])
 
-    def initialize(df, group_label, nested_label)
+    def initialize
       super()
       set_property(:axis_extra_options, {})
       map_data(nil)
@@ -13,8 +13,8 @@ module Nyaplot
 
     def add_map(name, data=nil)
       if data.nil?
-        path = File.expand_path("../datasets/countries/" + name + ".geo.json", __FILE__)
-        map_data(File.read(path))
+        path = File.expand_path("../datasets/countries/data/" + name.downcase + ".geo.json", __FILE__)
+        map_data(JSON.parse(File.read(path)))
       else
         map_data(data)
       end
@@ -27,7 +27,7 @@ module Nyaplot
 
       if map_data.nil?
         path = File.expand_path("../datasets/world.geo.json", __FILE__)
-        map_data(File.read(path))
+        map_data(JSON.parse(File.read(path)))
       end
 
       self.options[:axis_extra_options] = axis_extra_options
