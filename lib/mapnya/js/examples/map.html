@@ -9,7 +9,7 @@
 <div id='vis'></div>
 <script>
 d3.json("https://rawgit.com/johan/world.geo.json/master/countries.geo.json", function(json){
-var models = {extension: 'Mapnya', data:{data1: [{group:'chr1',df: [{axis: '1', val: 5}, {axis: '2', val: 6}]}, {group:'chr2',df: [{axis: '1', val: 2}, {axis: '2', val: 3}]}, {group:'chr3', df:[{axis: '1', val: 9}, {axis: '2', val: 3}]}, {group:'chr4',df: [{axis: '1', val: 4}, {axis: '2', val:8}]}, {group:'chr5',df: [{axis: '1', val: 2}, {axis: '2', val: 1}]}], data2: [{from: 'chr1.1', to: 'chr2.2'}, {from: 'chr3.1', to: 'chr3.2'}]},panes: [{type:'rectangular', diagrams:[],options:{width:700, height:700, xrange: [0, 10], yrange: [0,50], zoom: true, axis_extra_options: {map_data: json}}, extension:'Mapnya'}]};
+var models = {extension: 'Mapnya', data:{data1: [{x: 10, y:20}], data2: [{from: 'chr1.1', to: 'chr2.2'}, {from: 'chr3.1', to: 'chr3.2'}]},panes: [{type:'rectangular', diagrams:[{type: 'scatter', data: 'data1', options: { x:'x', y: 'y'}}],options:{width:700, height:700, xrange: [0, 10], yrange: [0,50], zoom: true, axis_extra_options: {map_data: json}}, extension:'Mapnya'}]};
 Nyaplot.core.parse(models, '#vis');
 });
 </script>
