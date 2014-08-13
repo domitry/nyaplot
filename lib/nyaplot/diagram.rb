@@ -93,7 +93,7 @@ module Nyaplot
 
     module Scatter
       include Jsonizable
-      define_group_properties(:options, [:title, :x, :y, :tooltip_contents, :r, :shape, :color, :stroke_color, :stroke_width, :size])
+      define_group_properties(:options, [:title, :x, :y, :fill_by, :size_by, :tooltip_contents, :r, :shape, :color, :stroke_color, :stroke_width, :size])
 
       def process_data(df, labels)
         label_x = labels[0]
