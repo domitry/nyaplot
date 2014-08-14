@@ -43,6 +43,14 @@ Bionya is an extension library for Nyaplot that allows us to create plots for Bi
 
 See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb) to learn more.
 
+## Mapnya
+
+Mapnya is an extension library for map visualization.
+
+![Mapnya](https://dl.dropboxusercontent.com/u/47978121/gsoc/mapnya.png)
+
+See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb) to learn more.
+
 ## Installation
 
 This gem is still under development and is not registered to RubyGems.org. Therefore clone this repository and build gem by yourself to try it.
