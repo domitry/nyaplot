@@ -9,17 +9,19 @@ This software has been developed as a product in Google Summer of Code 2014 (GSo
 
 ## Demo
 
+This README.md do not contain any description about usage, so see notebooks below to start using Nyaplot.
+Those demos are all created on [IRuby](https://github.com/minad/iruby) and published on [nbviewer](http://nbviewer.ipython.org/).
+
 + [Tutorial1: Gettig Started with Nyaplot](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Introduction.ipynb)
 + [Tutorial2: Interaction with DataFrame](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Interaction_with_DataFrame.ipynb)
-+ [Tutorial3: Create 3D plots with Nyaplot3D](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb)
-+ [Tutorial4: Temporary example](http://nbviewer.ipython.org/github/domitry/nyaplot-example/blob/master/line.ipynb)
-* [Tutorial5: Picking colors suitable for your plots](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Colors.ipynb)
-+ [Tutorial6: Create circular plot with Bionya](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb)
-+ [Tutorial7: Create map visualization with Mapnya (1)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb)
-+ [Tutorial8: Create map visualization with Mapnya (2)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
+* [Tutorial3: Picking colors suitable for your plots](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Colors.ipynb)
++ [Tutorial4: Create 3D plots with Nyaplot3D](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb)
++ [Tutorial5: Create circular plot with Bionya](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb)
++ [Tutorial6: Create map visualization with Mapnya (1)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb)
++ [Tutorial7: Create map visualization with Mapnya (2)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
 + [Finding shape consensus among multiple geo polygons](http://nbviewer.ipython.org/gist/mgiraldo/a68b53175ce5892531bc) by [@mgiraldo](https://github.com/mgiraldo)
 
-Those demos are created on IRuby and published on [nbviewer](http://nbviewer.ipython.org/).
+Visit [nyaplot-notebooks on GitHub](https://github.com/domitry/nyaplot-notebooks) to see more example.
 
 ## Extensions
 
@@ -32,9 +34,8 @@ Each extension consists of its back-end written in JavaScript and a small Ruby w
 
 Nyaplot3D enables us to create interactive 3D charts with Ruby.
 Its back-end library is [Elegans](https://github.com/domitry/elegans), a 3D plots generator written in JavaScript.
-Here is an example, the Lorenz curve generated from a solution by the Euler method:
 
-![Lorenz curve](https://dl.dropboxusercontent.com/u/47978121/gsoc/nyaplot3d_top.png)
+![Nyaplot3D](https://dl.dropboxusercontent.com/u/47978121/gsoc/nyaplot3d_top.png)
 
 To learn more, see [the notebook](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb).
 
@@ -46,7 +47,7 @@ Bionya is an extension library for Nyaplot that allows us to create plots for Bi
 
 See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb) to learn more.
 
-## Mapnya
+### Mapnya
 
 Mapnya is an extension library for map visualization.
 
@@ -55,7 +56,7 @@ Mapnya is an extension library for map visualization.
 See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb) to learn more.
 
 ## Installation
-
+### Build and install nyaplot
 This gem is still under development and is not registered to RubyGems.org. Therefore clone this repository and build gem by yourself to try it.
 
 Clone this repository:
@@ -83,36 +84,14 @@ Or install it yourself as:
     $ gem install nyaplot
 -->
 
-## How to use
-### Create plot
-```ruby
-require 'nyaplot'
-plot = Nyaplot::Plot.new
-plot.width(500)
-plot.height(500)
-```
+### Install IRuby notebook
+Nyaplot do not have any dependency, but we strongly recommend to install [IRuby](https://github.com/minad/iruby) by @minad at the same time.
+IRuby is a web-based interactive Ruby environment and Nyaplot is totally designed to work with it.
+You can install the gem itself by running `gem install` command, but it has some dependent libraries outside of Ruby-ecosystem.
 
-### Add diagrams
-```ruby
-bar = plot.add(:bar, ['nya1', 'nya2', 'nya3'],[10,20,30])
-bar.title('the number of cats')
-```
-The first argument of plot.add indicates the type of diagrams to add, as :bar, :line, :scatter, and :venn.
+#### Ubuntu 14.04
 
-### Generate static html file
-```ruby
-plot.export_html
-```
-Nyaplot::Plot.export_html returns the html code as an instance of String.
-
-### Interaction with IRuby notebook
-Nyaplot is designd to work with [IRuby](https://github.com/minad/iruby), a web-based interactive Ruby environment. Before running codes shown below, install IPython and IRuby.
-
-```ruby
-Nyaplot.init_iruby
-plot.show
-```
-See [an example](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Introduction.ipynb). 
+Coming soon.
 
 #### Mac OS X
 
@@ -125,6 +104,14 @@ conda remove zeromq
 brew install zeromq
 ```
 
+#### Windows
+
+We have not try that yet. Please send pull-request if you can install it to Windows.
+
+## Acknowledgments
+
+This software has been developed by [Naoki Nishida](https://github.com/domitry) as a product in Google Summer of Code 2014 (GSoC2014). Visit the [website]((http://sciruby.com/blog/)) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) of SciRuby to see the progress of this project.
+
 
 ## Contributing
 
@@ -133,5 +120,3 @@ brew install zeromq
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-This gem is the front-end library for Nyaplot and the functions on visualization is mainly implemented in the back-end library. To contribute to the JavaScript side, visit [the repository](https://github.com/domitry/Nyaplotjs) for the back-end library, Nyaplotjs. Those two libraries will be merged after the GSoC 2014 term.
