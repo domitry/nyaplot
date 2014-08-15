@@ -15,7 +15,8 @@ module Nyaplot
       df.insert_column(:lng, lng)
       df.delete_column(:latlng)
 
-      df.filter! {|row| !(row[:lat].nil? || row[:lng].nil? || row[:cca3] == "ATA")}
+      # ATA have a problem on coordinate and BMU will cause that all ocean are filled in the same color as BMU's
+      df.filter! {|row| !(row[:lat].nil? || row[:lng].nil? || ["BMU", "ATA"].index(row[:cca3]))}
       df.each_row {|row| row[:area]=0 if row[:area]<0}
       @@df = df
 

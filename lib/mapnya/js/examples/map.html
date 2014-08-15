@@ -9,7 +9,7 @@
 <div id='vis'></div>
 <script>
 d3.json("https://rawgit.com/johan/world.geo.json/master/countries.geo.json", function(json){
-var models = {extension: 'Mapnya', data:{data1: [{id: "IRQ", fill: 15},{id: "BLR", fill: 45},{id: "JPN", fill: 10}]},panes: [{type:'rectangular', diagrams:[],options:{width:700, height:700, xrange: [0, 10], yrange: [0,50], zoom: true, axis_extra_options: {map_data: json, df_id: "data1", color:["#000","#f00"], fill_by: "fill", cca3: "id"}}, extension:'Mapnya'}]};
+var models = {extension: 'Mapnya', data:{data1: [{id: "SOM", fill: 15},{id: "BLR", fill: 45},{id: "JPN", fill: 10}]},panes: [{type:'rectangular', diagrams:[],options:{width:700, height:700, xrange: [0, 10], yrange: [0,50], zoom: true, axis_extra_options: {map_data: json, df_id: "data1", color:["#000","#f00"], fill_by: "fill", cca3: "id"}}, extension:'Mapnya'}]};
 Nyaplot.core.parse(models, '#vis');
 });
 </script>
