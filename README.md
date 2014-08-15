@@ -15,7 +15,7 @@ This software has been developed as a product in Google Summer of Code 2014 (GSo
 + [Tutorial4: Temporary example](http://nbviewer.ipython.org/github/domitry/nyaplot-example/blob/master/line.ipynb)
 * [Tutorial5: Picking colors suitable for your plots](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Colors.ipynb)
 + [Tutorial6: Create circular plot with Bionya](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb)
-+ [Tutorial7: Create map visualization with Mapnya (1)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya1.ipynb)
++ [Tutorial7: Create map visualization with Mapnya (1)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb)
 + [Tutorial8: Create map visualization with Mapnya (2)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
 + [Finding shape consensus among multiple geo polygons](http://nbviewer.ipython.org/gist/mgiraldo/a68b53175ce5892531bc) by [@mgiraldo](https://github.com/mgiraldo)
 
