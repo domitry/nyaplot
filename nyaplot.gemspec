@@ -6,11 +6,11 @@ require 'nyaplot/version'
 Gem::Specification.new do |spec|
   spec.name          = "nyaplot"
   spec.version       = Nyaplot::VERSION
-  spec.authors       = ["domitry"]
+  spec.authors       = ["Naoki Nishida"]
   spec.email         = ["domitry@gmail.com"]
-  spec.summary       = %q{the Ruby front-end library of Ecoli.js}
-  spec.description   = %q{the Ruby front-end library of Ecoli.js}
-  spec.homepage      = ""
+  spec.summary       = %q{interactive plots generator for Ruby users}
+  spec.description   = %q{To get information about Nyaplot, visit the website or mailing-list of SciRuby, or ask me on GitHub.}
+  spec.homepage      = "https://www.github.com/domitry/nyaplot"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
