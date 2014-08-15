@@ -109,6 +109,24 @@ module Nyaplot
       end
     end
 
+    module Vectors
+      include Jsonizable
+      define_group_properties(:options, [:title, :x, :y, :dx, :dy, :fill_by, :color, :stroke_color, :stroke_width, :hover])
+
+      def process_data(df, labels)
+        label_x = labels[0]
+        label_y = labels[1]
+        x(label_x)
+        y(label_y)
+        @xrange = [df[label_x].to_a.min, df[label_x].to_a.max]
+        @yrange = [df[label_y].to_a.min, df[label_y].to_a.max]
+      end
+
+      def zoom?
+        true
+      end
+    end
+
     module Line
       include Jsonizable
       define_group_properties(:options, [:title, :x, :y, :color, :stroke_width])
