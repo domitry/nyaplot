@@ -3,17 +3,20 @@
 
 Nyaplot is an interactive plots generator for Ruby users. Its goal is to make it easy to create interactive plots in Ruby and still allows fast prototyping, customizability, and the integration with other scientific gems.
 
-Nyaplot is a compound word from 'Nya' and 'plot.' The word 'Nya' comes from a onomatopoeia of cat's meow in Japanese.
+Nyaplot is a compound word from 'Nya' and 'plot.' The word 'Nya' comes from an onomatopoeia of cat's meow in Japanese.
 
-This software has been developed as a product in Google Summer of Code 2014 (GSoC2014). Visit a website of [SciRuby project](http://sciruby.com/blog/) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) to see the progress of this project.
+This software has been developed as a product in Google Summer of Code 2014 (GSoC2014). Visit the [website]((http://sciruby.com/blog/)) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) of SciRuby to see the progress of this project.
 
 ## Demo
 
 + [Tutorial1: Gettig Started with Nyaplot](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Introduction.ipynb)
 + [Tutorial2: Interaction with DataFrame](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Interaction_with_DataFrame.ipynb)
-+ [Tutorial3: Creating 3D plots with Nyaplot3D](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb)
++ [Tutorial3: Create 3D plots with Nyaplot3D](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb)
 + [Tutorial4: Temporary example](http://nbviewer.ipython.org/github/domitry/nyaplot-example/blob/master/line.ipynb)
 * [Tutorial5: Picking colors suitable for your plots](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Colors.ipynb)
++ [Tutorial6: Create circular plot with Bionya](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb)
++ [Tutorial7: Create map visualization with Mapnya (1)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya1.ipynb)
++ [Tutorial8: Create map visualization with Mapnya (2)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
 + [Finding shape consensus among multiple geo polygons](http://nbviewer.ipython.org/gist/mgiraldo/a68b53175ce5892531bc) by [@mgiraldo](https://github.com/mgiraldo)
 
 Those demos are created on IRuby and published on [nbviewer](http://nbviewer.ipython.org/).
