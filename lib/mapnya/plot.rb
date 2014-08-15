@@ -14,7 +14,12 @@ module Nyaplot
     def add_map(name, data=nil)
       if data.nil?
         path = File.expand_path("../datasets/countries/data/" + name.downcase + ".geo.json", __FILE__)
-        map_data(JSON.parse(File.read(path)))
+        map_data = JSON.parse(File.read(path))
+        # pre-processing
+        map_data["features"].push(map_data["features"][0]) if map_data["features"].length == 1
+        country_data = Countries.df.filter{|row| row[:cca3] == name.upcase}.row(0)
+        center([country_data[:lng], country_data[:lat]])
+        map_data(map_data)
       else
         map_data(data)
       end
