@@ -1,5 +1,5 @@
 # Nyaplot
-![alt text](https://dl.dropboxusercontent.com/u/47978121/gsoc/nyaoplot_top.png)
+![alt text](https://dl.dropboxusercontent.com/u/47978121/gsoc/nya_top.png)
 
 Nyaplot is an interactive plots generator for Ruby users. Its goal is to make it easy to create interactive plots in Ruby and still allows fast prototyping, customizability, and the integration with other scientific gems.
 
@@ -34,7 +34,7 @@ Nyaplot3D enables us to create interactive 3D charts with Ruby.
 Its back-end library is [Elegans](https://github.com/domitry/elegans), a 3D plots generator written in JavaScript.
 Here is an example, the Lorenz curve generated from a solution by the Euler method:
 
-![Lorenz curve](https://dl.dropboxusercontent.com/u/47978121/gsoc/nyaplot3d.png)
+![Lorenz curve](https://dl.dropboxusercontent.com/u/47978121/gsoc/nyaplot3d_top.png)
 
 To learn more, see [the notebook](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb).
 
@@ -42,7 +42,7 @@ To learn more, see [the notebook](http://nbviewer.ipython.org/github/domitry/Nya
 
 Bionya is an extension library for Nyaplot that allows us to create plots for Biology. The main content of Bionya is the circular plot, that is usually used to visualize information of genes like relationship among them. This library is inspired by [circos](http://circos.ca/).
 
-![Bionya](https://dl.dropboxusercontent.com/u/47978121/gsoc/bionya.png)
+![Bionya](https://dl.dropboxusercontent.com/u/47978121/gsoc/bionya_top.png)
 
 See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb) to learn more.
 
@@ -50,7 +50,7 @@ See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/mast
 
 Mapnya is an extension library for map visualization.
 
-![Mapnya](https://dl.dropboxusercontent.com/u/47978121/gsoc/mapnya.png)
+![Mapnya](https://dl.dropboxusercontent.com/u/47978121/gsoc/mapnya_top.png)
 
 See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb) to learn more.
 
