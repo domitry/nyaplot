@@ -1,7 +1,6 @@
 module Nyaplot
   class Diagram
     include Jsonizable
-
     define_properties(:type, :data)
 
     def initialize(df, type, labels)

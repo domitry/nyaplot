@@ -13,6 +13,7 @@ module Nyaplot
       set_property(:legend, nil)
     end
 
+    # Add diagram with Array
     def add(type, *data)
       labels = data.map.with_index{|d, i| 'data' + i.to_s}
       raw_data = data.each.with_index.reduce({}){|memo, (d, i)| memo[labels[i]]=d; next memo}
@@ -20,6 +21,7 @@ module Nyaplot
       return add_with_df(df, type, *labels)
     end
 
+    # Add diagram with DataFrame
     def add_with_df(df, type, *labels)
       diagram = Diagram.new(df, type, labels)
       diagrams = get_property(:diagrams)
@@ -27,6 +29,7 @@ module Nyaplot
       return diagram
     end
 
+    # Show plot on IRuby notebook
     def show
       frame = Frame.new
       frame.add(self)
@@ -70,6 +73,7 @@ module Nyaplot
       end
     end
 
+    # configure plot
     def configure(&block)
       self.instance_eval(&block) if block_given?
     end
