@@ -22,7 +22,10 @@ module Nyaplot
       @matrix = matrix
     end
 
-    def add_connector()
+    def add_connector_with_df(df, *labels)
+      diagram = Diagram.new(df, :connector, labels)
+      self.diagrams.push(diagram)
+      return diagram
     end
 
     def add(layer, type, *labels)

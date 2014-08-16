@@ -24,5 +24,15 @@ module Nyaplot
         text(labels[1])
       end
     end
+
+    module Connector
+      include Jsonizable
+      define_group_properties(:options, [:color, :fill_by, :from, :to, :shape, :stroke_width, :size, :shape_fill, :shape_stroke, :shape_stroke_width, :arc_height, :layer])
+
+      def process_data(df, labels)
+        from(labels[0])
+        to(labels[1])
+      end
+    end
   end
 end
