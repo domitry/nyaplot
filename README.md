@@ -10,16 +10,8 @@ This software has been developed as a product in Google Summer of Code 2014 (GSo
 ## Demo
 
 This README.md do not contain any description about usage, so see notebooks below to start using Nyaplot.
-Those demos are all created on [IRuby](https://github.com/minad/iruby) and published on [nbviewer](http://nbviewer.ipython.org/).
 
-+ [Tutorial1: Gettig Started with Nyaplot](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Introduction.ipynb)
-+ [Tutorial2: Interaction with DataFrame](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Interaction_with_DataFrame.ipynb)
-* [Tutorial3: Picking colors suitable for your plots](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Colors.ipynb)
-+ [Tutorial4: Create 3D plots with Nyaplot3D](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb)
-+ [Tutorial5: Create circular plot with Bionya](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb)
-+ [Tutorial6: Create map visualization with Mapnya (1)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb)
-+ [Tutorial7: Create map visualization with Mapnya (2)](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
-+ [Finding shape consensus among multiple geo polygons](http://nbviewer.ipython.org/gist/mgiraldo/a68b53175ce5892531bc) by [@mgiraldo](https://github.com/mgiraldo)
++ [Nyaplot Tutorial & Case study](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb)
 
 Visit [nyaplot-notebooks on GitHub](https://github.com/domitry/nyaplot-notebooks) to see more example.
 
