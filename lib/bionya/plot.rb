@@ -3,7 +3,7 @@ module Nyaplot
     include Jsonizable
     undef_method :add_with_df
     define_properties(:extension)
-    define_group_properties(:axis_extra_options, [:df_id, :inner_radius, :outer_radius, :group_by, :axis, :chord, :matrix, :inner_num, :outer_num, :color, :text_color, :text_size])
+    define_group_properties(:axis_extra_options, [:df_id, :inner_radius, :outer_radius, :group_by, :axis, :chord, :matrix, :inner_num, :outer_num, :color, :text_color, :text_size, :fill_by])
 
     def initialize(df, group_label, nested_label)
       super()
