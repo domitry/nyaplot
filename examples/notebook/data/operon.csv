@@ -1,0 +1,933 @@
+"","gene.name","gene.annotation","operon.name","operon.comments","probeset","locbegin","locend"
+"1","thrA","aspartokinase I/homoserine dehydrogenase I","thr","threonine biosynthesis","thrA_b0002_st",337,2799
+"2","thrB","homoserine kinase","thr","threonine biosynthesis","thrB_b0003_st",2801,3733
+"3","thrC","threonine synthase","thr","threonine biosynthesis","thrC_b0004_st",3734,5020
+"4","dnaK","DNA biosynthesis; heat shock protein","dnaK","DNA biosynthesis","dnaK_b0014_st",12163,14079
+"5","dnaJ","DNA biosynthesis; heat shock protein","dnaK","DNA biosynthesis","dnaJ_b0015_st",14168,15298
+"6","yaaC","35K hypothetical","ileS-lsp","tRNA synthetase & peptidase","ribF_b0025_st",21407,22348
+"7","ileS","isoleucine tRNA synthetase (EC 6.1.1.5)","ileS-lsp","tRNA synthetase & peptidase","ileS_b0026_st",22391,25206
+"8","lspA","prolipoprotein signal peptidase (SPaseII) (EC 3.4 99 35)","ileS-lsp","tRNA synthetase & peptidase","lspA_b0027_st",25208,25701
+"9","carA","carbamoyl-phosphate synthetase subunit A","carAB","carbamoyl-phosphate synthetase","carA_b0032_st",29651,30799
+"10","carB","carbamoyl-phosphate synthetase subunit B","carAB","carbamoyl-phosphate synthetase","carB_b0033_st",30817,34038
+"11","caiT","probable carnitine transporter","cai","probable carnitine operon","caiT_b0040_st",40417,41931
+"12","caiA","probable carnitine operon oxidoreductase CaiA","cai","probable carnitine operon","caiA_b0039_st",39244,40386
+"13","caiB","L-carnitine dehydratase","cai","probable carnitine operon","caiB_b0038_st",37898,39115
+"14","caiC","probable crotonobetaine/carnitine-CoA ligase","cai","probable carnitine operon","caiC_b0037_st",36271,37839
+"15","caiD","carnitine racemase","cai","probable carnitine operon","caiD_b0036_st",35393,36270
+"16","caiE","carnitine operon protein CaiE","cai","probable carnitine operon","caiE_b0035_st",34781,35376
+"17","fixA","FixA protein","fix","may play a role in a redox process","fixA_b0041_st",42367,43173
+"18","fixB","FixB protein","fix","may play a role in a redox process","fixB_b0042_st",43188,44129
+"19","fixC","FixC protein (similar to the ORF at 1784259)","fix","may play a role in a redox process","fixC_b0043_st",44180,45462
+"20","surA","peptidyl prolyl isomerase; survival protein SurA precursor","surA-pdxA-ksgA-apaGH","16S ribosomal RNA modification & chaperone","surA_b0053_st",53417,54702
+"21","pdxA","pyridoxine and pyridoxal phosphate biosynthesis","surA-pdxA-ksgA-apaGH","16S ribosomal RNA modification & chaperone","pdxA_b0052_st",52431,53415
+"22","ksgA","6-m-2-A methyltransferase; put. 16S rRNA methyltransferase","surA-pdxA-ksgA-apaGH","16S ribosomal RNA modification & chaperone","ksgA_b0051_st",51609,52426
+"23","apaG","ApaG protein","surA-pdxA-ksgA-apaGH","16S ribosomal RNA modification & chaperone","apaG_b0050_st",51229,51606
+"24","apaH","diadenosine tetraphosphatase","surA-pdxA-ksgA-apaGH","16S ribosomal RNA modification & chaperone","apaH_b0049_st",50380,51222
+"25","araB","L-ribulokinase","araBAD","arabinose catabolic pathway","araB_b0063_st",68348,70048
+"26","araA","L-arabinose isomerase","araBAD","arabinose catabolic pathway","araA_b0062_st",66835,68337
+"27","araD","L-ribulose 5 phosphate 4-epimerase (similar to the ORF at 3744844)","araBAD","arabinose catabolic pathway","araD_b0061_st",65855,66550
+"28","leuA","2-isopropylmalate synthase ;alpha-isopropylmalate synthase","leu","leucine biosynthesis","leuA_b0074_st",81962,83529
+"29","leuB","3-isopropylmalate dehydrogenase (EC 1.1.1.85)","leu","leucine biosynthesis","leuB_b0073_st",80867,81957
+"30","leuC","3-isopropylmalate dehydratase (EC 4.2.1.33)","leu","leucine biosynthesis","leuC_b0072_st",79464,80864
+"31","leuD","3-isopropylmalate dehydratase small subunit (EC 4.2.1.33)","leu","leucine biosynthesis","leuD_b0071_st",78848,79453
+"32","Regulation","promoter","ilvIH","acetolactate synthase III",NA,NA,NA
+"33","ilvI","acetolactate synthase III (EC 4.1.3.18), valine sensitive, large subunit","ilvIH","acetolactate synthase III","ilvI_b0077_st",85540,87354
+"34","ilvH","acetolactate synthase III (EC 4.1.3.18), valine sensitive, small subunit","ilvIH","acetolactate synthase III","ilvH_b0078_st",87357,87848
+"35","murG","transferase in peptidoglycan synthesis","murGC","peptidoglycan synthesis","murG_b0090_st",99648,100711
+"36","murC","L-alanine-adding enzyme (EC 6.3.2.8)","murGC","peptidoglycan synthesis","murC_b0091_st",100765,102232
+"37","ddlB","(ddl) D-alanine-D-alanine ligase B (EC 6.3.2.4)","murGC","peptidoglycan synthesis","ddlB_b0092_st",102241,103153
+"38","ampD","AmpD protein; a repressor for ampC transcription","ampDE","putative signalling protein in beta-lactamase regulation","ampD_b0110_st",118733,119280
+"39","ampE","AmpE protein","ampDE","putative signalling protein in beta-lactamase regulation","ampE_b0111_st",119285,120135
+"40","aceE","pyruvate dehydrogenase (decarboxylase component) (EC 1.2.4.1)","aceEF","pyruvate dehydrogenase","aceE_b0114_st",123017,125680
+"41","aceF","pyruvate dehydrogenase (dihydrolipoyltransacetylase component)(EC 2.3.1.12)","aceEF","pyruvate dehydrogenase","aceF_b0115_st",125695,127587
+"42","lpdA","(lpd) pyruvate dehydrogenase (lipoamide dehydrogenase)","aceEF","pyruvate dehydrogenase","lpdA_b0116_st",127912,129336
+"43","speE","spermidine synthase","speED","biosynthesis of spermidine","speE_b0121_st",135598,136464
+"44","speD","adenosylmethionine decarboxylase","speED","biosynthesis of spermidine","speD_b0120_st",134788,135582
+"45","ecpD","periplasmic protein","htrE","periplasmic protein","ecpD_b0140_st",155461,156201
+"46","htrE","outer membrane usher protein htrE precursor (heat shock protein E)","htrE","periplasmic protein","htrE_b0139_st",152855,155426
+"47","fhuA","ferrichrome-iron receptor precursor","fhuACDB","ferrichrome-iron transport","fhuA_b0150_st",167484,169727
+"48","fhuC","ferrichrome-iron transport protein","fhuACDB","ferrichrome-iron transport","fhuC_b0151_st",169778,170574
+"49","fhuD","ferrichrome-iron transport protein","fhuACDB","ferrichrome-iron transport","fhuD_b0152_st",170576,171461
+"50","fhuB","ferrichrome-iron transport protein","fhuACDB","ferrichrome-iron transport","fhuB_b0153_st",171466,173444
+"51","rpsB","ribosomal protein S2","rpsB","ribosomal-protein","rpsB_b0169_st",189874,190599
+"52","tsf","translation elongation factor EF-Ts","rpsB","ribosomal-protein","tsf_b0170_st",190857,191708
+"53","pyrH","uridylate kinase","rpsB","ribosomal-protein","pyrH_b0171_st",191855,192580
+"54","frr","ribosome releasing factor operon?","rpsB","ribosomal-protein","frr_b0172_st",192872,193429
+"55","lpxD","UDP-3-O-[3-hydroxymyristoyl] glucosamine N-acyltransferase","lpx","lipid biosynthesis","lpxD_b0179_st",200971,201996
+"56","fabZ","(3R)-hydroxymyristol acyl carrier protein dehydrase","lpx","lipid biosynthesis","fabZ_b0180_st",202101,202556
+"57","lpxA","acyl-[acyl-carrier-protein]-UDP-N-acetylglucosamine O-acyltransferase","lpx","lipid biosynthesis","lpxA_b0181_st",202560,203347
+"58","lpxB","lipid-A-disaccharide synthase","lpx","lipid biosynthesis","lpxB_b0182_st",203349,204492
+"59","rnhB","ribonuclease H II","lpx","lipid biosynthesis","rnhB_b0183_st",204497,205089
+"60","dnaE","DNA polymerase III, alpha chain","lpx","lipid biosynthesis","dnaE_b0184_st",205126,208608
+"61","accA","acetyl-coenzyme A carboxylase carboxyl transferase subunit alpha","lpx","lipid biosynthesis","accA_b0185_st",208621,209580
+"62","proB","gamma-glutamate kinase (EC 2.7.2.11)","proBA","proline biosynthesis","proB_b0242_st",259612,260715
+"63","proA","gamma-glutamylphosphate reductase (EC 1.2.1.41)","proBA","proline biosynthesis","proA_b0243_st",260727,261980
+"64","Regulation","promoter","codBA","cytosine transport",NA,NA,NA
+"65","codB","cytosine transport protein","codBA","cytosine transport","codB_b0336_st",354146,355394
+"66","codA","cytosine deaminase","codBA","cytosine transport","codA_b0337_st",355406,356678
+"67","cynT","carbonic anhydrase (EC 4.2.1.1)","cynTSX","cyanate utilization","cynT_b0339_st",358023,358682
+"68","cynS","cyanate aminohydrolase (EC 3.5.5.3), cyanase","cynTSX","cyanate utilization","cynS_b0340_st",358713,359183
+"69","cynX","cyanate transport protein cynX","cynTSX","cyanate utilization","cynX_b0341_st",359216,360370
+"70","lacZ","beta-D-galactosidase (EC 3.2.1.23)","lac","galactoside utilization","lacZ_b0344_st",362455,365529
+"71","lacY","galactoside permease (M protein)","lac","galactoside utilization","lacY_b0343_st",361150,362403
+"72","lacA","galactoside acetyltransferase (EC 2.3.1.18)","lac","galactoside utilization","lacA_b0342_st",360473,361084
+"73","339","(mhpA) 3-(3-hydroxy-phenyl)propionate hydroxylase (EC 1.14.13.-)","mhp","catechol dioxygenases",NA,NA,NA
+"74","mhpB","2,3-dihydroxyphenylpropionate 1,2-dioxygenase","mhp","catechol dioxygenases","mhpB_b0348_st",369501,370399
+"75","341","(mhpC) 2-hydroxy-6-ketonona-2,4-dienedioic acid hydrolase (EC 3.7.1.-)","mhp","catechol dioxygenases",NA,NA,NA
+"76","342","(mhpD) 2-keto-4-pentenoate hydratase (EC 4.2.-.-)","mhp","catechol dioxygenases",NA,NA,NA
+"77","mhpE","4-hydroxy-2-oxovalerate aldolase (EC 4.1.3.-) (HOA)","mhp","catechol dioxygenases","mhpF_b0351_st",372149,373091
+"78","344","(mhpF) acetaldehyde dehydrogenase (EC 1.2.1.10)","mhp","catechol dioxygenases",NA,NA,NA
+"79","phoB","phosphate regulon transcriptional regulatory protein","phoBR","positive regulator for the phosphate regulon","phoB_b0399_st",416366,417055
+"80","phoR","phosphate regulon sensor protein phoR","phoBR","positive regulator for the phosphate regulon","phoR_b0400_st",417113,418408
+"81","queA","S-adenosylmethionine:tRNA ribosyltransferase-isomerase","secD","tRNA modification & protein export","queA_b0405_st",424235,425305
+"82","tgt","queuine tRNA-ribosyltransferase (EC 2.4.2.29)","secD","tRNA modification & protein export","tgt_b0406_st",425361,426488
+"83","yajC","","secD","tRNA modification & protein export","yajC_b0407_st",426511,426843
+"84","secD","protein-export membrane protein SecD","secD","tRNA modification & protein export","secD_b0408_st",426871,428718
+"85","secF","protein-export membrane protein SecF","secD","tRNA modification & protein export","secF_b0409_st",428729,429700
+"86","cyoA","cytochrome o ubiquinol oxidase subunit 11 (EC 1,10,3,-)","cyoABCDE","cytochrome o ubiquinol oxidase","cyoA_b0432_st",449887,450834
+"87","cyoB","cytochrome o ubiquinol oxidase subunit I (EC 1,10,3,-)","cyoABCDE","cytochrome o ubiquinol oxidase","cyoB_b0431_st",447885,449865
+"88","cyoC","cytochrome o ubiquinol oxidase subunit 111 (EC 1,10,3,-)","cyoABCDE","cytochrome o ubiquinol oxidase","cyoC_b0430_st",447271,447873
+"89","cyoD","cytochrome o ubiquinol oxidase operon protein CyoD","cyoABCDE","cytochrome o ubiquinol oxidase","cyoD_b0429_st",446941,447269
+"90","cyoE","cytochrome o ubiquinol oxidase operon protein CyoE","cyoABCDE","cytochrome o ubiquinol oxidase","cyoE_b0428_st",446039,446929
+"91","clpP","ATP-dependent clp protease proteolytic subunit","clpPX","clp protease","clpP_b0437_st",455901,456524
+"92","clpX","ATP-dependent protease ATPase subunit","clpPX","clp protease","clpX_b0438_st",456650,457924
+"93","Regulation","terminator","clpPX","clp protease",NA,NA,NA
+"94","acrA","resistance to acriflavine, hydrophobic anibiotics, basic dyes, and detergents","acrAB","resistance to acriflavine","acrA_b0463_st",483650,484843
+"95","acrB","resistance to acriflavine, hydrophobic anibiotics, basic dyes, and detergents","acrAB","resistance to acriflavine","acrB_b0462_st",480478,483627
+"96","ybaB","hypothetical 12.0 kD protein","recR","DNA recombination","ybaB_b0471_st",493300,493628
+"97","recR","recombination protein RecR","recR","DNA recombination","recR_b0472_st",493630,494234
+"98","purE","phosphoribosylaminoimidazole carboxylase catalytic chain","purEK","phosphoribosylaminoimidazole carboxylase","purE_b0523_st",551818,552323
+"99","purK","phosphoribosylaminoimidazole carboxylase ATPase subunit","purEK","phosphoribosylaminoimidazole carboxylase","purK_b0522_st",550750,551813
+"100","561","(copR) sensor","copRS","two-component system",NA,NA,NA
+"101","560","(copS) activator","copRS","two-component system",NA,NA,NA
+"102","fepD","ferric enterobactin (enterochelin) uptake","fepDGC","ferric enterobactin uptake","fepD_b0590_st",620412,621412
+"103","fepG","ferric enterobactin transport protein","fepDGC","ferric enterobactin uptake","fepG_b0589_st",619423,620407
+"104","fepC","ferric enterobactin (enterochelin) uptake; cytoplasmic membrane component","fepDGC","ferric enterobactin uptake","fepC_b0588_st",618607,619418
+"105","entC","isochorismate synthase","entCEBA","enterobactin biosynthesis","entC_b0593_st",624108,625283
+"106","entE","enterochelin synthetase component E","entCEBA","enterobactin biosynthesis","entE_b0594_st",625293,626903
+"107","entB","isochorismatase (2,3-dihydro-2,3-dihydroxybenzoate synthase)","entCEBA","enterobactin biosynthesis","entB_b0595_st",626917,627773
+"108","entA","2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase","entCEBA","enterobactin biosynthesis","entA_b0596_st",627775,628520
+"109","mrdA","(pbpA) penicillin-binding protein 2","mrdAB","responsible for the rod shape","mrdA_b0635_st",665539,667440
+"110","mrdB","(rodA) rod-shape-determining protein","mrdAB","responsible for the rod shape","mrdB_b0634_st",664424,665536
+"111","gltJ","glutamate/aspartate transport system permease","gltJKL","glutamate/aspartate transport","gltJ_b0654_st",685153,685892
+"112","gltK","glutamate/aspartate transport system permease","gltJKL","glutamate/aspartate transport","gltK_b0653_st",684479,685151
+"113","gltL","glutamate/aspartate transport ATP-binding protein","gltJKL","glutamate/aspartate transport","gltL_b0652_st",683753,684477
+"114","nagB","glucosamine-6-phosphate deaminase (EC 5.3.1.10)","nagBACD","N-acetylglucosamine uptake","nagB_b0678_st",702034,702834
+"115","nagA","N-acetylglucosamine-6-phosphate deacetylase (EC 3.5.1.25)","nagBACD","N-acetylglucosamine uptake","nagA_b0677_st",700826,701974
+"116","nagC","repressor for the nag regulon","nagBACD","N-acetylglucosamine uptake","nagC_b0676_st",699597,700817
+"117","nagD","","nagBACD","N-acetylglucosamine uptake","nagD_b0675_st",698797,699549
+"118","speF","ornithine decarboxylase, inducible","speFpotE","ornithine uptake","speF_b0693_st",717489,719683
+"119","potE","putrescine-ornithine antiporter","speFpotE","ornithine uptake","potE_b0692_st",716169,717484
+"120","kdpA","","kdpABC","membrane K transport ATPases","kdpA_b0698_st",726282,727955
+"121","kdpB","","kdpABC","membrane K transport ATPases","kdpB_b0697_st",724211,726259
+"122","kdpC","","kdpABC","membrane K transport ATPases","kdpC_b0696_st",723638,724202
+"123","kdpD","transmembrane protein","kdpABC","membrane K transport ATPases","kdpD_b0695_st",720957,723629
+"124","kdpE","cytoplasmic protein (similar to the ORF at 717096 in part)","kdpABC","membrane K transport ATPases","kdpE_b0694_st",720279,720952
+"125","sdhC","succinate dehydrogenase (EC 1.3.99.1), cytochrome b556","sdhCDAB","succinate dehydrogenase","sdhC_b0721_st",754400,754782
+"126","sdhD","succinate dehydrogenase (EC 1.3.99.1), hydrophobic subunit","sdhCDAB","succinate dehydrogenase","sdhD_b0722_st",754790,755129
+"127","sdhA","succinate dehydrogenase (EC 1.3.99.1), flavoprotein subunit","sdhCDAB","succinate dehydrogenase","sdhA_b0723_st",755131,756896
+"128","sdhB","succinate dehydrogenase (EC 1.3.99.1), iron sulfur protein","sdhCDAB","succinate dehydrogenase","sdhB_b0724_st",756912,757628
+"129","sucA","2-0xoglutarate dehydrogenase complex (decarboxylase component) (EC 1.2.4.2)","sucABCD","TCA cycle","sucA_b0726_st",757948,760730
+"130","sucB","2-0xoglutarate dehydrogenase complex (dihydrolipoyl transsuccinase component) (EC 2.3.1.61)","sucABCD","TCA cycle","sucB_b0727_st",760745,761962
+"131","sucC","succinyl-CoA synthetase (EC 6.2.1.5), beta subunit","sucABCD","TCA cycle","sucC_b0728_st",762237,763402
+"132","sucD","succinyl-CoA synthetase (EC 6.2.1.5), alpha subunit","sucABCD","TCA cycle","sucD_b0729_st",763404,764272
+"133","cydA","cytochrome oxidase d subunit I","cyd","cytochrome d oxidase subunits I and II","cydA_b0733_st",770678,772249
+"134","cydB","cytochrome oxidase d subunit II","cyd","cytochrome d oxidase subunits I and II","cydB_b0734_st",772265,773404
+"135","tolQ","membrane toporogy","tolQRA","colicin uptake","tolQ_b0737_st",774380,775068
+"136","tolR","","tolQRA","colicin uptake","tolR_b0738_st",775072,775500
+"137","tolA","","tolQRA","colicin uptake","tolA_b0739_st",775565,776830
+"138","tolB","","tolQRA","colicin uptake","tolB_b0740_st",776963,778255
+"139","galE","UDP-galactose 4-epimerase (5.1.3.2)","gal","galactose metabolism","galE_b0759_st",790262,791278
+"140","galT","galactose-l-phosphate uridylyltransferase (EC 2.7.7.10)","gal","galactose metabolism","galT_b0758_st",789206,790252
+"141","galK","galactokinase (EC 2.7.1.6)","gal","galactose metabolism","galK_b0757_st",788061,789202
+"142","galM","mutarotase","gal","galactose metabolism","galM_b0756_st",787020,788053
+"143","modA","molybdate-binding periplasmic protein","modABC","molybdate transport","modA_b0763_st",794312,795084
+"144","modB","molybdenum transport system permease","modABC","molybdate transport","modB_b0764_st",795086,795774
+"145","modC","molybdenum transport ATP binding","modABC","molybdate transport","modC_b0765_st",795777,796835
+"146","Regulation","biotin operon promoter","bioBFCD","biotin biosynthesis",NA,NA,NA
+"147","bioB","(bioH) biotin synthetase","bioBFCD","biotin biosynthesis","bioB_b0775_st",808567,809603
+"148","bioF","7-keto-8-aminopelargonic acid synthetase (EC 2.3.1.47)","bioBFCD","biotin biosynthesis","bioF_b0776_st",809608,810744
+"149","bioC","biotin biosynthesis; reaction prior to pimeloyl-CoA","bioBFCD","biotin biosynthesis","bioC_b0777_st",810759,811492
+"150","bioD","dethiobiotin synthetase (EC 6.3.3.3)","bioBFCD","biotin biosynthesis","bioD_b0778_st",811501,812170
+"151","moaA","molybdenum cofactor biosynthesis protein A","moaABCDE","molybdenum cofactor biosynthesis","moaA_b0781_st",816267,817256
+"152","moaB","","moaABCDE","molybdenum cofactor biosynthesis","moaB_b0782_st",817278,817790
+"153","moaC","","moaABCDE","molybdenum cofactor biosynthesis","moaC_b0783_st",817793,818270
+"154","moaD","molybdopterin-converting factor subunit 1","moaABCDE","molybdenum cofactor biosynthesis","moaD_b0784_st",818279,818516
+"155","moaE","molybdopterin-converting factor 16K chain","moaABCDE","molybdenum cofactor biosynthesis","moaE_b0785_st",818518,818970
+"156","glnH","periplasmic glutamine-binding protein","glnHPQ","glutamine transport","glnH_b0811_st",846481,847227
+"157","glnP","glutamine high-affinity transport system; membrane component","glnHPQ","glutamine transport","glnP_b0810_st",845687,846342
+"158","glnQ","glutamine high-affinity transport system","glnHPQ","glutamine transport","glnQ_b0809_st",844964,845682
+"159","moeA","molybdopterin biosynthesis","moeAB","molybdopterin biosynthesi","moeA_b0827_st",864353,865587
+"160","moeB","molybdopterin biosynthesis","moeAB","molybdopterin biosynthesi","moeB_b0826_st",863603,864351
+"161","potF","putrescine-binding periplasmic protein","potFGHI","putrescine transport","potF_b0854_st",893007,894119
+"162","potG","","potFGHI","putrescine transport","potG_b0855_st",894133,895347
+"163","potH","transmembrane protein","potFGHI","putrescine transport","potH_b0856_st",895357,896306
+"164","potI","transmembrane protein","potFGHI","putrescine transport","potI_b0857_st",896311,897152
+"165","artP","arginine transport ATP-binding protein","artPIQMJ","arginine transport","artP_b0864_st",902229,902957
+"166","artI","arginine binding periplasmic protein 1","artPIQMJ","arginine transport","artI_b0863_st",901480,902211
+"167","artQ","arginine transport system permease","artPIQMJ","arginine transport","artQ_b0862_st",900758,901473
+"168","artM","arginine transport system permease","artPIQMJ","arginine transport","artM_b0861_st",900089,900756
+"169","artJ","arginine binding periplasmic protein 2","artPIQMJ","arginine transport","artJ_b0860_st",899067,899798
+"170","dmsA","anaerobic dimethyl sulfoxide reductase chain A","dmsABC","dimethyl sulfoxide reductase","dmsA_b0894_st",940269,942626
+"171","dmsB","anaerobic dimethyl sulfoxide reductase chain B","dmsABC","dimethyl sulfoxide reductase","dmsB_b0895_st",942637,943254
+"172","dmsC","anaerobic dimethyl sulfoxide reductase chain C","dmsABC","dimethyl sulfoxide reductase","dmsC_b0896_st",943256,944119
+"173","cmk","cytidine monophosphate kinase","rpsA","ribosomal protein","cmk_b0910_st",960424,961107
+"174","rpsA","ribosomal protein S1","rpsA","ribosomal protein","rpsA_b0911_st",961218,962891
+"175","smtA","smtA protein","smtAmukFEB","cell division","smtA_b0921_st",972760,973541
+"176","mukF","(kicB) killing factor MukF","smtAmukFEB","cell division","mukF_b0922_st",973546,974864
+"177","mukE","(kicA) MukE protein","smtAmukFEB","cell division","mukE_b0923_st",974872,975548
+"178","mukB","cell division protein MukB","smtAmukFEB","cell division","mukB_b0924_st",975550,980009
+"179","pqiA","paraquat-inducible protein A","pqiAB","paraquat, a superoxide radical-generating agent inducible","pqiA_b0950_st",1011224,1012477
+"180","pqiB","paraquat-inducible protein B","pqiAB","paraquat, a superoxide radical-generating agent inducible","pqiB_b0951_st",1012482,1014122
+"181","hyaA","hydrogenase-1 small chain precursor","hya","hydrogenase-1","hyaA_b0972_st",1031362,1032476
+"182","hyaB","hydrogenase-1 large chain","hya","hydrogenase-1","hyaB_b0973_st",1032481,1034270
+"183","hyaC","HyaC protein","hya","hydrogenase-1","hyaC_b0974_st",1034289,1034992
+"184","hyaD","hydrogenase-1 operon protein HyaD","hya","hydrogenase-1","hyaD_b0975_st",1034997,1035576
+"185","hyaE","hydrogenase-1 operon protein HyaE","hya","hydrogenase-1","hyaE_b0976_st",1035581,1035971
+"186","hyaF","hydrogenase-1 operon protein HyaF","hya","hydrogenase-1","hyaF_b0977_st",1035976,1036829
+"187","Regulation","controled by appR (katF)","appCBA","cytochrome bd terminal oxidase; stationary phase",NA,NA,NA
+"188","appC","cytochrome bd-II oxidase subunit I","appCBA","cytochrome bd terminal oxidase; stationary phase","appC_b0978_st",1036963,1038507
+"189","appB","cytochrome bd-II oxidase subunit II","appCBA","cytochrome bd terminal oxidase; stationary phase","appB_b0979_st",1038519,1039655
+"190","appA","periplasmic phosphoanhydride phosphohydrolase precursor","appCBA","cytochrome bd terminal oxidase; stationary phase","appA_b0980_st",1039840,1041138
+"191","torC","cytochrome c-type protein TorC","torCAD","part of the respiratory chain of trimethylamine-n-oxide reductase","torC_b0996_st",1057307,1058478
+"192","torA","trimethylamine-N-oxide reductase precursor","torCAD","part of the respiratory chain of trimethylamine-n-oxide reductase","torA_b0997_st",1058480,1061021
+"193","torD","TorD protein","torCAD","part of the respiratory chain of trimethylamine-n-oxide reductase","torD_b0998_st",1061026,1061621
+"194","csgD","putative regulatory protein necessary for transcription of the csgBA","csgDEFG","curli","csgD_b1040_st",1101769,1102419
+"195","csgE","assembly/transport component in curli","csgDEFG","curli","csgE_b1039_st",1101375,1101764
+"196","csgF","assembly/transport component in curli","csgDEFG","curli","csgF_b1038_st",1100934,1101350
+"197","csgG","assembly/transport component in curli","csgDEFG","curli","csgG_b1037_st",1100074,1100907
+"198","csgB","nucleation component of curlin monomers","csgBA","curlin","csgB_b1041_st",1103174,1103629
+"199","csgA","major curlin subunit precursor","csgBA","curlin","csgA_b1042_st",1103670,1104125
+"200","mdoG","periplasmic glucans biosynthesis protein MdoG","mdoGH","biosynthesis of periplasmic membrane-derived oligosaccharides","mdoG_b1048_st",1108558,1110085
+"201","mdoH","periplasmic glucans biosynthesis protein MdoH","mdoGH","biosynthesis of periplasmic membrane-derived oligosaccharides","mdoH_b1049_st",1110094,1112629
+"202","flgA","","flgAMN","flagellar biosynthesis","flgA_b1072_st",1129427,1130086
+"203","flgM","","flgAMN","flagellar biosynthesis","flgM_b1071_st",1129058,1129351
+"204","flgN","","flgAMN","flagellar biosynthesis","flgN_b1070_st",1128637,1129053
+"205","flgB","(flbA) putative flagellar basal-body rod protein FlgB (proximal rod protein)","flgBCDEFGHI","flagellar biosynthesis","flgB_b1073_st",1130241,1130657
+"206","flgC","(flaW) putative flagellar basal-body rod protein FlgC (proximal rod protein)","flgBCDEFGHI","flagellar biosynthesis","flgC_b1074_st",1130661,1131065
+"207","flgD","(flaV) flagellar biosynthesis, initiation of hook assembly","flgBCDEFGHI","flagellar biosynthesis","flgD_b1075_st",1131077,1131772
+"208","flgE","(flaK) flagellar biosynthesis, hook protein","flgBCDEFGHI","flagellar biosynthesis","flgE_b1076_st",1131797,1133005
+"209","flgF","(flaX) flagellar biosynthesis, cell-proximal portion of basal-body rod","flgBCDEFGHI","flagellar biosynthesis","flgF_b1077_st",1133025,1133780
+"210","flgG","(flaL) flagellar biosynthesis, cell-distal portion of basal-body rod","flgBCDEFGHI","flagellar biosynthesis","flgG_b1078_st",1133952,1134734
+"211","flgH","(flaY) flagellar biosynthesis, basal-body outer membrane L (lipopolysaccharide layer) ring protein","flgBCDEFGHI","flagellar biosynthesis","flgH_b1079_st",1134787,1135485
+"212","flgI","(flaM) flagellar biosynthesis, basal-body periplasmic P ring protein","flgBCDEFGHI","flagellar biosynthesis","flgI_b1080_st",1135497,1136593
+"213","flgK","(flaS) flagellar biosynthesis; hook-filament junction protein","flgKL","flagellar biosynthesis","flgK_b1082_st",1137601,1139244
+"214","flgL","(flaT) flagellar biosynthesis; hook-filament junction protein","flgKL","flagellar biosynthesis","flgL_b1083_st",1139256,1140209
+"215","yceD","g30k protein","rpmF","ribosomal protein","yceD_b1088_st",1146017,1146538
+"216","rpmF","ribosomal protein L32","rpmF","ribosomal protein","rpmF_b1089_st",1146590,1146763
+"217","fabD","malonyl CoA-acyl carrier protein transacylase","fabDGacpP","fatty acid biosynthesis","fabD_b1092_st",1148951,1149880
+"218","fabG","3-ketoacyl-acyl carrier protein reductase","fabDGacpP","fatty acid biosynthesis","fabG_b1093_st",1149893,1150627
+"219","acpP","acyl carrier protein","fabDGacpP","fatty acid biosynthesis","acpP_b1094_st",1150838,1151074
+"220","phoP","regulator","phoPQ","two-component system","phoP_b1130_st",1189000,1189670
+"221","phoQ","sensor","phoPQ","two-component system","phoQ_b1129_st",1187539,1188998
+"222","umuD","","umuDC","SOS response","umuD_b1183_st",1229990,1230408
+"223","umuC","","umuDC","SOS response","umuC_b1184_st",1230410,1231677
+"224","dadA","D-amino acid dehydrogenase minor subunit","dadAX","smaller subunit of D-amino acid dehydrogenase","dadA_b1189_st",1236794,1238092
+"225","dadX","catabolic alanine racemase","dadAX","smaller subunit of D-amino acid dehydrogenase","dadX_b1190_st",1238102,1239172
+"226","hemA","delta-aminolevulinate synthase glutamyl-tRNA reductase","kdsA","3-deoxy-D-manno-octulosonic acid metabolism and biosynthesis of enterobacterial lipopolysaccharide","hemA_b1210_st",1262937,1264193
+"227","prfA","peptide chain release factor 1","kdsA","3-deoxy-D-manno-octulosonic acid metabolism and biosynthesis of enterobacterial lipopolysaccharide","prfA_b1211_st",1264235,1265316
+"228","hemK","possible protoporphyrinogen oxidase","kdsA","3-deoxy-D-manno-octulosonic acid metabolism and biosynthesis of enterobacterial lipopolysaccharide","hemK_b1212_st",1265318,1266146
+"229","1186","o130","kdsA","3-deoxy-D-manno-octulosonic acid metabolism and biosynthesis of enterobacterial lipopolysaccharide",NA,NA,NA
+"230","ychA","hypothetical protein","kdsA","3-deoxy-D-manno-octulosonic acid metabolism and biosynthesis of enterobacterial lipopolysaccharide","ychA_b1214_st",1266543,1267352
+"231","kdsA ","3-deoxy-D-manno-octulosonic acid 8-phosphate synthetase","kdsA","3-deoxy-D-manno-octulosonic acid metabolism and biosynthesis of enterobacterial lipopolysaccharide",NA,NA,NA
+"232","narX","nitrate/nitrite sensor protein narX","narXL","two-compoment system","narX_b1222_st",1275053,1276841
+"233","narL","nitrate/nitrite response regulator protein narL","narXL","two-compoment system","narL_b1221_st",1274402,1275044
+"234","narG","nitrate reductase alpha-subunit precursor","narGHJI","nitrate reductase","narG_b1224_st",1279087,1282826
+"235","narH","respiratory nitrate reductase 1 beta chain","narGHJI","nitrate reductase","narH_b1225_st",1282831,1284361
+"236","narJ","respiratory nitrate reductase 1 delta chain","narGHJI","nitrate reductase","narJ_b1226_st",1284366,1285071
+"237","narI","respiratory nitrate reductase 1 gamma chain","narGHJI","nitrate reductase","narI_b1227_st",1285073,1285749
+"238","oppA","periplasmic oligopeptide binding protein","oppABCDF","oligopeptide transport","oppA_b1243_st",1299206,1300837
+"239","oppB","oligopeptide transport system permease protein","oppABCDF","oligopeptide transport","oppB_b1244_st",1300923,1301843
+"240","oppC","oligopeptide transport system permease protein","oppABCDF","oligopeptide transport","oppC_b1245_st",1301858,1302766
+"241","oppD","oligopeptide transport ATP-binding protein","oppABCDF","oligopeptide transport","oppD_b1246_st",1302778,1303787
+"242","oppF","oligopeptide transport ATP-binding protein","oppABCDF","oligopeptide transport","oppF_b1247_st",1303792,1304792
+"243","trpE","anthranilate synthase component I (EC 4.1.3.27)","trp","tryptophan biosynthesis","trpE_b1264_st",1319409,1320970
+"244","trpD","glutamine amidotransferase (EC 4.1.3.27) and phosphoribosylanthranilate transferase (EC 2.4.2.18)","trp","tryptophan biosynthesis","trpD_b1263_st",1317813,1319407
+"245","trpC","N-(5-phosphoribosyl)anthranilate isomerase (EC 5.3.1.24) and indole-3-glycerolphosphate synthetase (EC 4.1.1.48)","trp","tryptophan biosynthesis","trpC_b1262_st",1316451,1317812
+"246","trpB","tryptophan synthase (EC 4.2.1.20), B protein","trp","tryptophan biosynthesis","trpB_b1261_st",1315247,1316439
+"247","trpA","tryptophan synthase (EC 4.2.1.20), A protein","trp","tryptophan biosynthesis","trpA_b1260_st",1314440,1315245
+"248","pyrF","orotidine 5 monophosphate (OMP) decarboxylase	pyrF	OMP decarboxylase
+yciH	hypothetical 11.4 kD protein	pyrF	OMP decarboxylase
+sapA	peptide transport periplasmic protein SapA	sap	peptide uptake
+sapB	peptide transport system permease protein SapB	sap	peptide uptake
+sapC	peptide transport system permease protein SapC	sap	peptide uptake
+sapD	peptide transport system atp-binding protein SapD	sap	peptide uptake
+sapF	peptide transport system ATP-binding protein SapF	sap	peptide uptake
+pspA	shock protein, associated with inner membrane	pspABCDE	phage shock protein
+pspB	shock protein B	pspABCDE	phage shock protein
+pspC	shock protein activates psp operon expression	pspABCDE	phage shock protein
+pspD	shock protein D	pspABCDE	phage shock protein
+pspE	shock protein E	pspABCDE	phage shock protein
+tehA	tellurite resistance protein TehA	tehAB	potassium tellurite resistance
+tehB	tellurite resistance protein TehB	tehAB	potassium tellurite resistance
+narZ	second nitrate reductase subunit	narZYWV	nitrate reductase
+narY		narZYWV	nitrate reductase
+narW		narZYWV	nitrate reductase
+narV		narZYWV	nitrate reductase
+fdnG	formate dehydrogenase nitrate-inducible major subunit	fdnGHI	formate dehydrogenase
+fdnH	formate dehydrogenase nitrate-inducible beta subunit	fdnGHI	formate dehydrogenase
+fdnI	formate dehydrogenase nitrate-inducible cytochrome b556 subunit	fdnGHI	formate dehydrogenase
+hipB	HipB protein	hip	high-frequency persistence to the lethal effects
+hipA	HipA protein	hip	high-frequency persistence to the lethal effects
+marR	multiple antibiotic resistance protein MarR	marRAB	antibiotic resistance and oxidative stress genes
+marA	multiple antibiotic resistance protein MarA	marRAB	antibiotic resistance and oxidative stress genes
+marB	multiple antibiotic resistance protein MarB	marRAB	antibiotic resistance and oxidative stress genes
+Regulation	transcription start; similar to phage P22 immC sequence	dicB	cell division control
+ydfA	hypothetical 5.8 kD protein	dicB	cell division control
+ydfB		dicB	cell division control
+ydfC	hypothetical 8.3 kD protein	dicB	cell division control
+dicB	cell division inhibitor	dicB	cell division control
+ydfD	hypothetical 6.8 kD protein	dicB	cell division control
+ydfE	35 kD YdfE	dicB	cell division control
+rstA	(urpT) response regulator homolog	rst	(urp) two-component system
+rstB	(uspT) sensor kinase homolog	rst	(urp) two-component system
+uidA	(gusA) glucuronidase	uidABC	beta-glucuronidase
+uidB	(gusB) glucuronide permease	uidABC	beta-glucuronidase
+gusC	(uidC) membrane-associated protein	uidABC	beta-glucuronidase
+malX	phosphotransferase system enzyme II	malXY	maltose metabolism
+malY	abolishing the endogenous induction of the maltose system	malXY	maltose metabolism
+pdxH	pyridoxamine 5-phosphate oxidase","pdxH-tyrS","tRNA synthetase & oxidase","pyrF_b1281_st",1339945,1340678
+"249","tyrS","transfer RNA-Tyr synthetase","pdxH-tyrS","tRNA synthetase & oxidase","tyrS_b1637_st",1713972,1715246
+"250","btuC","vitamin Bl2 transport; cytoplasmic membrane","btuCED","vitamin Bl2 transport","btuC_b1711_st",1792196,1793176
+"251","btuE","periplasmic protein","btuCED","vitamin Bl2 transport","btuE_b1710_st",1791583,1792133
+"252","btuD","vitamin Bl2 transport, membrane-associated protein","btuCED","vitamin Bl2 transport","btuD_b1709_st",1790833,1791581
+"253","pheS","phenylalanine tRNA synthetase (EC 6.1.1.20), alpha subunit","pheST","phenylalanine tRNA synthetase","pheS_b1714_st",1795983,1796966
+"254","pheT","phenylalanine tRNA synthetase (EC 6.1.1.20), beta subunit","pheST","phenylalanine tRNA synthetase","pheT_b1713_st",1793581,1795968
+"255","celA","unknown product","celABCDF","cellobiose uptake","celA_b1738_st",1819323,1819643
+"256","celB","PEP dependent phosphotransferase enzyme II cellobiose","celABCDF","cellobiose uptake","celB_b1737_st",1817880,1819238
+"257","celC","enzyme III - cellobiose","celABCDF","cellobiose uptake","celC_b1736_st",1817479,1817829
+"258","celD","repressor of the cel opern","celABCDF","cellobiose uptake","celD_b1735_st",1816629,1817471
+"259","celF","phospho-beta-blucosidase","celABCDF","cellobiose uptake","celF_b1734_st",1815172,1816524
+"260","Regulation","promoter","manXYZ","mannose uptake",NA,NA,NA
+"261","manX","mannose permease subunit III-Man","manXYZ","mannose uptake","manX_b1817_st",1900072,1901043
+"262","manY","mannose permease subunit II-P-Man","manXYZ","mannose uptake","manY_b1818_st",1901106,1901906
+"263","manZ","mannose permease subunit II-M-Man","manXYZ","mannose uptake","manZ_b1819_st",1901910,1902770
+"264","edd","6-phosphogluconate dehydratase","edd-eda","Entner-Doudoroff pathway","edd_b1851_st",1930817,1932628
+"265","eda","KDPG aldolase","edd-eda","Entner-Doudoroff pathway","eda_b1850_st",1930139,1930780
+"266","ruvA","holliday junction DNA helicase RuvA","ruvAB","DNA repair and recombination","ruvA_b1861_st",1943389,1944000
+"267","ruvB","holliday junction DNA helicase RuvB","ruvAB","DNA repair and recombination","ruvB_b1860_st",1942370,1943380
+"268","1848","(flhB) flagellar biosynthesis protein","flhBA","flagellar biosynthesis",NA,NA,NA
+"269","flhA","flagellar biosynthesis protein","flhBA","flagellar biosynthesis","flhA_b1879_st",1960997,1963066
+"270","tar","(cheM) ethyl-accepting chemotaxis protein 11, chemoreceptor for aspartate","cheRBYZ","motilily and chemotaxis","tar_b1886_st",1969054,1970715
+"271","tap","methyl-accepting chemotaxis protein IV, peptide receptor","cheRBYZ","motilily and chemotaxis","tap_b1885_st",1967407,1969008
+"272","cheR","response regulator for chemotaxis; protein glutamate methyltransferase activity (EC 2.1.1.80) methylates receptors","cheRBYZ","motilily and chemotaxis","cheR_b1884_st",1966528,1967388
+"273","cheB","response regulator for chemotaxis (cheA sensor); protein methyl-esterase (EC 3.1.1.61) demethylates receptors","cheRBYZ","motilily and chemotaxis","cheB_b1883_st",1965476,1966525
+"274","cheY","response regulator for chemotactic response (cheA sensor); switch regulator placing it in counterclockwisc state","cheRBYZ","motilily and chemotaxis","cheY_b1882_st",1965072,1965461
+"275","cheZ","chemotactic response; CheY protein phosphatase; antagonist of CheY as switch regulator","cheRBYZ","motilily and chemotaxis","cheZ_b1881_st",1964417,1965061
+"276","motA","proton conductor component of motor; no effect on switching","motABcheAW","chemotaxis","motA_b1890_st",1974280,1975163
+"277","motB","enables flagellar motor rotation, linking torque machillery to cell wall; no effect on switching","motABcheAW","chemotaxis","motB_b1889_st",1973353,1974275
+"278","cheA","sensor for cheY and cheB chemotactic response; histidine protein kinase (EC 2.7.1.-)","motABcheAW","chemotaxis","cheA_b1888_st",1971384,1973348
+"279","cheW","positive regulator of CheA protein activity","motABcheAW","chemotaxis","cheW_b1887_st",1970860,1971363
+"280","flhD","(flbB) flagellar transcriptional activator","flhDC","flagellar transcriptional activators",NA,NA,NA
+"281","flhC","(flaI) flagellar transcriptional activator","flhDC","flagellar transcriptional activators","flhC_b1891_st",1975290,1975868
+"282","otsB","trehalose-6-phosphate phosphatase","otsBA","trehalose synthesis","otsB_b1897_st",1979637,1980411
+"283","otsA","trehalose-6-phosphate synthase","otsBA","trehalose synthesis","otsA_b1896_st",1978212,1979610
+"284","araF ","L-arabinose binding preprotein","araFGH","periplasmic binding protein inner membrane protein controled by araC",NA,NA,NA
+"285","Regulation","terminator","araFGH","periplasmic binding protein inner membrane protein controled by araC",NA,NA,NA
+"286","araG","high-affinity L-arabinose transport system","araFGH","periplasmic binding protein inner membrane protein controled by araC","araG_b1900_st",1981578,1983092
+"287","1867","","araFGH","periplasmic binding protein inner membrane protein controled by araC",NA,NA,NA
+"288","araH","high-affinity L-arabinose transport system; membrane protein","araFGH","periplasmic binding protein inner membrane protein controled by araC","araH_2_b1898_st",1980578,1980838
+"289","Regulation","terminator","araFGH","periplasmic binding protein inner membrane protein controled by araC",NA,NA,NA
+"290","uvrY","23.9 kD protein","uvrYC","DNA repair","uvrY_b1914_st",1992726,1993382
+"291","uvrC","excinuclease ABC subunit C","uvrYC","DNA repair","uvrC_b1913_st",1990897,1992663
+"292","fliA","(flaD) RNA polymerase sigma factor for flagellar operon","fliAZY","flagellar biosynthesis","fliA_b1922_st",1999093,1999812
+"293","fliZ","FliZ protein","fliAZY","flagellar biosynthesis","fliZ_b1921_st",1998496,1999083
+"294","fliY","member of the extracellular solute-binding protein family 3","fliAZY","flagellar biosynthesis","fliY_b1920_st",1997608,1998408
+"295","fliD","","fliDST","flagellar biosynthesis","fliD_b1924_st",2001895,2003301
+"296","fliS","","fliDST","flagellar biosynthesis","fliS_b1925_st",2003326,2003735
+"297","fliT","","fliDST","flagellar biosynthesis","fliT_b1926_st",2003737,2004101
+"298","fliF","(flaBI) flagellar m-ring protein","fliFGHIJK","flagellar biosynthesis","fliF_b1938_st",2011251,2012901
+"299","fliG","(flaBII) flagellar motor switch protein FliG","fliFGHIJK","flagellar biosynthesis","fliG_b1939_st",2012910,2013868
+"300","fliH","(flaBIII) flagellar assembly protein FliH","fliFGHIJK","flagellar biosynthesis","fliH_b1940_st",2013898,2014575
+"301","fliI","(flaC) flagellar biosynthesis; export of flagellar proteins?","fliFGHIJK","flagellar biosynthesis","fliI_b1941_st",2014577,2015949
+"302","fliJ","(flaO) flagellar biosynthesis","fliFGHIJK","flagellar biosynthesis","fliJ_b1942_st",2015968,2016407
+"303","fliK","(flaE) flagellar biosynthesis, hook length control","fliFGHIJK","flagellar biosynthesis","fliK_b1943_st",2016412,2017535
+"304","fliL","(flaAI) FliL protein","fliLMNOPQR","flagellar biosynthesis","fliL_b1944_st",2017640,2018104
+"305","fliM","(flaAII) flagellar motor switch protein FliM","fliLMNOPQR","flagellar biosynthesis","fliM_b1945_st",2018109,2019109
+"306","fliN","(motD) flagellar motor switch protein FliN","fliLMNOPQR","flagellar biosynthesis","fliN_b1946_st",2019114,2019523
+"307","fliO","(flbD) flagellar protein FliO","fliLMNOPQR","flagellar biosynthesis","fliO_b1947_st",2019586,2019890
+"308","fliP","(flaR) flagellar biosynthesis","fliLMNOPQR","flagellar biosynthesis","fliP_b1948_st",2019892,2020628
+"309","fliQ","(flaQ) flagellar biosynthesis","fliLMNOPQR","flagellar biosynthesis","fliQ_b1949_st",2020638,2020907
+"310","fliR","(flaP) flagellar biosynthesis","fliLMNOPQR","flagellar biosynthesis","fliR_b1950_st",2020915,2021700
+"311","dcm","DNA-cytosine methyltransferase","dcm-vsr","DNA processing","dcm_b1961_st",2028941,2030339
+"312","vsr","very short patch repair by repairing the mismatches in favor of the G-containing strand","dcm-vsr","DNA processing","vsr_b1960_st",2028470,2028920
+"313","cobU","cobinamide kinase and guanylyltransferase","cobUST","cobalamin (coenzyme B12) biosynthesis",NA,NA,NA
+"314","cobS","cobalamin (5-phosphate) synthase	cobUST	cobalamin (coenzyme B12) biosynthesis
+cobT	nicotinate-nucleotide-dimethylbenzimidazole phosphoribosyl transferase	cobUST	cobalamin (coenzyme B12) biosynthesis
+hisG	ATP phosphoribosyltransferase (EC 2.4.2.17)	hisGDCBHAFE	histidine biosynthesis
+hisD	L-histidinol:NAD+ oxidoreductase (EC 1.1.1.23)	hisGDCBHAFE	histidine biosynthesis
+hisC	histidinol-phosphate aminotransferase (EC 2.6.1.9)	hisGDCBHAFE	histidine biosynthesis
+hisB	imidazoleglycerolphosphate dehydratase (EC 4.2.1.19) and histidinol phosphate phosphatase (EC 3.1.3.15)	hisGDCBHAFE	histidine biosynthesis
+hisH	amidotransferase (EC 2.4.2.-)	hisGDCBHAFE	histidine biosynthesis
+hisA	N-(5-phospho-L-ribosyl-formimino)-5-amino-l-(5-phosphoribosyl)-4-imidazolecarboxamide isomerase (EC 5.3.1.16)	hisGDCBHAFE	histidine biosynthesis
+hisF	cyclase	hisGDCBHAFE	histidine biosynthesis
+hisI	(hisIE) phosphoribosyl-AMP cyclohydrolase (EC 3.5.4.19) and phosphoribosyl-ATP pyrophosphatase (EC 3.6.1.31)	hisGDCBHAFE	histidine biosynthesis
+rfbB	TDP-glucose oxidoreductase	rfb	O-specific lipopolysaccharide biosynthesis
+rfbD	TDP-rhamnose synthetase	rfb	O-specific lipopolysaccharide biosynthesis
+rfbA	TDP-glucose pyrophosphorylase	rfb	O-specific lipopolysaccharide biosynthesis
+rfbC		rfb	O-specific lipopolysaccharide biosynthesis
+rfbX	putative O-antigen transporter	rfb	O-specific lipopolysaccharide biosynthesis
+yefE	hypothetical 43.0 kD protein; putative Galf synthesis pathway protein	rfb	O-specific lipopolysaccharide biosynthesis
+rfc	putative O-antigen polymerase	rfb	O-specific lipopolysaccharide biosynthesis
+yefG	hypothetical 37.8 kD protein; putative Galf transferase	rfb	O-specific lipopolysaccharide biosynthesis
+yefH	putative O-acetyl transferase	rfb	O-specific lipopolysaccharide biosynthesis
+yefI	putative glucose transferase	rfb	O-specific lipopolysaccharide biosynthesis
+dcd	deoxycytidine triphosphate deaminase	dcd	deoxycytidine triphosphate deaminase
+yegA	ORF; may be in an operon with dcd gene	dcd	deoxycytidine triphosphate deaminase
+baeS	kinase	baeSR	two-component system
+baeR	regulator	baeSR	two-component system
+gatY	unknown	gat	galactitol uptake
+gatZ	unknown	gat	galactitol uptake
+gatA	EIIA domain;PTS-dependent Gat transport and phosphorylation	gat	galactitol uptake
+gatB	EIIB	gat	galactitol uptake
+gatC	EIIC	gat	galactitol uptake
+gatD	galactitol-1-phosphate dehydrogenase	gat	galactitol uptake
+mglB	galactose-binding protein; receptor for galactose taxis	mglBA	galactose transport
+mglA	methyl-galactoside transport and galactose taxis, cytoplasmic membrane protein	mglBA	galactose transport
+mglC	methyl-galactoside transport and galactose taxis	mglBA	galactose transport
+fruB	fructose-specific IIBC component	fru	fructose uptake
+fruK	1-phosphofructokinase	fru	fructose uptake
+fruA	fructose-specific IIA/FPR component	fru	fructose uptake
+ccmA	ABC-type ATP-dependent transporter heme exporter protein A	ccmABCDEFGH	biogenesis of c-type cytochrome
+ccmB	heme exporter protein B	ccmABCDEFGH	biogenesis of c-type cytochrome
+ccmC	heme exporter protein C	ccmABCDEFGH	biogenesis of c-type cytochrome
+ccmD	heme exporter protein D	ccmABCDEFGH	biogenesis of c-type cytochrome
+ccmE	required for the biogenesis of c-type cytochromes	ccmABCDEFGH	biogenesis of c-type cytochrome
+ccmF	required for the biogenesis of c-type cytochromes	ccmABCDEFGH	biogenesis of c-type cytochrome
+dsbE	(ccmG) probable thioredoxin	ccmABCDEFGH	biogenesis of c-type cytochrome
+ccmH	required for the biogenesis of c-type cytochromes	ccmABCDEFGH	biogenesis of c-type cytochrome
+napA	probable nitrate reductase	napAGHBC	electron transfer
+napG	ferredoxin-type protein	napAGHBC	electron transfer
+napH	ferredoxin-type protein	napAGHBC	electron transfer
+napB	cytochrome c-type protein	napAGHBC	electron transfer
+napC	cytochrome c-type protein	napAGHBC	electron transfer
+ada	O6-methylguanine-DNA methyltransferase; regulatory protein which activates the transcription of alkA, alkB and aidB	ada-alkB	DNA repair
+alkB	AlkB protein; repairing DNA alkylation damage	ada-alkB	DNA repair
+atoS	kinase	atoSC	two-component system
+atoC	regulator; ornithine decarboxylase antizyme	atoSC	two-component system
+atoD	acetyl-CoA:acetoacetyl-CoA transferase (EC 2.8.3.8) subunit A	atoDAB	short-chain fatty acids metabolism
+atoA	acetyl-CoA:acetoacetyl-CoA transferase (EC 2.8.3.8) subunit B	atoDAB	short-chain fatty acids metabolism
+atoB	acetyl-CoA acetyltransferase (EC 2.3.1.9)	atoDAB	short-chain fatty acids metabolism
+nrdA	ribonucleoside diphosphate reductase B1 subunit	nrdAB	ribonucleoside diphosphate reductase
+nrdB	ribonucleoside diphosphate reductase B2 subunit	nrdAB	ribonucleoside diphosphate reductase
+glpT	sn-glycerol-3-phosphate permease	glpTQ	sn-glycerol-3-phosphate uptake
+glpQ	glycerophosphodiester diesterase (EC 3.1.4.46)	glpTQ	sn-glycerol-3-phosphate uptake
+glpA	glycerol-3-phosphate dehydrogenase subunit A	glpABC	glycerol-3-phosphate dehydrogenase
+glpB	glycerol-3-phosphate dehydrogenase subunit B	glpABC	glycerol-3-phosphate dehydrogenase
+glpC	glycerol-3-phosphate dehydrogenase subunit C	glpABC	glycerol-3-phosphate dehydrogenase
+menF		menFDBCE	menaquinone (vitamin K2) biosynthesis
+menD		menFDBCE	menaquinone (vitamin K2) biosynthesis
+yfbB		menFDBCE	menaquinone (vitamin K2) biosynthesis
+menB		menFDBCE	menaquinone (vitamin K2) biosynthesis
+menC	OSB synthase; o-succinylbenzoate synthase	menFDBCE	menaquinone (vitamin K2) biosynthesis
+menE	OSB-CoA synthase; o-succinylbenzoate-CoA synthase	menFDBCE	menaquinone (vitamin K2) biosynthesis
+nuoA	NADH dehydrogenase I, subunit NuoA	nuo	NADH dehydrogenase
+nuoB	NADH dehydrogenase I, subunit NuoB	nuo	NADH dehydrogenase
+2244	(nuoD) NADH dehydrogenase I, subunit NuoD	nuo	NADH dehydrogenase
+nuoE	NADH dehydrogenase I, subunit NuoE	nuo	NADH dehydrogenase
+nuoF	NADH dehydrogenase I, subunit NuoF	nuo	NADH dehydrogenase
+nuoG	NADH dehydrogenase I, subunit NuoG	nuo	NADH dehydrogenase
+nuoH	NADH dehydrogenase I, subunit NuoH	nuo	NADH dehydrogenase
+nuoI	NADH dehydrogenase I, subunit NuoI	nuo	NADH dehydrogenase
+nuoJ	NADH dehydrogenase I, subunit NuoJ	nuo	NADH dehydrogenase
+nuoK	NADH dehydrogenase I, subunit NuoK	nuo	NADH dehydrogenase
+nuoL	NADH dehydrogenase I, subunit NuoL	nuo	NADH dehydrogenase
+nuoM	NADH dehydrogenase I, subunit NuoM	nuo	NADH dehydrogenase
+nuoN	NADH dehydrogenase I, subunit NuoN	nuo	NADH dehydrogenase
+ackA	acetate kinase	ackA-pta	the activation of acetate to acetyl CoA
+pta	phosphoacetyltransferase	ackA-pta	the activation of acetate to acetyl CoA
+hisM	histidine transport system permease protein HisM	hisMP	histidine transport
+hisP 	histidine transport ATP-binding protein HisP	hisMP	histidine transport
+cvpA	dedE;colicin V production protein	purF	de novo purine nucleotide biosynthes
+purF	amidophosphoribosyltransferase (EC 2.4.2.14)	purF	de novo purine nucleotide biosynthes
+ubiX	dedF;3-octaprenyl-4-hydroxybenzoate carboxy-lyase	purF	de novo purine nucleotide biosynthes
+Regulation	terminator	purF	de novo purine nucleotide biosynthes
+folC	(dedC) folylpolyglutamate synthase (EC 6.3.2.17)	dedCD	folylpolyglutamate synthase
+dedD	DedD protein	dedCD	folylpolyglutamate synthase
+Regulation	terminator	dedCD	folylpolyglutamate synthase
+pdxB	pseudouridine synthase I	hisT	pseudouridine synthase
+usg	(usg1) Usg protein	hisT	pseudouridine synthase
+truA	(hisT) pseudouridine synthase 1	hisT	pseudouridine synthase
+dedA	Dsg protein	hisT	pseudouridine synthase
+accD	(dedB) acetyl-CoA carboxylase beta subunit	hisT	pseudouridine synthase
+Regulation	terminator	hisT	pseudouridine synthase
+dsdX	probable permease for an unknown substrate	dsdXA	D-serine uptake
+dsdA	D-serine deaminase	dsdXA	D-serine uptake
+xapA	xanthosine phosphorylase	xapAB	xanthosine uptake
+xapB	xanthosine permease	xapAB	xanthosine uptake
+ptsH	sugar phosphotransferase HPr	pts	sugar uptake
+ptsI	enzyme I	pts	sugar uptake
+crr	enzyme III for glucose	pts	sugar uptake
+Regulation	terminator	pts	sugar uptake
+cysP	thiosulfate binding protein	cysPTWAM	thiosulfate transport
+cysU	(cysT) sulfate permease T protein	cysPTWAM	thiosulfate transport
+cysW	sulfate permease W protein	cysPTWAM	thiosulfate transport
+cysA	sulfate permease A protein; chromate resistance	cysPTWAM	thiosulfate transport
+cysM	O-acetylserine sulfhydrolase B (EC 4.2.99.8)	cysPTWAM	thiosulfate transport
+amiA	probable n-acetylmuramoyl-l-alanine amidase	amiAhemF	coproporphyrinogen oxidase
+hemF	coproporphyrinogen oxidase	amiAhemF	coproporphyrinogen oxidase
+dapA	dihydrodipicolinate synthase (EC 4.2.1.52)	dapAnlp	lysine biosynthesis
+nlpB	lipoprotein-34	dapAnlp	lysine biosynthesis
+upp	uracil phosphoribosyltransferase	upp-uraA	utilization of uracil
+uraA	uracil permease	upp-uraA	utilization of uracil
+purM	phosphoribosylformylglycinamidine cyclo-ligase	purMN	de novo purine biosynthesis
+purN	phosphoribosylglycinamidine formyltransferase	purMN	de novo purine biosynthesis
+ppk	polyphosphate kinase	ppx	degradation of inorganic polyphosphates
+ppx	exopolyphosphatase	ppx	degradation of inorganic polyphosphates
+guaB	IMP dehydrogenase	guaBA	purine catabolite
+guaA	GMP synthetase	guaBA	purine catabolite
+Regulation	PDX box	pdxJ	pyridoxal 5-phosphate biosynthesis","","","cobS_b1992_st",2062501,2063240
+"315","pdxJ","pyridoxal phosphate biosynthesis","pdxJ","pyridoxal 5-phosphate biosynthesis
+acpS	holo-[acyl-carrier protein] synthase (EC 2.7.8.7)	pdxJ	pyridoxal 5-phosphate biosynthesis","pdxJ_b2564_st",2699019,2699749
+"316","rnc","RNase III","rnc","DNA/RNA processing","rnc_b2567_st",2701407,2702083
+"317","era","GTP-binding protein era","rnc","DNA/RNA processing","era_b2566_st",2700501,2701402
+"318","recO","conjugational recombination and DNA repair","rnc","DNA/RNA processing","recO_b2565_st",2699761,2700489
+"319","lepA","GTP binding protein","lepAB","secretory machinery","lepA_b2569_st",2703345,2705144
+"320","lepB","signal peptidase I","lepAB","secretory machinery","lepB_b2568_st",2702355,2703329
+"321","aroF","DHAP synthetase","tyr","biosynthesis of aromatic amino acids","aroF_b2601_st",2738100,2739170
+"322","tyrA","chorismate mutase/prephenate dehydratase","tyr","biosynthesis of aromatic amino acids","tyrA_b2600_st",2736968,2738089
+"323","Regulation","terminator","tyr","biosynthesis of aromatic amino acids",NA,NA,NA
+"324","rpsP","ribosomal protein S16","trmD","ribosomal protein","rpsP_b2609_st",2743957,2744205
+"325","yfjA","","trmD","ribosomal protein","yfjA_b2608_st",2743390,2743947
+"326","trmD","tRNA (m1G) methyltransferae","trmD","ribosomal protein","trmD_b2607_st",2742592,2743359
+"327","rplS","ribosomal protein L19","trmD","ribosomal protein","rplS_b2606_st",2742203,2742550
+"328","nrdE","ribonucleoside-diphosphate reductase 2 alpha chain","nrdEF","one of two class I ribonucleotide reductases","nrdE_b2675_st",2799397,2801513
+"329","nrdF","ribonucleoside-diphosphate reductase 2 beta chain","nrdEF","one of two class I ribonucleotide reductases","nrdF_b2676_st",2801523,2802482
+"330","proV","high-affinity transport system for glycine betaine and proline;glycine betaine-binding protein","proVWX","proline transport","proV_b2677_st",2802836,2804030
+"331","proW","high-affinity transport system for glycine betaine and proline","proVWX","proline transport","proW_b2678_st",2804039,2805095
+"332","proX","periplasmic glycine betaine-binding protein","proVWX","proline transport","proX_b2679_st",2805153,2806145
+"333","srlA_1","(gutA) D-glucose (sorbitol)-specific enzyme II of phosphotransferase system","srlABD","glucitol uptake PTS","srlA_b2702_st",2823855,2824414
+"334","srlA_2","","srlABD","glucitol uptake PTS","srlE_b2703_st",2824419,2825374
+"335","srlB","(gutB) D-glucose (sorbitol)-specific enzyme III of phosphotransferase system","srlABD","glucitol uptake PTS","srlB_b2704_st",2825385,2825756
+"336","srlD","(gutD) glucitol (sorbitol)-6-phosphate dehydrogenase (EC 1.1.1.140)","srlABD","glucitol uptake PTS","srlD_b2705_st",2825760,2826539
+"337","gutM","activator","srlABD","glucitol uptake PTS","gutM_b2706_st",2826644,2827003
+"338","srlR","(gutR) repressor","srlABD","glucitol uptake PTS","srlR_b2707_st",2827070,2827843
+"339","gutQ","","srlABD","glucitol uptake PTS","gutQ_b2708_st",2827875,2828801
+"340","ascF","phosphotransferase enzyme II (asc) cryptic, transports specific beta-glucosides (EC 2.7.1.69)","ascFB","cryptic sugar transport","ascF_b2715_st",2837547,2839004
+"341","ascB","6-phospho-beta-glucosidase (EC 3.2.1.86); cryptic","ascFB","cryptic sugar transport","ascB_b2716_st",2839013,2840437
+"342","hycA","transcriptional repression of hyc and hyp operons","hyc","hydrogenase-3","hycA_b2725_st",2847997,2848458
+"343","hycB","probable small subunit of hydrogenase-3, iron-sulfur protein (part of formate hydrogen-lyase [FHL] complex) (EC 1.18.99.1)","hyc","hydrogenase-3","hycB_b2724_st",2847265,2847872
+"344","hycC","membrane-spanning protein of hydrogenase 3 (part of FHL complex) (EC 1.18.99.1)","hyc","hydrogenase-3","hycC_b2723_st",2845438,2847260
+"345","hycD","membrane-spanning protein of hydrogenase 3 (part of FHL complex) (EC 1.18.99.1)","hyc","hydrogenase-3","hycD_b2722_st",2844512,2845435
+"346","hycE","probable iron-sulfur protein of hydrogenase 3 (part of FHL complex) (EC 1.18.99.1)","hyc","hydrogenase-3","hycE_b2721_st",2842785,2844494
+"347","hycF","probable iron-sulfur protein of hydrogenase 3 (part of FHL complex) (EC 1.18.99.1)","hyc","hydrogenase-3","hycF_b2720_st",2842234,2842775
+"348","hycG","hydrogenase activity","hyc","hydrogenase-3","hycG_b2719_st",2841470,2842232
+"349","hycH","processing of large subunit (HycE) of hydrogenase 3 (part of the FHL complex)","hyc","hydrogenase-3","hycH_b2718_st",2841067,2841465
+"350","hypA","pleiotrophic effects on three hydrogenase isozymes","hypABCDE","hydrogenase","hypA_b2726_st",2848670,2849020
+"351","hypB","pleiotrophic effects on three hydrogenase isozymes","hypABCDE","hydrogenase","hypB_b2727_st",2849024,2849886
+"352","hypC","pleiotrophic effects on three hydrogenase isozymes","hypABCDE","hydrogenase","hypC_b2728_st",2849897,2850158
+"353","hypD","pleiotrophic effects on three hydrogenase isozymes","hypABCDE","hydrogenase","hypD_b2729_st",2850160,2851280
+"354","hypE","","hypABCDE","hydrogenase","hypE_b2730_st",2851319,2852287
+"355","cysD","ATP:sulfate adenyltransferase (EC 2.7.7.4), subunit","cysDNC","cysteine biosynthetic pathway","cysD_b2752_st",2873444,2874352
+"356","cysN","ATP-sulfurylase (ATP:sulfate adenylyltransferase) (EC 2.7.7.4),subunit","cysDNC","cysteine biosynthetic pathway","cysN_b2751_st",2872016,2873442
+"357","cysC","adenosine 5-phosphosulfate kinase (EC 2.7.1.25)	cysDNC	cysteine biosynthetic pathway
+cysJ	sulfite reductase (NADPH) flavoprotein beta subunit	cysJIH	cysteine biosynthesis
+cysI	sulfite reductase (NADPH) hemoprotein alpha subunit	cysJIH	cysteine biosynthesis
+cysH	3-phosphoadenosine 5-phosphosulfate sulfotransferase	cysJIH	cysteine biosynthesis
+relA	ATP:GTP 3-pyrophosphotransferase","relA","the stringent response to amino acid starvation","cysC_b2750_st",2871410,2872014
+"358","chpR","(mazE) homologous to plasmid R100 pemI gene","relA","the stringent response to amino acid starvation","chpR_b2783_st",2909114,2909361
+"359","chpA","(mazF) homologous to plasmid R100 pemK gene","relA","the stringent response to amino acid starvation","chpA_b2782_st",2908778,2909112
+"360","mazG","homologous to a /Streptomyces cacaoi/ beta-lactamase","relA","the stringent response to amino acid starvation","mazG_b2781_st",2907916,2908707
+"361","sdaC","putative serine transporter","sdaCB","serine uptake","sdaC_b2796_st",2926251,2927540
+"362","sdaB","L-serine deaminase","sdaCB","serine uptake","sdaB_b2797_st",2927598,2928965
+"363","fucA","L-fuculose-1-phosphate aldolase (EC 4.1.2.17)","fucAO","fucose metabolism","fucA_b2800_st",2931063,2931710
+"364","fucO","L-1,2-propanediol oxidoreductase (EC 1.1.1.77)","fucAO","fucose metabolism","fucO_b2799_st",2929887,2931038
+"365","fucP","fucose permease; maybe symport","fucPIK","fucose uptake metabolism","fucP_b2801_st",2932257,2933573
+"366","fucI","L-fucose isomerase (EC 5.3.1.-)","fucPIK","fucose uptake metabolism","fucI_b2802_st",2933606,2935381
+"367","fucK","L-fuculokinase (EC 2.7.1.51)","fucPIK","fucose uptake metabolism","fucK_b2803_st",2935460,2936908
+"368","fucU","","fucPIK","fucose uptake metabolism","fucU_b2804_st",2936910,2937332
+"369","fucR","positive regulator of the fuc operon","fucPIK","fucose uptake metabolism","fucR_b2805_st",2937390,2938121
+"370","ptr","protease III precursor","ptr-recBD","endopeptidase and exonuclease","ptr_b2821_st",2954026,2956906
+"371","recB","exonuclease V subunit","ptr-recBD","endopeptidase and exonuclease","recB_b2820_st",2950484,2954017
+"372","recD","exonuclease V alpha-subunit","ptr-recBD","endopeptidase and exonuclease","recD_b2819_st",2948657,2950482
+"373","prfB","peptide chain release factor 2","prfBlysS","peptide chain release factor","prfB_b2891_st",3033204,3034302
+"374","lysS","(herC) lysyl-tRNA synthetase (EC 6.1.1.6)","prfBlysS","peptide chain release factor","lysS_b2890_st",3031677,3033194
+"375","gcvT","aminomethyltransferase","gcv","glycine cleavage system","gcvT_b2905_st",3047593,3048687
+"376","gcvH","shuttles the methylamine group of glycine from the P protein to the T protein","gcv","glycine cleavage system","gcvH_b2904_st",3047180,3047569
+"377","gcvP","glycine dehydrogenase","gcv","glycine cleavage system","gcvP_b2903_st",3044188,3047061
+"378","Regulation","terminator","gcv","glycine cleavage system",NA,NA,NA
+"379","Comment","leucine-responsive genes","serA","L-serine biosynthesis",NA,NA,NA
+"380","rpiA","ribose-5-phosphate isomerase","serA","L-serine biosynthesis","rpiA_b2914_st",3056686,3057345
+"381","serA","D-3-phosphoglycerate dehydrogenase","serA","L-serine biosynthesis","serA_b2913_st",3055198,3056430
+"382","glcD","glycolate oxidase","glc","glycolate utilization","glcD_b2979_st",3124538,3126036
+"383","2912","(glcE) glycolate oxidase subunit","glc","glycolate utilization",NA,NA,NA
+"384","glcG","","glc","glycolate utilization","glcG_b2977_st",3121843,3122247
+"385","glcB","","glc","glycolate utilization","glcB_b2976_st",3119650,3121821
+"386","hybA","putative hydrogenase-2 small subunit","hyb","hydrogenase-2","hybA_b2996_st",3142180,3143155
+"387","hybB","probable Ni/Fe-hydrogenase 2 b-type cytochrome subunit","hyb","hydrogenase-2","hybB_b2995_st",3141005,3142168
+"388","hybC","hydrogenase-2 large subunit","hyb","hydrogenase-2","hybC_b2994_st",3139302,3141000
+"389","hybD","HybD protein","hyb","hydrogenase-2","hybD_b2993_st",3138815,3139300
+"390","hybE","HybE protein","hyb","hydrogenase-2","hybE_b2992_st",3138334,3138806
+"391","hybF","HybF protein","hyb","hydrogenase-2","hybF_b2991_st",3137992,3138325
+"392","hybG","HybG protein","hyb","hydrogenase-2","hybG_b2990_st",3137731,3137979
+"393","ttdA","tartrate dehydratse","ttdAB","an oxygen-labile stereospecific L-tartrate dehydratase","ttdA_b3061_st",3204104,3205011
+"394","ttdB","tartrate dehydratse","ttdAB","an oxygen-labile stereospecific L-tartrate dehydratase","ttdB_b3062_st",3205016,3205617
+"395","Regulation","promoter","rpsU-dnaG-rpoD","ribosomal protein",NA,NA,NA
+"396","Regulation","LexA binding site","rpsU-dnaG-rpoD","ribosomal protein",NA,NA,NA
+"397","rpsU","ribosomal protein S21","rpsU-dnaG-rpoD","ribosomal protein","rpsU_b3065_st",3208422,3208637
+"398","dnaG","DNA primase","rpsU-dnaG-rpoD","ribosomal protein","dnaG_b3066_st",3208748,3210493
+"399","rpoD","RNA polymerase sigma-subunit","rpsU-dnaG-rpoD","ribosomal protein","rpoD_b3067_st",3210688,3212529
+"400","Regulation","terminator","rpsU-dnaG-rpoD","ribosomal protein",NA,NA,NA
+"401","ebgA","beta-D-galactosidase, alpha subunit; cryptic gene (EC 3.2.1.23); very poor lactase","ebgAC","beta galactoside utilization","ebgA_b3076_st",3220238,3223362
+"402","ebgC","beta-D-galactosidase, beta subunit; cryptic gene (EC 3.2.1.23)","ebgAC","beta galactoside utilization","ebgC_b3077_st",3223367,3223812
+"403","ygjI","(ebgB) possible homolog of lacY","ebgAC","beta galactoside utilization","ygjI_b3078_st",3223875,3225308
+"404","uxaC","uronate isomerase (EC 5.3.1.12)","uxaCA","pentose and glucuronate interconversion","uxaC_b3092_st",3240969,3242381
+"405","uxaA","altronate hydrolase (EC 4.2.1.7)","uxaCA","pentose and glucuronate interconversion","uxaA_b3091_st",3239467,3240954
+"406","tdcA","tdcABC operon transcriptional activator","tdc","threonine dehydratase","tdcA_b3118_st",3263768,3264706
+"407","tdcB","catabolic threonine dehydratase","tdc","threonine dehydratase","tdcB_b3117_st",3262680,3263669
+"408","tdcC","threonine-serine permease","tdc","threonine dehydratase","tdcC_b3116_st",3261327,3262658
+"409","agaZ","putative tagatose 6-phosphate kinase (EC 2.7.1.-)","aga","N-acetylgalactosamine uptake","agaZ_b3132_st",3276555,3277821
+"410","agaV","N-acetylgalactosamine-specific IIB component 2","aga","N-acetylgalactosamine uptake","agaV_b3133_st",3277836,3278331
+"411","agaW","N-acetylgalactosamine-specific IIC component 2","aga","N-acetylgalactosamine uptake","agaW_b3134_st",3278342,3278743
+"412","agaA","putative N-acetylgalactosamine-6-phosphate deacetylase (EC 3.5.1.-)","aga","N-acetylgalactosamine uptake","agaA_b3135_st",3278763,3279266
+"413","agaS","may be a tagatose-6-phsophate ketose/aldose isomerase","aga","N-acetylgalactosamine uptake","agaS_b3136_st",3279617,3280771
+"414","agaY","tagatose-bisphosphate aldolase","aga","N-acetylgalactosamine uptake","agaY_b3137_st",3280784,3281644
+"415","agaB","N-acetylgalactosamine-specific IIB component 1","aga","N-acetylgalactosamine uptake","agaB_b3138_st",3281811,3282287
+"416","agaC","N-acetylgalactosamine-specific IIC component 1","aga","N-acetylgalactosamine uptake","agaC_b3139_st",3282326,3283118
+"417","agaD","N-acetylgalactosamine-specific IID component","aga","N-acetylgalactosamine uptake","agaD_b3140_st",3283130,3283910
+"418","agaI","putative galactosamine-6-phosphate isomerase (EC 5.3.1.-)","aga","N-acetylgalactosamine uptake","agaI_b3141_st",3283911,3284666
+"419","rpsO","ribosomal protein S15","rpsO-pnp","ribosomal protein","rpsO_b3165_st",3309056,3309325
+"420","pnp","polynucleotide phosphorilase","rpsO-pnp","ribosomal protein","pnp_b3164_st",3306674,3308878
+"421","Regulation","terminator","rpsO-pnp","ribosomal protein",NA,NA,NA
+"422","rbfA","ribosome-binding factor A; P15B","rbfAtruB","RNA modification","rbfA_b3167_st",3310419,3310819
+"423","truB","tRNA pseudouridine 55 synthase; P35","rbfAtruB","RNA modification","truB_b3166_st",3309474,3310417
+"424","yhbC","hypothetical 16.8 kD protein","nusA","transcription & translation","yhbC_b3170_st",3315195,3315653
+"425","nusA","NusA protein","nusA","transcription & translation","nusA_b3169_st",3313680,3315167
+"426","infB","initiation factor IF2-alpha (infB)","nusA","transcription & translation","infB_b3168_st",3310983,3313655
+"427","rplU","ribosomal protein L21","rplUrpmA","ribosomal protein","rplU_b3186_st",3330781,3331092
+"428","rpmA","ribosomal protein L27","rplUrpmA","ribosomal protein","rpmA_b3185_st",3330503,3330760
+"429","yhbN","17.3 kD protein","rpoN","organic nitrogen uptake and assimilation","yhbN_b3200_st",3341053,3341578
+"430","yhbG","probable ABC transporter in ntrA/rpoN 5region	rpoN	organic nitrogen uptake and assimilation
+rpoN	sigma-N (sigma-54)	rpoN	organic nitrogen uptake and assimilation
+yhbH	probable sigma-54 modulation protein	rpoN	organic nitrogen uptake and assimilation
+ptsN	enzyme IIA-Ntr; affects growth on organic nitrogen	rpoN	organic nitrogen uptake and assimilation
+3135	o284	rpoN	organic nitrogen uptake and assimilation
+ptsO	(npr) NPr	rpoN	organic nitrogen uptake and assimilation
+gltB	glutamate synthase, large subunit (EC 1.4.1.13)	gltBDF	induction of the Ntr enzymes
+gltD	glutamate synthase, small subunit (EC 1.4.1.13)	gltBDF	induction of the Ntr enzymes
+gltF	gltF protein	gltBDF	induction of the Ntr enzymes
+sspA	stringent starvation protein A	sspAB	stringent starvation
+sspB	stringent starvation protein B	sspAB	stringent starvation
+rplM	50S ribosomal protein L13	rplMrpsI	ribosomal protein
+rpsI	30S ribosomal protein S9	rplMrpsI	ribosomal protein
+accB	(fabE) biotin carboxyl carrier protein	accBC	acetylCoA carboxylase
+accC	(fabG) biotin carboxylase	accBC	acetylCoA carboxylase
+panF	pantothenate permease	prmA	ribosomal protein
+prmA	ribosomal protein L11 methyltransferase	prmA	ribosomal protein
+yhdG	hypothetical 35.9 kD protein	fis	DNA inversion
+fis	binding to a recombinational enhancer sequence that is required to stimulate hin-mediated dna inversion	fis	DNA inversion
+yhdJ	hypothetical adenine-specific methylase	fis	DNA inversion
+acrE	acriflavine resistance protein	acrEF	(envCD) acriflavine resistance
+acrF	acriflavine resistance protein	acrEF	(envCD) acriflavine resistance
+def	N-formylmethionylaminoacyl-tRNA deformylase	def-fmt	tRNA modification
+fmt	methionyl-tRNA formyltransferase	def-fmt	tRNA modification
+fmu	Sun protein (Fmu protein); nucleolar protein family	def-fmt	tRNA modification
+rpsM	30S ribosomal protein S13	alpha	ribosomal protein
+rpsK	30S ribosomal protein Sll	alpha	ribosomal protein
+rpsD	30S ribosomal protein S4	alpha	ribosomal protein
+rpoA	RNA polymerase (EC 2.7.7.6), alpha subunit	alpha	ribosomal protein
+rplQ	50S ribosomal protein L17	alpha	ribosomal protein
+rplN	50S ribosomal protein L14	spc	ribosomal protein
+rplX	50S ribosomal protein L24	spc	ribosomal protein
+rplE	50S ribosomal protein L5	spc	ribosomal protein
+rpsN	30S ribosomal protein S14	spc	ribosomal protein
+rpsH	30S ribosomal protein S8	spc	ribosomal protein
+rplF	50S ribosomal protein L6	spc	ribosomal protein
+rplR	50S ribosomal protein L18	spc	ribosomal protein
+rpsE	30S ribosomal protein S5	spc	ribosomal protein
+rpmD	50S ribosomal protein L30	spc	ribosomal protein
+rplO	50S ribosomal protein L15	spc	ribosomal protein
+prlA	(secY) membrane protein, protein secretion (with secL)	spc	ribosomal protein
+rpmJ	50S ribosomal protein X	spc	ribosomal protein
+rpsJ	30S ribosomal protein S10	S10	ribosomal protein
+rplC	50S ribosomal protein L3	S10	ribosomal protein
+rplD	50S ribosomal protein L4	S10	ribosomal protein
+rplW	50S ribosomal protein L23	S10	ribosomal protein
+rplB	50S ribosomal protein L2	S10	ribosomal protein
+rpsS	50S ribosomal protein S19	S10	ribosomal protein
+rplV	50S ribosomal protein L22	S10	ribosomal protein
+rpsC	30S ribosomal protein S3	S10	ribosomal protein
+rplP	50S ribosomal protein L16	S10	ribosomal protein
+rpmC	50S ribosomal protein L29	S10	ribosomal protein
+rpsQ	30S ribosomal protein S17	S10	ribosomal protein
+rpsL	30S ribosomal protein S12	str	ribosomal protein
+rpsG	30S ribosomal protein S7	str	ribosomal protein
+fusA	protein chain elongation factor EF-G	str	ribosomal protein
+tufA	protein chain elongation factor EF-Tu	str	ribosomal protein
+Regulation	poor promoter	fic-pabA	para-aminobenzoate synthetase
+yhfG	hypothetical 6.6 kD protein	fic-pabA	para-aminobenzoate synthetase
+fic	cell filamentation protein fic	fic-pabA	para-aminobenzoate synthetase
+pabA	para-aminobenzoate synthetase; CoII	fic-pabA	para-aminobenzoate synthetase
+nirB	NADH-nitrate oxidoreductase apoprotein	nirBDC	NADH-dependent nitrite reductase
+nirD	nitrite reductase (NAD(P)H) small subunit	nirBDC	NADH-dependent nitrite reductase
+nirC	potential nitrite transporter	nirBDC	NADH-dependent nitrite reductase
+aroK	shikimic acid kinase I	dam	dam superoperon; cell cycle regulation, aromatic amino acid biosynthesis and carbohydrate metabolism
+aroB	3-dehydroquinate synthase	dam	dam superoperon; cell cycle regulation, aromatic amino acid biosynthesis and carbohydrate metabolism
+damX		dam	dam superoperon; cell cycle regulation, aromatic amino acid biosynthesis and carbohydrate metabolism
+dam	adenine methylase	dam	dam superoperon; cell cycle regulation, aromatic amino acid biosynthesis and carbohydrate metabolism
+rpe	24k; d-ribulose-5-phosphate epimerase	dam	dam superoperon; cell cycle regulation, aromatic amino acid biosynthesis and carbohydrate metabolism
+gph	27k; 2-phosphoglycolate phosphatase	dam	dam superoperon; cell cycle regulation, aromatic amino acid biosynthesis and carbohydrate metabolism
+trpS	tryptophanyl-tRNA synthetase	dam	dam superoperon; cell cycle regulation, aromatic amino acid biosynthesis and carbohydrate metabolism
+ompR	OmpR protein; regulator	ompB	two-component system
+envZ	EnvZ protein; sensor	ompB	two-component system
+feoA	ferrous iron transport protein a	feoAB	ferrous iron transpor
+feoB	ferrous iron transport protein b	feoAB	ferrous iron transpor
+malP	maltodextrin phosphorylase	malPQ	Glycogen Debranching Enzyme System
+malQ	4-alpha-glucanotransferase	malPQ	Glycogen Debranching Enzyme System
+glgB	1,4-alpha-glucan branching enzyme	glgBXCAP	glycogen synthesis
+glgX	glycogen operon protein GlgX	glgBXCAP	glycogen synthesis
+glgC	glucose-1-phosphate adenylyltransferase	glgBXCAP	glycogen synthesis
+glgA	glycogen synthase	glgBXCAP	glycogen synthesis
+glgP	alpha-glucan phosphorylase	glgBXCAP	glycogen synthesis
+gntK	thermoresistant gluconokinase (EC 2.7.1.12)	gntKU	gluconate uptake and catabolism
+gntU_1	low-affinity gluconate transporter (gluconate permease)	gntKU	gluconate uptake and catabolism
+gntU_2		gntKU	gluconate uptake and catabolism
+ugpB	sn-glycerol 3-phosphate transport system; periplasmic binding protein	ugpBAECQ	sn-glycerol 3-phosphate transport system
+ugpA	sn-glycerol 3-phosphate transport system	ugpBAECQ	sn-glycerol 3-phosphate transport system
+ugpE	sn-glycerol 3-phosphate transport system membrane protein	ugpBAECQ	sn-glycerol 3-phosphate transport system
+ugpC	sn-glycerol 3-phosphate transport system	ugpBAECQ	sn-glycerol 3-phosphate transport system
+ugpQ	glycerophosphodiester phosphodiesterase, cytosolic (EC 3,1,4,46)	ugpBAECQ	sn-glycerol 3-phosphate transport system
+livK	leucine-specific binding protein precursor	livKHMGF	high affinity, branched-chain amino acid transport system
+livH	high-affinity branched-chain amino acid transport permease	livKHMGF	high affinity, branched-chain amino acid transport system
+livM	high-affinity branched-chain amino acid transport permease	livKHMGF	high affinity, branched-chain amino acid transport system
+livG	high-affinity branched-chain amino acid transport ATP-binding protein	livKHMGF	high affinity, branched-chain amino acid transport system
+livF	high-affinity branched-chain amino acid transport ATP-binding protein	livKHMGF	high affinity, branched-chain amino acid transport system
+ftsY	cell division protein	ftsYEX	cell division
+ftsE	cell division protein	ftsYEX	cell division
+ftsX	cell division protein	ftsYEX	cell division
+nikA	transport of Ni essential for hydrogenases; nickel-binding protein	nikABCDE	nickel transport
+nikB	nickel transport system permease protein NikB	nikABCDE	nickel transport
+nikC	nickel transport system permease protein NikC	nikABCDE	nickel transport
+nikD	nickel transport ATP-binding protein NikD	nikABCDE	nickel transport
+nikE	nickel transport ATP-binding protein NikE	nikABCDE	nickel transport
+Regulation	promoter	arsBC	arsenical resistance
+arsR	arsenical resistance operon arsEFG repressor	arsBC	arsenical resistance
+arsB	arsenical pump membrane protein	arsBC	arsenical resistance
+arsC	arsenate reductase (arsenical pump modifier)	arsBC	arsenical resistance
+dppA	dipeptide-binding protein	dpp	dipeptide transporter
+dppB	transmembrane protein	dpp	dipeptide transporter
+dppC	transmembrane protein	dpp	dipeptide transporter
+dppD	peripheral membrane protein	dpp	dipeptide transporter
+dppF	peripheral membrane protein	dpp	dipeptide transporter
+glyQ	glycine tRNA synthetase, alpha chain	glyQS	glycine tRNA synthetase
+glyS	glycine tRNA synthetase, beta chain (EC 6 1 1 14)	glyQS	glycine tRNA synthetase
+xylF	D-xylose-binding periplasmic protein precursor	xylFGH	xylose transport
+xylG	D-xylose transport ATP-binding protein XylG	xylFGH	xylose transport
+xylH	xylose transport permease protein XylH	xylFGH	xylose transport
+xylR	xylose operon regulatory protein	xylFGH	xylose transport
+Regulation	terminator	xylFGH	xylose transport
+Regulation	promoter	mtlAD	mannitol uptake
+mtlA	mannitol-specific enzyme II of the phosphotransferase system	mtlAD	mannitol uptake
+mtlD	mannitol-phosphate dehydrogenase	mtlAD	mannitol uptake
+lldP	(lctP) L-lactate permease	lct	L-lactate dehydrogenase
+lctR	(lldR) putative l-lactate dehydrogenase operon regulatory protein	lct	L-lactate dehydrogenase
+lctD	(lldD) L-lactate dehydrogenase	lct	L-lactate dehydrogenase
+kbl	2-amino-3-ketobutyrate CoA ligase; glycine acetyltransferase	tdh	L-threonine metabolism
+tdh	threonine 3-dehydrogenase	tdh	L-threonine metabolism
+rfaQ	lipopolysaccharide core biosynthesis	rfa	Lipopolysaccharide core biosynthesis
+rfaG	lipopolysaccharide core biosynthesis; glucosyltransferase 1	rfa	Lipopolysaccharide core biosynthesis
+rfaP	lipopolysaccharide core biosynthesis; phosphorylation of core heptose	rfa	Lipopolysaccharide core biosynthesis
+rfaS		rfa	Lipopolysaccharide core biosynthesis
+rfaB	UDP-D-galactose:(glucosyl)lipopolysaccharide-1,6-D-galactosyl-transferase	rfa	Lipopolysaccharide core biosynthesis
+rfaI	UDP-D-galactose:(glucosyl)lipopolysaccharide-o-1,3-D-galactosyl-transferase	rfa	Lipopolysaccharide core biosynthesis
+rfaJ	UDP-D-glucose:(galactosyl)lipopolysaccharide glucosyltransferase	rfa	Lipopolysaccharide core biosynthesis
+kdtA	KDO transferase	kdtAB	lipopolysaccharid biosynthesis
+kdtB	lipopolysaccharide core biosynthesis protein kdtB	kdtAB	lipopolysaccharid biosynthesis
+dfp	flavoprotein affecting synthesis of DNA and pantothenate metabolism	dfp-dut	DNA & pantothenate metabolism
+dut	deoxyuridine 5-triphosphate nucleotidohydrolase","dfp-dut","DNA & pantothenate metabolism","yhbG_b3201_st",3341585,3342310
+"431","ttk","23 kD protein","dfp-dut","DNA & pantothenate metabolism","ttk_b3641_st",3812079,3812717
+"432","rph","ribonuclease PH (EC 2.7.7.56); removes nuc following the -CCA terminus of tRNA and adds nuc to the ends of RNA by using nucleoside diphosphates as substrate","rph-pyrE","ribonuclease & pyrimidine biosynthesis","rph_b3643_st",3813490,3814176
+"433","pyrE","orotate phosphoribosyltransferase","rph-pyrE","ribonuclease & pyrimidine biosynthesis","pyrE_b3642_st",3812754,3813395
+"434","Regulation","terminator","rph-pyrE","ribonuclease & pyrimidine biosynthesis",NA,NA,NA
+"435","Regulation","promoter","spoT","DNA/RNA processing",NA,NA,NA
+"436","gmk","GMP kinase","spoT","DNA/RNA processing","gmk_b3648_st",3819055,3819678
+"437","rpoZ","DNA-directed RNA polymerase omega protein","spoT","DNA/RNA processing","rpoZ_b3649_st",3819733,3820008
+"438","spoT","(p)ppGpp 3-pyrophosphohydrolase	spoT	DNA/RNA processing
+Regulation	promoter	spoT	DNA/RNA processing
+spoU	putative rRNA methylases	spoT	DNA/RNA processing
+recG	DNA recombinase	spoT	DNA/RNA processing
+uhpA	response regulator positive activator of uhpT transcription	uhp	hexose phosphate transport
+uhpB	sensor protein UhpB; membrane associated protein kinase	uhp	hexose phosphate transport
+uhpC	regulatory protein; may act jointly with the UhpB	uhp	hexose phosphate transport
+uhpT	hexose phosphate transport protein	uhp	hexose phosphate transport
+ilvB	acetolactate synthase I (EC 4.1.3.18), valine sensitive, large subunit	ilvBN	acetolactate synthase I
+ilvN	acetolactate synthase I (EC 4.1.3.18), valine sensitive, small subunit	ilvBN	acetolactate synthase I
+glvC	PTSIIC	glvCBG	glucoside uptake
+glvB	PTSIIB	glvCBG	glucoside uptake
+glvG	6-phospho-beta-glucosidase	glvCBG	glucoside uptake
+Regulation	promoter	dnaA	replication
+dnaA	DnaA protein	dnaA	replication
+dnaN	DNA polymerase III beta-subunit	dnaA	replication
+recF	recF protein	dnaA	replication
+rpmH	ribosomal protein L34	rpmH	ribosomal protein
+rnpA	ribonuclease P protein component	rpmH	ribosomal protein
+tnaA	tryptophanase	tnaAB	tryptophan transport
+tnaB	low affinity tryptophan permease	tnaAB	tryptophan transport
+bglG	(bglC) positive regulation of bgl operon	bglGFB	beta-glucoside transport
+bglF	beta-glucoside transport, PEP-dependent enzymeII (EC 2.7.1.69)	bglGFB	beta-glucoside transport
+bglB	phospho-beta-glucosidase B (EC 3.2.1.86)	bglGFB	beta-glucoside transport
+glmU	UDP-N-acetylglucosamine pyrophosphorylase	glmUS	amino sugar biosynthesis
+glmS	glucosaminephosphate isomerase	glmUS	amino sugar biosynthesis
+atpI	membrane-bound ATP synthase (EC 3.6.1.34), subunit?	atp	(unc) membrane-bound ATP synthase
+atpB	membrane-bound ATP synthase (EC 3.6.1.34), F0 sector, subunit a	atp	(unc) membrane-bound ATP synthase
+atpE	membrane-bound ATP synthase (EC 3.6.1.34), F0 sector, subunit c; DCCD-binding protein	atp	(unc) membrane-bound ATP synthase
+atpF	membrane-bound ATP synthase (EC 3.6.1.34), F0 sector, subunit b	atp	(unc) membrane-bound ATP synthase
+atpH	membrane-bound ATP synthase (EC 3.6.1.34), Fl sector, delta subunit	atp	(unc) membrane-bound ATP synthase
+atpA	membrane-bound ATP synthase (EC 3.6.1.34), Fl sector, alpha subunit	atp	(unc) membrane-bound ATP synthase
+atpG	membrane-bound ATP synthase (EC 3.6.1.34), Fl sector, gamma subunit	atp	(unc) membrane-bound ATP synthase
+atpD	membrane-bound ATP synthase (EC 3.6.1.34), Fl sector, beta subunit	atp	(unc) membrane-bound ATP synthase
+atpC	membrane-bound ATP synthase (EC 3.6.1.34), Fl sector, epciron subunit	atp	(unc) membrane-bound ATP synthase
+rbsD	D-ribose high-affinity transport system; membrane-associated protein	rbs	ribose transport
+rbsA	D-ribose high-affinity transport system; membrane-associated protein	rbs	ribose transport
+rbsC	D-ribose high-affinity transport system; membrane-associated protein	rbs	ribose transport
+rbsB	D-ribose peroplasmic binding protein	rbs	ribose transport
+rbsK	ribokinase	rbs	ribose transport
+ilvG_1	acetolactate synthase 11 (EC 4.1.3.18), valine insensitive, large subunit, silent in K-12	ilvGMEDA	valine and isoleucine biosynthesis
+ilvM	acetolactate synthase 11 (EC 4.1.3.18), valine insensitive, small subunit, silent in K-12	ilvGMEDA	valine and isoleucine biosynthesis
+ilvE	branched-chain amino acid aminotransferase (EC 2.6.1.42)	ilvGMEDA	valine and isoleucine biosynthesis
+ilvD	dihydroxyacid dehydratase (EC 4.2.1.9)	ilvGMEDA	valine and isoleucine biosynthesis
+ilvA	threonine deaminase (EC 4.2.1.16)	ilvGMEDA	valine and isoleucine biosynthesis
+hemC	porphobilinogen deaminase	hem	porphyrin biosynthesis
+hemD	uroporphyrinogen-III cosynthetase	hem	porphyrin biosynthesis
+hemX	putative urogenIII methylase	hem	porphyrin biosynthesis
+hemY		hem	porphyrin biosynthesis
+fadB	fatty oxidation complex alpha subunit	fadBA	multifunctional enzyme complex of the fatty acid degradation cycle
+fadA	fatty oxidation complex beta subunit	fadBA	multifunctional enzyme complex of the fatty acid degradation cycle
+glnA	glutamine synthetase A	glnALG	glutamine synthetase
+glnL	glutamine synthetase L; NR(II)	glnALG	glutamine synthetase
+glnG	glutamine synthetase; NR(I)	glnALG	glutamine synthetase
+Comment	putative	frv	fructose-specific enzymes
+frvA	PTS system, fructose-like-1 IIA component	frv	fructose-specific enzymes
+frvB	PTS system, fructose-like-1 IIBC component	frv	fructose-specific enzymes
+frvX		frv	fructose-specific enzymes
+rhaB	rhamnulokinase (EC 2.7.1.5)	rhaBAD	L-rhamnose uptake
+rhaA	L-rhamnose isomerase (EC 5.3.1.14)	rhaBAD	L-rhamnose uptake
+rhaD	D-ribose high-affinity transport system; membrane-associated protein	rhaBAD	L-rhamnose uptake
+cpxR	regulator	cpxAR	two-component system
+cpxA	kinase	cpxAR	two-component system
+glpF	glycerol diffusion facilitator	glpFK	glycerol uptake
+glpK	glycerol kinase	glpFK	glycerol uptake
+metB	cystathione gamma-synthase	metBL	methionine biosynthesis
+metL	aspartokinase II-homoserine dehydrogenase II	metBL	methionine biosynthesis
+Regulation	terminator	metBL	methionine biosynthesis
+argC	N-acetyl-gamma-glutamylphosphate reductase (EC 1,2,1,38)	argECBH	arginine biosynthesis
+argB	acetylglutamate kinase (EC 2,7,2,8)	argECBH	arginine biosynthesis
+argH	argininosuccinate lyase (EC 4,3,2,1)	argECBH	arginine biosynthesis
+secE	preprotein translocase secE subunit	secE-nusG	protein export & transcription
+nusG	transcription antitermination	secE-nusG	protein export & transcription
+rplK	5OS ribosomal protein Lll	L11	ribosomal protein
+rplA	50S ribosomal protein Ll, regulates synthesis of Ll and Lll	L11	ribosomal protein
+rplJ	50S ribosomal protein L10	beta	ribosomal protein
+rplL	50S ribosomal protein L7/L12	beta	ribosomal protein
+rpoB	DNA-directed RNA polymerase beta chain	beta	ribosomal protein
+rpoC	DNA-directed RNA polymerase beta chain","beta","ribosomal protein","spoT_b3650_st",3820027,3822135
+"439","thiC","thiamin biosynthesis, pyrimidine moiety","thiCEFGH","thiamin biosynthesis","thiC_b3994_st",4191783,4193677
+"440","thiE","thiamin biosynthesis, thiazole moiety","thiCEFGH","thiamin biosynthesis","thiE_b3993_st",4191147,4191781
+"441","thiF","thiamin biosynthesis, thiazole moiety","thiCEFGH","thiamin biosynthesis","thiF_b3992_st",4190399,4191136
+"442","thiG","thiamin biosynthesis, thiazole moiety","thiCEFGH","thiamin biosynthesis","thiG_b3991_st",4189447,4190288
+"443","thiH","thlamin biosynthesis, thiazole moiety","thiCEFGH","thiamin biosynthesis","thiH_b3990_st",4188313,4189442
+"444","hydH","kinase","hydHG","two-component system","hydH_b4003_st",4199504,4200897
+"445","hydG","regurator; involved in the regulation of the labile hydrogenase activity","hydHG","two-component system","hydG_b4004_st",4200902,4202223
+"446","purH","phosphoribosylaminoimidazolecarboxamide formyltransferase (EC 7.1.1.3)","purHD","purine nucleotide biosynthesis","purH_b4006_st",4203521,4205110
+"447","purD","phosphoribosylglycinamide synthetase (EC 6.3.4.13)","purHD","purine nucleotide biosynthesis","purD_b4005_st",4202220,4203509
+"448","aceB","malate synthase A (EC 4.1.3.2)","ace","malate synthase","aceB_b4014_st",4213057,4214658
+"449","aceA","isocitrate lyase (EC 4.1.3.1)","ace","malate synthase","aceA_b4015_st",4214688,4215992
+"450","aceK","isocitrate dehydrogenase kinase/phosphatase (EC 2.7.1.116)","ace","malate synthase","aceK_b4016_st",4216175,4217911
+"451","Regulation","promoter","malEFG","maltodextrins and maltose transport",NA,NA,NA
+"452","malE","periplasmic maltose-binding protein","malEFG","maltodextrins and maltose transport","malE_b4034_st",4242808,4243998
+"453","malF","cytoplasmic maltose-binding protein","malEFG","maltodextrins and maltose transport","malF_b4033_st",4241110,4242654
+"454","malG","transport of maltose and maltodextrins","malEFG","maltodextrins and maltose transport","malG_b4032_st",4240205,4241095
+"455","Regulation","terminator","malEFG","maltodextrins and maltose transport",NA,NA,NA
+"456","Regulation","promoter","malK-lamB","maltose, malto dextrins uptake",NA,NA,NA
+"457","malK","transport of maltose","malK-lamB","maltose, malto dextrins uptake","malK_b4035_st",4244363,4245478
+"458","lamB","maltose porin; phage; lambda receptor protein","malK-lamB","maltose, malto dextrins uptake","lamB_b4036_st",4245550,4246890
+"459","malM","periplasmic protein of mal operon","malK-lamB","maltose, malto dextrins uptake","malM_b4037_st",4247133,4248053
+"460","ubiC","chorismate lyase","ubiCA","ubiquinone biosynthesis","ubiC_b4039_st",4249974,4250582
+"461","ubiA","4-hydroxybenzoate-octaprenyl transferase","ubiCA","ubiquinone biosynthesis","ubiA_b4040_st",4250595,4251467
+"462","nrfA","cytochrome c family heme-binding; cytochrome C552 precursor","nrf","nitrite reduction","nrfA_b4070_st",4285343,4286779
+"463","nrfB","cytochrome c family heme-binding","nrf","nitrite reduction","nrfB_b4071_st",4286818,4287386
+"464","nrfC","4Fe-4S ferredoxins","nrf","nitrite reduction","nrfC_b4072_st",4287391,4288054
+"465","nrfD","NrfD protein","nrf","nitrite reduction","nrfD_b4073_st",4288059,4289011
+"466","nrfE","cytochrome c-type biogenesis protein NrfE","nrf","nitrite reduction","nrfE_b4074_st",4289091,4290741
+"467","nrfF","cytochrome c-type biogenesis protein NrfF","nrf","nitrite reduction","nrfF_b4075_st",4290750,4291121
+"468","nrfG","NrfG protein","nrf","nitrite reduction","nrfG_b4076_st",4291126,4291718
+"469","Regulation","pho box","phn","phosphonate utilization",NA,NA,NA
+"470","phnC","ATP-binding protein","phn","phosphonate utilization","phnC_b4106_st",4321955,4322743
+"471","phnD","periplasmic protein","phn","phosphonate utilization","phnD_b4105_st",4320914,4321930
+"472","phnE","phosphonates transport system permease protein PhnE","phn","phosphonate utilization","phnE_b4104_st",4320243,4320859
+"473","3998","","phn","phosphonate utilization",NA,NA,NA
+"474","phnF","PhnF protein","phn","phosphonate utilization","phnF_b4102_st",4319275,4320000
+"475","phnG","PhnG protein","phn","phosphonate utilization","phnG_b4101_st",4318826,4319274
+"476","phnH","PhnH protein","phn","phosphonate utilization","phnH_b4100_st",4318242,4318821
+"477","phnI","PhnI protein","phn","phosphonate utilization","phnI_b4099_st",4317185,4318240
+"478","phnJ","PhnJ protein","phn","phosphonate utilization","phnJ_b4098_st",4316343,4317176
+"479","phnK","ATP-binding protein","phn","phosphonate utilization","phnK_b4097_st",4315584,4316338
+"480","phnL","ATP-binding protein","phn","phosphonate utilization","phnL_b4096_st",4314797,4315473
+"481","phnM","HisM-like integral membrane protein PhnM","phn","phosphonate utilization","phnM_b4095_st",4313661,4314792
+"482","phnN","ATP-binding protein","phn","phosphonate utilization","phnN_b4094_st",4313117,4313659
+"483","phnO","PhnO protein","phn","phosphonate utilization","phnO_b4093_st",4312682,4313102
+"484","phnP","PhnP protien","phn","phosphonate utilization","phnP_b4092_st",4311922,4312680
+"485","phnQ","very hypothetical PhnQ protei","phn","phosphonate utilization","phnQ_b4091_st",4311389,4311796
+"486","Regulation","terminator","phn","phosphonate utilization",NA,NA,NA
+"487","basR","regulator","basRS","two-component system","basR_b4113_st",4330860,4331524
+"488","basS","kinase","basRS","two-component system","basS_b4112_st",4329759,4330850
+"489","melA","(aga) a-galactosidase (EC 3.2.1.22)","melAB","melibiose uptake","melA_b4119_st",4339489,4340844
+"490","melB","thiomethylgalactoside permease II, melibiose carrier","melAB","melibiose uptake","melB_b4120_st",4340959,4342368
+"491","Regulation","promoter","cad","lysine decarboxylase",NA,NA,NA
+"492","cadB","transport of lysine/cadaverine","cad","lysine decarboxylase","cadB_b4132_st",4356275,4357609
+"493","cadA","lysine decarboxylase (EC 4.1.1.18)","cad","lysine decarboxylase","cadA_b4131_st",4354048,4356195
+"494","Regulation","heat shock gene promoter","groE","(mop) molecular chaperone",NA,NA,NA
+"495","mopB","(groES) GroES protein","groE","(mop) molecular chaperone","mopB_b4142_st",4368266,4368559
+"496","mopA","(groEL) GroEL protein","groE","(mop) molecular chaperone","mopA_b4143_st",4368603,4370249
+"497","Regulation","terminator","groE","(mop) molecular chaperone",NA,NA,NA
+"498","frdA","fumarate reductase (EC 1.3.99.1), flavoprotein subunit","frd","fumarate reductase","frdA_b4154_st",4378096,4379896
+"499","frdB","fumarate reductase (EC 1.3.99.1), membrane anchor polypeptide","frd","fumarate reductase","frdB_b4153_st",4377361,4378087
+"500","frdC","fumarate reductase (EC 1.3.99.1), membrane anchor polypeptide","frd","fumarate reductase","frdC_b4152_st",4376955,4377350
+"501","frdD","fumarate reductase (EC 1.3.99.1), membrane anchor polypeptide","frd","fumarate reductase","frdD_b4151_st",4376585,4376944
+"502","yjeF","hypothetical 54.7 kD protein in psd-amib intergenic region","amiB","complex operon","yjeF_b4167_st",4391644,4393162
+"503","yjeE","hypothetical 16.9 kD protein in psd-amib intergenic region","amiB","complex operon","yjeE_b4168_st",4393192,4393624
+"504","amiB","n-acetylmuramoyl-l-alanine amidase precursor","amiB","complex operon","amiB_b4169_st",4393643,4394980
+"505","mutL","DNA mismatch repair protein mutL","amiB","complex operon","mutL_b4170_st",4394990,4396829
+"506","miaA","tRNA delta-2-isopentenylpyrophosphate (IPP) transferase","amiB","complex operon","miaA_b4171_st",4396838,4397780
+"507","hfq","host factor-I (HF-I)","amiB","complex operon","hfq_b4172_st",4397866,4398174
+"508","Regulation","promoter","hflA","high frequency of lysogenization",NA,NA,NA
+"509","hflX","putative GTPase","hflA","high frequency of lysogenization","hflX_b4173_st",4398250,4399530
+"510","hflK","putative integral membrane protease","hflA","high frequency of lysogenization","hflK_b4174_st",4399616,4400875
+"511","hflC","putative integral membrane protease","hflA","high frequency of lysogenization","hflC_b4175_st",4400878,4401882
+"512","rpsF","30S ribosomal protein S6","rpsF-rplI","ribosomal protein","rpsF_b4200_st",4422696,4423091
+"513","priB","primosomal replication protein N","rpsF-rplI","ribosomal protein","priB_b4201_st",4423098,4423412
+"514","rpsR","30S ribosomal protein S18","rpsF-rplI","ribosomal protein","rpsR_b4202_st",4423417,4423644
+"515","rplI","SOS ribosomal protein L9","rpsF-rplI","ribosomal protein","rplI_b4203_st",4423686,4424135
+"516","chpS","PemI-like protein 2","chpSB","regulation of cell growth","chpS_b4224_st",4446018,4446268
+"517","chpB","PemK-like protein 2","chpSB","regulation of cell growth","chpB_b4225_st",4446276,4446619
+"518","treB","phosphotransferase system trehalose permease","treBC","trehalose uptake","treB_b4240_st",4462333,4463754
+"519","treC","trehalose-6-phosphate hydrolase","treBC","trehalose uptake","treC_b4239_st",4460628,4462283
+"520","Regulation","promoter","pyrBI","pyrimidine biosynthesis",NA,NA,NA
+"521","pyrB","aspartate carbamoyltransferase (EC 2.1.3.2), catalytic subunit","pyrBI","pyrimidine biosynthesis","pyrB_b4245_st",4469034,4469969
+"522","pyrI","aspartate carbamoyltransferase (EC 2.1.3.2), regulatory subunit","pyrBI","pyrimidine biosynthesis","pyrI_b4244_st",4468560,4469021
+"523","fecA","iron(III) dicitrate transport protein FecA precursor","fecABCDE","citrate-dependent iron(III) transport","fecA_b4291_st",4511921,4514245
+"524","fecB","","fecABCDE","citrate-dependent iron(III) transport","fecB_b4290_st",4510978,4511882
+"525","fecC","iron(III) dicitrate transport system permease protein","fecABCDE","citrate-dependent iron(III) transport","fecC_b4289_st",4509983,4510973
+"526","fecD","iron(III) dicitrate transport system permease protein","fecABCDE","citrate-dependent iron(III) transport","fecD_b4288_st",4509026,4509978
+"527","fecE","iron(III) dicitrate transport ATP-binding protein","fecABCDE","citrate-dependent iron(III) transport","fecE_b4287_st",4508258,4509025
+"528","Regulation","CAP binding site","uxuAB","glucuronate pathway",NA,NA,NA
+"529","Regulation","promoter","uxuAB","glucuronate pathway",NA,NA,NA
+"530","uxuA","mannonate dehydratase","uxuAB","glucuronate pathway","uxuA_b4322_st",4549205,4550389
+"531","uxuB","mannonate oxidoreductase","uxuAB","glucuronate pathway","uxuB_b4323_st",4550470,4551930
+"532","Regulation","promoter","dnaTC","DNA replication",NA,NA,NA
+"533","dnaT","primosomal protein I","dnaTC","DNA replication","dnaT_b4362_st",4598547,4599086
+"534","dnaC","DNA replication protein DnaC","dnaTC","DNA replication","dnaC_b4361_st",4597807,4598544
+"535","Regulation","promoter","deoAB","nucleotide and deoxyribonucleotide catabolism",NA,NA,NA
+"536","deoC","2-deoxyribose 5-phosphate aldolase","deoAB","nucleotide and deoxyribonucleotide catabolism","deoC_b4381_st",4614892,4615671
+"537","Regulation","CRP binding sites","deoAB","nucleotide and deoxyribonucleotide catabolism",NA,NA,NA
+"538","Regulation","promoter","deoAB","nucleotide and deoxyribonucleotide catabolism",NA,NA,NA
+"539","deoA","thymidine phosphorylase (EC 2.4.2.4)","deoAB","nucleotide and deoxyribonucleotide catabolism","deoA_b4382_st",4615798,4617120
+"540","deoB","phosphopentomutase (EC 5.4.2.7)","deoAB","nucleotide and deoxyribonucleotide catabolism","deoB_b4383_st",4617172,4618395
+"541","deoD","purine nucleoside phosphorylase (EC 2.4.2.1)","deoAB","nucleotide and deoxyribonucleotide catabolism","deoD_b4384_st",4618452,4619171
+"542","Regulation","terminator","deoAB","nucleotide and deoxyribonucleotide catabolism",NA,NA,NA
+"543","serB","phosphoserine phosphatase","serBsms","phosphatase & DNA repair","serB_b4388_st",4622464,4623432
+"544","sms","Sms protein","serBsms","phosphatase & DNA repair","sms_b4389_st",4623481,4624862
+"545","creA","","creABCD","phosphate sensor","creA_b4397_st",4633090,4633563
+"546","creB","member of the two-component regulatory system CreC/CreB","creABCD","phosphate sensor","creB_b4398_st",4633576,4634264
+"547","creC","phoM; protein kinase","creABCD","phosphate sensor","creC_b4399_st",4634266,4635689
+"548","creD","inner membrane protein CreD","creABCD","phosphate sensor","creD_b4400_st",4635747,4637099
