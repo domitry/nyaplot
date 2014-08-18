@@ -11,7 +11,12 @@ module Nyaplot
         nested = df.column(labels[2]) # 'nested_label' column from CircularPlot
         raise 'received dataframe is not nested' unless nested.all? {|cell| cell.is_a? DataFrame}
         max = nested.reduce(-Float::INFINITY){|memo, df| [memo, df.column(y).max].max}
-        range([0, max])
+        min = nested.reduce(Float::INFINITY){|memo, df| [memo, df.column(y).min].min}
+        if min > 0
+          range([0, max])
+        else
+          range([min, max])
+        end
       end
     end
 
