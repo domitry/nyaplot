@@ -44,6 +44,10 @@ module Nyaplot
       @source = arr
     end
 
+    def to_a
+      @source
+    end
+
     def to_html
       html = '<table><tr>'
       @source.each{|color| html.concat("<th>" + color + "</th>")}
