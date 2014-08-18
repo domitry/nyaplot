@@ -39,10 +39,6 @@ module Nyaplot
       return IRuby.html(html)
     end
 
-    def configure(&block)
-      self.instance_eval(&block) if block_given?
-    end
-
     def before_to_json
       set_property(:extension, Nyaplot.extension_lists)
     end
