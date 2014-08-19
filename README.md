@@ -7,6 +7,8 @@ Nyaplot is a compound word from 'Nya' and 'plot.' The word 'Nya' comes from an o
 
 This software has been developed as a product in Google Summer of Code 2014 (GSoC2014). Visit the [website]((http://sciruby.com/blog/)) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) of SciRuby to see the progress of this project.
 
+**Attention: Nyaplot works with IRuby v0.1.13 or up. If you had installed IRuby before, please update it.**
+
 ## Demo
 
 This README.md do not contain any description about usage, so see notebooks below to start using Nyaplot.
