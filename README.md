@@ -11,8 +11,6 @@ This software has been developed as a product in Google Summer of Code 2014 (GSo
 
 ## Demo
 
-This README.md do not contain any description about usage, so see notebooks below to start using Nyaplot.
-
 + [Nyaplot Tutorial & Case study](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb)
 
 Visit [nyaplot-notebooks on GitHub](https://github.com/domitry/nyaplot-notebooks) to see more example.
