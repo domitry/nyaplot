@@ -71,11 +71,15 @@ module Nyaplot
       return diagram
     end
 
+
+    # Show plot automatically on IRuby notebook
+    def to_iruby
+      Frame.new.tap {|f| f.add(self) }.to_iruby
+    end
+
     # Show plot on IRuby notebook
     def show
-      frame = Frame.new
-      frame.add(self)
-      frame.show
+      Frame.new.tap {|f| f.add(self) }.show
     end
 
     # @return [Array<String>] names of dataframe used by diagrams belog to this plot
