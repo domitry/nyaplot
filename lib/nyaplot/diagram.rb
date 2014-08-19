@@ -110,13 +110,13 @@ module Nyaplot
       # @!attribute count
       #   @return [Symbol] the column label from which the venn diagram is created
       # @!attribute area_names
-      #   @return [Symbol] the width of each bar. The specified value should be in the range 0 to 1.
+      #   @return [Array<String>] names of 3 groups
       # @!attribute filter_control
-      #   @return [Array<String>] array of color codes
+      #   @return [Boolean] Boolean to decide whether to display filter control
       # @!attribute opacity
-      #   @return [String] color code
+      #   @return [Numeric] the opacity of circles
       # @!attribute color
-      #   @return [Numeric] the width of stroke
+      #   @return [Array<String>] the array of color codes
       # @!attribute stroke_color
       #   @return [String] color code
       # @!attribute stroke_width
@@ -155,7 +155,7 @@ module Nyaplot
       # @!attribute shape
       #   @return [Array<String>] shapes for each symbol
       # @!attribute size
-      #   @return [Array<String>] the range of symbol size
+      #   @return [Array<Numeric>] the range of symbol size
       # @!attribute stroke_color
       #   @return [String] color code
       # @!attribute stroke_width
@@ -180,6 +180,27 @@ module Nyaplot
 
     module Vectors
       include Jsonizable
+
+      # @!attribute title
+      #   @return [String] the title of this chart
+      # @!attribute x
+      #   @return [Symbol] the column label from which the line chart is created
+      # @!attribute y
+      #   @return [Symbol] the column label from which the line chart is created
+      # @!attribute dx
+      #   @return [Symbol] the column label from which the line chart is created
+      # @!attribute dy
+      #   @return [Symbol] the column label from which the line chart is created
+      # @!attribute fill_by
+      #   @return [Symbol] the column label to decide how to fill sybmols
+      # @!attribute color
+      #   @return [Array<String>] array of color codes
+      # @!attribute stroke_color
+      #   @return [String] color code
+      # @!attribute stroke_width
+      #   @return [Numeric] the width of stroke
+      # @!attribute hover
+      #   @return [Boolean] whether to change color when hovering
       define_group_properties(:options, [:title, :x, :y, :dx, :dy, :fill_by, :color, :stroke_color, :stroke_width, :hover])
 
       def process_data(df, labels)
@@ -230,22 +251,18 @@ module Nyaplot
 
       # @!attribute title
       #   @return [String] the title of this chart
-      # @!attribute x
+      # @!attribute value
       #   @return [Symbol] the column label from which box chart is created
-      # @!attribute y
-      #   @return [Symbol] the column label from which box chart is created
-      # @!attribute area_names
-      #   @return [Symbol] the width of each bar. The specified value should be in the range 0 to 1.
-      # @!attribute filter_control
-      #   @return [Array<String>] array of color codes
-      # @!attribute opacity
-      #   @return [String] color code
+      # @!attribute width
+      #   @return [Symbol] the width of each box. The specified value should be in the range 0 to 1.
       # @!attribute color
       #   @return [Numeric] the width of stroke
       # @!attribute stroke_color
       #   @return [String] color code
       # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
+      # @!attribute outlier_r
+      #   @return [Numeric] the radius of outliers
       define_group_properties(:options, [:title, :value, :width, :color, :stroke_color, :stroke_width, :outlier_r])
 
       def process_data(df, labels)
