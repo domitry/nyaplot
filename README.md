@@ -13,6 +13,10 @@ This README.md do not contain any description about usage, so see notebooks belo
 
 + [Nyaplot Tutorial & Case study](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb)
 
+## Documents
+
+Documents are [here](http://rubydoc.info/github/domitry/nyaplot/master/frames).
+
 Visit [nyaplot-notebooks on GitHub](https://github.com/domitry/nyaplot-notebooks) to see more example.
 
 ## Extensions
