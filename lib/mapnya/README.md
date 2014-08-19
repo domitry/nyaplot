@@ -2,9 +2,11 @@
 
 Nyaplot extension library for map
 
-## Demo
+![Mapnya](https://dl.dropboxusercontent.com/u/47978121/gsoc/mapnya_top.png)
 
-## How to use
+## Demo
++ [Notebook1](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb)
++ [Notebook1](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
 
 ## License
 * datasets/world.geo.json -- Public domain
