@@ -33,7 +33,7 @@ module Nyaplot
     # @!attribute rotate_x_label
     #   @return [Numeric] the angle to rotate x label (radian)
     # @!attribute rotate_y_label
-    #   @return [Numeric] the angle to roatte y label (radian)
+    #   @return [Numeric] the angle to rotate y label (radian)
     define_properties(:diagrams, :filter)
     define_group_properties(:options, [:width, :height, :margin, :xrange, :yrange, :x_label, :y_label, :bg_color, :grid_color, :legend, :legend_width, :legend_options, :zoom, :rotate_x_label, :rotate_y_label])
 
