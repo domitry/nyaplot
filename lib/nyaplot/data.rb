@@ -4,6 +4,8 @@ require 'json'
 require 'csv'
 
 module Nyaplot
+
+  # Ruby DataFrame for plotting
   class DataFrame
     DEFAULT_OPTS = {
       :col_sep => ',',
@@ -69,14 +71,19 @@ module Nyaplot
       self.new(rows)
     end
 
+    # Filtering row out using recieved block
+    # @example
+    #   new_df = df.filter{|row| row[:a] %2 == 0}
     def filter(&block)
       DataFrame.new(@rows.select(&block))
     end
 
+    # destructive version of DataFrame#filter
     def filter!(&block)
       @rows.select!(&block)
     end
 
+    # @return [String] the name of dataframe. If not specified when initializing, uuid v4 will be set.
     def name
       @name
     end
@@ -93,12 +100,16 @@ module Nyaplot
       end
     end
 
+    # Access column using its label
     def column(name)
       id = name.is_a?(Symbol) ? name : name.to_sym
       column = @rows.map{|row| row[id]}
       return Series.new(name, column)
     end
 
+    # Insert row using index
+    # @param [Hash] row row to insert
+    # @param [Numeric] index if not specified, the row will be inserted to the end
     def insert_row(row, index=@rows.length)
       @rows.insert(index, row)
     end
@@ -146,6 +157,7 @@ module Nyaplot
       to_html
     end
 
+    # The alias method for DataFrame#column
     def [](name)
       return self.column(name)
     end

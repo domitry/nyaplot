@@ -1,6 +1,9 @@
 require 'singleton'
 
 module Nyaplot
+
+  # DataBase to store instance of Nyaplot::DataFrame
+  # Each dataframe will be fetched when Nyaplot::Frame#to_json is excuted
   class DataBase
     include Singleton
 

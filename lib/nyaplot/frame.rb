@@ -2,6 +2,8 @@ require 'erb'
 require 'securerandom'
 
 module Nyaplot
+
+  # Jsonizable Object which holds Plots (panes) in it.
   class Frame
     include Jsonizable
 
@@ -13,6 +15,8 @@ module Nyaplot
       set_property(:data, {})
     end
 
+    # Add new pane to the frame
+    # @param [Nyaplot::Plot] the pane to add
     def add(plot)
       data = get_property(:data)
       plot.df_list.each do |name|
@@ -22,6 +26,8 @@ module Nyaplot
       panes.push(plot)
     end
 
+    # export static html file
+    # @return [String] generated html
     def export_html
       path = File.expand_path("../templates/static_html.erb", __FILE__)
       template = File.read(path)
@@ -30,6 +36,7 @@ module Nyaplot
       return html
     end
 
+    # show plot on IRuby notebook
     def show
       path = File.expand_path("../templates/iruby.erb", __FILE__)
       template = File.read(path)
