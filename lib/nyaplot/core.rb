@@ -21,6 +21,11 @@ module Nyaplot
     @@dep_libraries[name]=url;
   end
 
+  # Load extension library to IRuby notebook before Nyaplotjs is loaded
+  def self.add_additional_library(name, url)
+    @@additional_libraries[name]=url
+  end
+
   # Enable to show plots on IRuby notebook
   def self.init_iruby
     path = File.expand_path("../templates/init.js.erb", __FILE__)
