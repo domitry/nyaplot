@@ -52,6 +52,8 @@ Mapnya is an extension library for map visualization.
 See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb) to learn more.
 
 ## Installation
+### Install nyaplot
+<!--
 ### Build and install nyaplot
 This gem is still under development and is not registered to RubyGems.org. Therefore clone this repository and build gem by yourself to try it.
 
@@ -64,9 +66,8 @@ And then build and install using gem command:
     cd nyaplot
     gem build nyaplot.gemspec
     gem install nyaplot-0.0.1.gem
+-->
 
-
-<!--
 Add this line to your application's Gemfile:
 
     gem 'nyaplot'
@@ -78,7 +79,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install nyaplot
--->
+
 
 ### Install IRuby notebook
 Nyaplot do not have any dependency, but we strongly recommend to install [IRuby](https://github.com/minad/iruby) by @minad at the same time.
