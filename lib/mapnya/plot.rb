@@ -3,7 +3,19 @@ module Nyaplot
   class MapPlot < Plot
     include Jsonizable
     define_properties(:extension)
-    define_group_properties(:axis_extra_options, [:map_data, :color, :text_color, :text_size, :stroke_color, :center, :scale, :no_data_color, :df_id, :cca3, :fill_by])
+    # @!attribute map_data
+    #   @return [Hash] the geojson map data
+    # @!attribute color
+    #   @return [Array<String>] the array of colors which countries are fill in
+    # @!attribute stroke_color
+    #   @return [String] the color which borders are fill in
+    # @!attribute center
+    #   @return [Array<Numeric>] the center of the map
+    # @!attribute scale
+    #   @return [Numeric] the scale of the map
+    # @!attribute no_data_color
+    #   @return [String] the color which no-data countries are fill in when specified fill_by
+    define_group_properties(:axis_extra_options, [:map_data, :color, :stroke_color, :center, :scale, :no_data_color, :df_id, :cca3, :fill_by])
 
     def initialize
       super()
