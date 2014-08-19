@@ -4,36 +4,35 @@ module Nyaplot
   # Properties of Nyaplot::Plot are embeded into the JSON object as a part of property 'panes' by Nyaplot::Frame
   class Plot
     include Jsonizable
-
-    # !@attributes width
+    # @!attribute width
     #   @return [Numeric] the width
-    # !@attributes height
+    # @!attribute height
     #   @return [Numeric] the height
-    # !@attributes margin
+    # @!attribute margin
     #   @return [Hash] the margin
-    # !@attributes xrange
+    # @!attribute xrange
     #   @return [Array<Numeric>, Array<String>, Array<Symbol>] the name of width set
-    # !@attributes yrange
+    # @!attribute yrange
     #   @return [Array<Numeric>, Array<String>, Array<Symbol>] the name of width set
-    # !@attributes x_label
+    # @!attribute x_label
     #   @return [String] the name of label placed along x-axis
-    # !@attributes y_label
+    # @!attribute y_label
     #   @return [String] the name of label placed along y-axis
-    # !@attributes bg_color
+    # @!attribute bg_color
     #   @return [String] the code of color which background is filled in
-    # !@attributes grid_color
+    # @!attribute grid_color
     #   @return [String] the code of color which grid lines are filled in
-    # !@attributes legend
+    # @!attribute legend
     #   @return [Boolean] whether to show legend or not
-    # !@attributes legend_width
+    # @!attribute legend_width
     #   @return [Numeric] the width of legend area
-    # !@attributes legend_options
+    # @!attribute legend_options
     #   @return [Hash] the name of width set
-    # !@attributes zoom
+    # @!attribute zoom
     #   @return [Boolean] whether to enable zooming
-    # !@attributes rotate_x_label
+    # @!attribute rotate_x_label
     #   @return [Numeric] the angle to rotate x label (radian)
-    # !@attributes rotate_y_label
+    # @!attribute rotate_y_label
     #   @return [Numeric] the angle to roatte y label (radian)
     define_properties(:diagrams, :filter)
     define_group_properties(:options, [:width, :height, :margin, :xrange, :yrange, :x_label, :y_label, :bg_color, :grid_color, :legend, :legend_width, :legend_options, :zoom, :rotate_x_label, :rotate_y_label])

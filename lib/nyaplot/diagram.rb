@@ -39,15 +39,15 @@ module Nyaplot
     module Bar
       include Jsonizable
 
-      # !@attributes value
+      # @!attribute value
       #   @return [Symbol] the column label from which bar chart is created
-      # !@attributes x
+      # @!attribute x
       #   @return [Symbol] the column label from which bar chart is created
-      # !@attributes y
+      # @!attribute y
       #   @return [Symbol] the column label from which bar chart is created
-      # !@attributes width
+      # @!attribute width
       #   @return [Numeric] the width of each bar. The specified value should be in the range 0 to 1.
-      # !@attributes color
+      # @!attribute color
       #   @return [Array<String>] array of color codes
       define_group_properties(:options, [:value, :x, :y, :width, :color])
 
@@ -78,15 +78,15 @@ module Nyaplot
     module Histogram
       include Jsonizable
 
-      # !@attributes value
+      # @!attribute value
       #   @return [Symbol] the column label from which histogram is created
-      # !@attributes width
+      # @!attribute width
       #   @return [Symbol] the width of each bar. The specified value should be in the range 0 to 1.
-      # !@attributes color
+      # @!attribute color
       #   @return [Array<String>] array of color codes
-      # !@attributes stroke_color
+      # @!attribute stroke_color
       #   @return [String] color code
-      # !@attributes stroke_width
+      # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
       define_group_properties(:options, [:title, :value, :bin_num, :width, :color, :stroke_color, :stroke_width])
 
@@ -105,21 +105,21 @@ module Nyaplot
     module Venn
       include Jsonizable
 
-      # !@attributes category
+      # @!attribute category
       #   @return [Symbol] the column label from which the venn diagram is created
-      # !@attributes count
+      # @!attribute count
       #   @return [Symbol] the column label from which the venn diagram is created
-      # !@attributes area_names
+      # @!attribute area_names
       #   @return [Symbol] the width of each bar. The specified value should be in the range 0 to 1.
-      # !@attributes filter_control
+      # @!attribute filter_control
       #   @return [Array<String>] array of color codes
-      # !@attributes opacity
+      # @!attribute opacity
       #   @return [String] color code
-      # !@attributes color
+      # @!attribute color
       #   @return [Numeric] the width of stroke
-      # !@attributes stroke_color
+      # @!attribute stroke_color
       #   @return [String] color code
-      # !@attributes stroke_width
+      # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
       define_group_properties(:options, [:title, :category, :count, :area_names, :filter_control, :opacity, :color, :stroke_color, :stroke_width])
 
@@ -138,29 +138,29 @@ module Nyaplot
     module Scatter
       include Jsonizable
 
-      # !@attributes title
+      # @!attribute title
       #   @return [String] the title of this chart
-      # !@attributes x
+      # @!attribute x
       #   @return [Symbol] the column label from which the line chart is created
-      # !@attributes y
+      # @!attribute y
       #   @return [Symbol] the column label from which the line chart is created
-      # !@attributes fill_by
+      # @!attribute fill_by
       #   @return [Symbol] the column label to decide how to fill sybmols
-      # !@attributes shape_by
+      # @!attribute shape_by
       #   @return [Symbol] the column label to decide shapes
-      # !@attributes size_by
+      # @!attribute size_by
       #   @return [Symbol] the column label to decide size of symbols
-      # !@attributes color
+      # @!attribute color
       #   @return [Array<String>] color code
-      # !@attributes shape
+      # @!attribute shape
       #   @return [Array<String>] shapes for each symbol
-      # !@attributes size
+      # @!attribute size
       #   @return [Array<String>] the range of symbol size
-      # !@attributes stroke_color
+      # @!attribute stroke_color
       #   @return [String] color code
-      # !@attributes stroke_width
+      # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
-      # !@attributes tooltip_contents
+      # @!attribute tooltip_contents
       #   @return [Array<Symbol>] column labels to display in tool-tip box
       define_group_properties(:options, [:title, :x, :y, :fill_by, :shape_by, :size_by, :color, :shape, :size, :stroke_color, :stroke_width, :tooltip_contents])
 
@@ -199,15 +199,15 @@ module Nyaplot
     module Line
       include Jsonizable
 
-      # !@attributes title
+      # @!attribute title
       #   @return [String] the title of this chart
-      # !@attributes x
+      # @!attribute x
       #   @return [Symbol] the column label from which the line chart is created
-      # !@attributes y
+      # @!attribute y
       #   @return [Symbol] the column label from which the line chart is created
-      # !@attributes color
+      # @!attribute color
       #   @return [String] the color code
-      # !@attributes stroke_width
+      # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
       define_group_properties(:options, [:title, :x, :y, :color, :stroke_width])
 
@@ -228,23 +228,23 @@ module Nyaplot
     module Box
       include Jsonizable
 
-      # !@attributes title
+      # @!attribute title
       #   @return [String] the title of this chart
-      # !@attributes x
+      # @!attribute x
       #   @return [Symbol] the column label from which box chart is created
-      # !@attributes y
+      # @!attribute y
       #   @return [Symbol] the column label from which box chart is created
-      # !@attributes area_names
+      # @!attribute area_names
       #   @return [Symbol] the width of each bar. The specified value should be in the range 0 to 1.
-      # !@attributes filter_control
+      # @!attribute filter_control
       #   @return [Array<String>] array of color codes
-      # !@attributes opacity
+      # @!attribute opacity
       #   @return [String] color code
-      # !@attributes color
+      # @!attribute color
       #   @return [Numeric] the width of stroke
-      # !@attributes stroke_color
+      # @!attribute stroke_color
       #   @return [String] color code
-      # !@attributes stroke_width
+      # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
       define_group_properties(:options, [:title, :value, :width, :color, :stroke_color, :stroke_width, :outlier_r])
 
@@ -271,25 +271,25 @@ module Nyaplot
     module Heatmap
       include Jsonizable
 
-      # !@attributes title
+      # @!attribute title
       #   @return [String] the title of this chart
-      # !@attributes x
+      # @!attribute x
       #   @return [Symbol] the column label from which histogram is created
-      # !@attributes y
+      # @!attribute y
       #   @return [Symbol] the column label from which histogram is created
-      # !@attributes fill
+      # @!attribute fill
       #   @return [Symbol] the column label
-      # !@attributes width
+      # @!attribute width
       #   @return [String] the width
-      # !@attributes height
+      # @!attribute height
       #   @return [String] the height
-      # !@attributes color
+      # @!attribute color
       #   @return [Array<String>] array of color codes
-      # !@attributes stroke_color
+      # @!attribute stroke_color
       #   @return [String] color code
-      # !@attributes stroke_width
+      # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
-      # !@attributes hover
+      # @!attribute hover
       #   @return [Boolean] whether to change color when hovering
       define_group_properties(:options, [:title, :x, :y, :fill, :width, :height, :color, :stroke_color, :stroke_width, :hover])
 
