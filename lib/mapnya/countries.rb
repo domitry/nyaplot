@@ -1,4 +1,7 @@
 module Nyaplot
+  # The wrapper for countries
+  # @see https://github.com/mledoze/countries
+  # @see http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Mapnya.ipynb
   class Countries
     class << self
       path = File.expand_path("../datasets/countries/countries.json", __FILE__)
@@ -20,14 +23,20 @@ module Nyaplot
       df.each_row {|row| row[:area]=0 if row[:area]<0}
       @@df = df
 
+      # World countries list
+      # @return [Array<String>] the list of world countries
       def countries_list
         @@df[:name].to_a
       end
 
+      # CCA3 country code
+      # @return [Array<String>] tye list of cca3 code
       def cca3_list
         @@df[:cca3].to_a
       end
 
+      # The dataframe as the wrapper of countries
+      # @return [DataFrame]
       def df
         @@df
       end
