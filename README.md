@@ -86,9 +86,24 @@ Nyaplot do not have any dependency, but we strongly recommend to install [IRuby]
 IRuby is a web-based interactive Ruby environment and Nyaplot is totally designed to work with it.
 You can install the gem itself by running `gem install` command, but it has some dependent libraries outside of Ruby-ecosystem.
 
-#### Ubuntu 14.04
+#### Ubuntu 14.10
 
-Coming soon.
+There are various ways to install Python and IPython notebook, but [Anaconda](https://store.continuum.io/cshop/anaconda/) is highly recommended.
+
+IRuby requires IPython >= 1.1 and libzmq >= 3.2, so update IPython and install libzmq3 before installing IRuby.
+
+```shell
+conda update ipython
+sudo apt-get install libzmq3-dev
+```
+And then try to run `gem install iruby`.
+
+If the code above does not work, try below.
+
+```shell
+conda update zeromq
+conda update pyzmq
+```
 
 #### Mac OS X
 
@@ -103,7 +118,18 @@ brew install zeromq
 
 #### Windows
 
-We have not try that yet. Please send pull-request if you can install it to Windows.
+First, install IPython and its dependencies using [Enthought Canopy](https://www.enthought.com/). There are various ways to install IPython, but Canopy may be the most useful to Windows users.
+
+Then install IRuby by running `gem install iruby`.
+
+After that, install ZeroMQ from [here](http://zeromq.org/area:download). Be sure to install stable release of the version **3.2.?**.  
+**Attention: install 32bit version of Zeromq even if your Windows is built for 64-bit.**
+
+Add the path to the directory of ZeroMQ binaries (Maybe the path is `Program Files (x86)/ZeroMQ 3.2.4/bin`) to environment variables `PATH`.
+
+Then rename `libzmq-v100-mt-3_2_4.dll` to `libzmq.dll`. It maybe in `Program Files (x86)/ZeroMQ 3.2.4/bin`.
+
+At last, pure IRuby do not work on Windows, so please apply [patches I sent before](https://github.com/minad/iruby/pull/30) to IRuby.
 
 ## Acknowledgments
 
