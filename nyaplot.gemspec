@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Naoki Nishida"]
   spec.email         = ["domitry@gmail.com"]
   spec.summary       = %q{interactive plots generator for Ruby users}
-  spec.description   = %q{To get information about Nyaplot, visit the website or mailing-list of SciRuby, or ask me on GitHub.}
+  spec.description   = %q{interactive plots generator for Ruby users. Visit the GitHub repository to get more information.}
   spec.homepage      = "https://www.github.com/domitry/nyaplot"
   spec.license       = "MIT"
 
