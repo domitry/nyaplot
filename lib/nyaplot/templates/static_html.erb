@@ -1,14 +1,8 @@
 <html lang='en'>
 <head>
   <title>Nyaplot</title>
-  <script src='http://d3js.org/d3.v3.min.js'></script>
-  <script src='https://rawgit.com/domitry/Nyaplotjs/master/release/nyaplot.js'></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+  <script><%= init %></script>
 </head>
-<body>
-<div id='vis'></div>
-<script>
-model = <%= model %>
-window.onload = function(){Nyaplot.core.parse(model, '#vis');};
-</script>
-</body>
+<body><%= body %></body>
 </html>

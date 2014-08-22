@@ -82,6 +82,13 @@ module Nyaplot
       Frame.new.tap {|f| f.add(self) }.show
     end
 
+    # export html file
+    def export_html(path=nil)
+      require 'securerandom'
+      path = "./plot-" + SecureRandom.uuid().to_s + ".html" if path.nil?
+      Frame.new.tap {|f| f.add(self) }.export_html(path)
+    end
+
     # @return [Array<String>] names of dataframe used by diagrams belog to this plot
     def df_list
       arr=[]
@@ -92,6 +99,7 @@ module Nyaplot
 
     def before_to_json
       diagrams = get_property(:diagrams)
+      return if diagrams.length == 0
 
       # set default values when not specified by users
       zoom(true) if diagrams.all?{|d| d.zoom?}

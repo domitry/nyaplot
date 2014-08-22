@@ -26,23 +26,36 @@ module Nyaplot
       panes.push(plot)
     end
 
-    # export static html file
-    # @return [String] generated html
-    def export_html
-      path = File.expand_path("../templates/static_html.erb", __FILE__)
-      template = File.read(path)
-      model = self.to_json
-      html = ERB.new(template).result(binding)
-      html
-    end
-
-    # show plot automatically on IRuby notebook
-    def to_iruby
+    # generate html code for <body> tag
+    def generate_body
       path = File.expand_path("../templates/iruby.erb", __FILE__)
       template = File.read(path)
       id = SecureRandom.uuid()
       model = self.to_json
-      ['text/html', ERB.new(template).result(binding)]
+      ERB.new(template).result(binding)
+    end
+
+    # generate static html file
+    # @return [String] generated html
+    def generate_html
+      body = generate_body
+      init = Nyaplot.generate_init_code
+      path = File.expand_path("../templates/static_html.erb", __FILE__)
+      template = File.read(path)
+      ERB.new(template).result(binding)
+    end
+
+    # export static html file
+    def export_html(path="./plot.html")
+      path = File.expand_path(path, Dir::pwd)
+      str = generate_html
+      File.write(path, str)
+    end
+
+    # show plot automatically on IRuby notebook
+    def to_iruby
+      html = generate_body
+      ['text/html', html]
     end
 
     # show plot on IRuby notebook

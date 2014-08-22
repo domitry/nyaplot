@@ -26,13 +26,19 @@ module Nyaplot
     @@additional_libraries[name]=url
   end
 
-  # Enable to show plots on IRuby notebook
-  def self.init_iruby
+  # generate initializing code
+  def self.generate_init_code
     path = File.expand_path("../templates/init.js.erb", __FILE__)
     template = File.read(path)
     dep_libraries = @@dep_libraries
     additional_libraries = @@additional_libraries
     js = ERB.new(template).result(binding)
+    js
+  end
+
+  # Enable to show plots on IRuby notebook
+  def self.init_iruby
+    js = self.generate_init_code
     IRuby.display(IRuby.javascript(js))
   end
 

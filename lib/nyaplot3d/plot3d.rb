@@ -43,9 +43,19 @@ module Nyaplot
 
     # Show plot on IRuby notebook
     def show
-      frame = Frame.new
-      frame.add(self)
-      frame.show
+      Frame.new.tap {|f| f.add(self) }.show
+    end
+
+    # Show plot automatically on IRuby notebook
+    def to_iruby
+      Frame.new.tap {|f| f.add(self) }.to_iruby
+    end
+
+    # export html file
+    def export_html(path=nil)
+      require 'securerandom'
+      path = "./plot-" + SecureRandom.uuid().to_s + ".html" if path.nil?
+      Frame.new.tap {|f| f.add(self) }.export_html(path)
     end
 
     # @return [Array<String>] names of dataframe used by diagrams belog to this plot
