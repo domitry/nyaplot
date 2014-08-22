@@ -135,9 +135,13 @@ module Nyaplot
     end
 
     def to_html(threshold = 15)
-      html = '<table><tr>'
-      @rows[0].each {|key, val| html.concat('<th>' + key.to_s + '</th>')}
-      html += '</tr>'
+      html = '<table>'
+
+      unless @rows[0].nil?
+        html += '<tr>'
+        @rows[0].each {|key, val| html.concat('<th>' + key.to_s + '</th>')}
+        html += '</tr>'
+      end
 
       @rows.each_with_index do |row, i|
         next if i > threshold && i < @rows.length-1
