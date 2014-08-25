@@ -182,24 +182,13 @@ module Nyaplot
 
   class Series
     include Enumerable
+    def each(&block)
+      @arr.each(&block)
+    end
 
     def initialize(label, arr)
       @arr = arr
       @label = label
-    end
-
-    def each
-      @arr.each do |item|
-        yield item
-      end
-    end
-
-    def min
-      @arr.min
-    end
-
-    def max
-      @arr.max
     end
 
     def to_html(threshold=15)
@@ -222,6 +211,20 @@ module Nyaplot
 
     def label
       @label
+    end
+
+
+    def method_missing(meth, *args, &block)
+      if [:size, :length, :[], :[]=, :min, :max].include?(meth)
+        @arr.send(meth, *args, &block)
+      else
+        super
+      end
+    end
+
+    def respond_to?(meth)
+      return true if [:size, :length, :[], :[]=, :min, :max].include?(meth)
+      super
     end
   end
 end
