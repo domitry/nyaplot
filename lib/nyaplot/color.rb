@@ -51,6 +51,12 @@ module Nyaplot
 
   # The html interface to access Colorset
   class Color
+    include Enumerable
+
+    def each(&bl)
+      @source.each(&bl)
+    end
+
     def initialize(arr)
       @source = arr
     end
@@ -73,5 +79,19 @@ module Nyaplot
     def to_json(*args)
       @source.to_json
     end
+
+    def method_missing(meth, *args, &block)
+      if [:size, :length, :[]].include?(meth)
+        @source.send(meth, *args, &block)
+      else
+        super
+      end
+    end
+
+    def respond_to?(meth)
+      return true if [:size, :length, :[]].include?(meth)
+      super
+    end
+
   end
 end
