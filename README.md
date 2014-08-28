@@ -11,6 +11,7 @@ This software has been developed as a product in Google Summer of Code 2014 (GSo
 
 ## Demo
 
++ [Movie demo on YouTube](https://www.youtube.com/watch?v=ZxjqsIluM88)
 + [Nyaplot Tutorial & Case study](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb)
 
 Visit [nyaplot-notebooks on GitHub](https://github.com/domitry/nyaplot-notebooks) to see more example.
