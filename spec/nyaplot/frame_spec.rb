@@ -15,10 +15,9 @@ describe Nyaplot::Frame do
     end
   end
 
-  context ".export_html" do
+  context ".generate_body" do
     it "should return correct html" do
-      html = @frame.export_html
-
+      html = @frame.generate_body
       if_brackets_is_same_number = [[/<html(.*?)>/,"</html>"],[/<script(.*?)>/,"</script>"],[/<body(.*?)>/,"</body>"]].all? do |pair|
         html.scan(pair[0]).length == html.scan(pair[1]).length
       end

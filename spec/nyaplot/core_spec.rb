@@ -1,11 +1,6 @@
 require 'spec_helper'
 
 describe Nyaplot do
-  context ".init_iruby" do
-    it "should raise error if IRuby is not loaded." do
-      expect{Nyaplot.init_iruby}.to raise_error(RuntimeError)
-    end
-  end
 
   # Tell the name of new JS extension library to Nyaplotjs
   context ".add_extension" do
