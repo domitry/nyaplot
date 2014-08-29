@@ -49,7 +49,9 @@ module Nyaplot
       #   @return [Numeric] the width of each bar. The specified value should be in the range 0 to 1.
       # @!attribute color
       #   @return [Array<String>] array of color codes
-      define_group_properties(:options, [:value, :x, :y, :width, :color])
+      # @!attribute legend
+      #   @return [Bool] decide if the diagram prepare legend
+      define_group_properties(:options, [:value, :x, :y, :width, :color, :legend])
 
       # calcurate xrange and yrange from recieved data
       def process_data(df, labels)
@@ -88,7 +90,9 @@ module Nyaplot
       #   @return [String] color code
       # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
-      define_group_properties(:options, [:title, :value, :bin_num, :width, :color, :stroke_color, :stroke_width])
+      # @!attribute legend
+      #   @return [Bool] decide if the diagram prepare legend
+      define_group_properties(:options, [:title, :value, :bin_num, :width, :color, :stroke_color, :stroke_width, :legend])
 
       def process_data(df, labels)
         label = labels[0]
@@ -162,7 +166,9 @@ module Nyaplot
       #   @return [Numeric] the width of stroke
       # @!attribute tooltip_contents
       #   @return [Array<Symbol>] column labels to display in tool-tip box
-      define_group_properties(:options, [:title, :x, :y, :fill_by, :shape_by, :size_by, :color, :shape, :size, :stroke_color, :stroke_width, :tooltip_contents])
+      # @!attribute legend
+      #   @return [Bool] decide if the diagram prepare legend
+      define_group_properties(:options, [:title, :x, :y, :fill_by, :shape_by, :size_by, :color, :shape, :size, :stroke_color, :stroke_width, :tooltip_contents, :legend])
 
       def process_data(df, labels)
         label_x = labels[0]
@@ -230,7 +236,9 @@ module Nyaplot
       #   @return [String] the color code
       # @!attribute stroke_width
       #   @return [Numeric] the width of stroke
-      define_group_properties(:options, [:title, :x, :y, :color, :stroke_width])
+      # @!attribute legend
+      #   @return [Bool] decide if the diagram prepare legend
+      define_group_properties(:options, [:title, :x, :y, :color, :stroke_width, :legend])
 
       def process_data(df, labels)
         label_x = labels[0]
