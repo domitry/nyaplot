@@ -139,35 +139,41 @@ describe Nyaplot::Series do
     @series = df.a
   end
 
-  context ".each" do
-    it "should excute recieved block" do
+  context "#each" do
+    it "should execute received block" do
       sum = 0
       @series.each {|val| sum+=val}
       expect(sum).to eq(40)
     end
   end
 
-  context ".min" do
-    it "should calcurate minimam value" do
+  context "#min" do
+    it "should calculate minimum value" do
       expect(@series.min).to eq(10)
     end
   end
 
-  context ".max" do
-    it "should calcurate maximam value" do
+  context "#max" do
+    it "should calculate maximum value" do
       expect(@series.max).to eq(30)
     end
   end
 
-  context ".to_a" do
+  context "#to_a" do
     it "should return Array" do
       expect(@series.to_a).to eq([10,30])
     end
   end
 
-  context ".label" do
+  context "#label" do
     it "should return String" do
       expect(@series.label).to eq(:a)
+    end
+  end
+
+  context "#size" do
+    it "should delegate to the internal array storage" do
+      expect(@series.size).to eq(@series.to_a.size)
     end
   end
 end

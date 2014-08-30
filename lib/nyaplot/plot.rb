@@ -43,6 +43,8 @@ module Nyaplot
       set_property(:options, {})
       set_property(:width, nil)
       set_property(:legend, nil)
+
+      yield if block_given?
     end
 
     # Add diagram with Array
