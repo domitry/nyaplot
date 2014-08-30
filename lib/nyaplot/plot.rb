@@ -37,12 +37,14 @@ module Nyaplot
     define_properties(:diagrams, :filter)
     define_group_properties(:options, [:width, :height, :margin, :xrange, :yrange, :x_label, :y_label, :bg_color, :grid_color, :legend, :legend_width, :legend_options, :zoom, :rotate_x_label, :rotate_y_label])
 
-    def initialize
+    def initialize(&block)
       init_properties
       set_property(:diagrams, [])
       set_property(:options, {})
       set_property(:width, nil)
       set_property(:legend, nil)
+
+      self.instance_eval(&block) if block_given?
     end
 
     # Add diagram with Array
