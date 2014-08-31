@@ -43,6 +43,7 @@ module Nyaplot
       set_property(:options, {})
       set_property(:width, nil)
       set_property(:legend, nil)
+      set_property(:zoom, nil)
 
       self.instance_eval(&block) if block_given?
     end
@@ -104,7 +105,7 @@ module Nyaplot
       return if diagrams.length == 0
 
       # set default values when not specified by users
-      zoom(true) if diagrams.all?{|d| d.zoom?}
+      zoom(true) if zoom.nil? && diagrams.all?{|d| d.zoom?}
 
       if width.nil?
         if legend == true
