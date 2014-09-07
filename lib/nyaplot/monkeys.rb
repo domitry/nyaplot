@@ -39,7 +39,7 @@ class Array
 
     return nil if h.keys.empty?
 
-    max_key = h[h.keys.first]
+    max_key = h.keys.first
 
     h.each_pair do |k,count|
       next if count.nil? || h[max_key].nil?
