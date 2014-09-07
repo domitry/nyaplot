@@ -213,18 +213,18 @@ module Nyaplot
       @label
     end
 
-
     def method_missing(meth, *args, &block)
-      if [:size, :length, :[], :[]=, :min, :max].include?(meth)
+      if @arr.respond_to?(meth)
         @arr.send(meth, *args, &block)
       else
-        super
+        super(meth, *args, &block)
       end
     end
 
     def respond_to?(meth)
-      return true if [:size, :length, :[], :[]=, :min, :max].include?(meth)
-      super
+      return true if @arr.respond_to?(meth)
+      super(meth)
     end
+
   end
 end

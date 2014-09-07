@@ -45,7 +45,7 @@ module Nyaplot
       set_property(:legend, nil)
       set_property(:zoom, nil)
 
-      self.instance_eval(&block) if block_given?
+      yield if block_given?
     end
 
     # Add diagram with Array
