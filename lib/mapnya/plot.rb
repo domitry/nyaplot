@@ -69,7 +69,7 @@ module Nyaplot
       height(800) if height.nil?
 
       if map_data.nil?
-        path = File.expand_path("../datasets/world.geo.json", __FILE__)
+        path = File.expand_path("../datasets/geo-boundaries-world-110m/countries.geojson", __FILE__)
         map_data(JSON.parse(File.read(path)))
       end
 
