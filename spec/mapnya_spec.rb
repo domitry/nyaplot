@@ -29,7 +29,7 @@ describe Nyaplot::MapPlot do
     end
 
     it "returned list should contain dataframe registerd by 'Nyaplot::MapPlot#fill_map_with_df'" do
-      df = Nyaplot::DataFrame.new({cca3: ["FIN", "FRA", "GUF", "PYF"], val:[0,1,2,3]})
+      df = Daru::DataFrame.new({cca3: ["FIN", "FRA", "GUF", "PYF"], val:[0,1,2,3]})
       @plot.fill_map_with_df(df, :cca3, :val)
       expect(@plot.df_list.index(df.name).nil?).to eq(false)
     end
@@ -37,7 +37,7 @@ describe Nyaplot::MapPlot do
 
   context ".fill_map_with_df" do
     it "should assign value to 'cca3', 'fill_by', and 'df_id' options" do
-      df = Nyaplot::DataFrame.new({cca3: ["FIN", "FRA", "GUF", "PYF"], val:[0,1,2,3]})
+      df = Daru::DataFrame.new({cca3: ["FIN", "FRA", "GUF", "PYF"], val:[0,1,2,3]})
       @plot.fill_map_with_df(df, :cca3, :val)
       expect(@plot.cca3.nil?).to eq(false)
       expect(@plot.fill_by.nil?).to eq(false)
@@ -66,13 +66,13 @@ describe Nyaplot::Countries do
   end
 
   context ".df" do
-    it "should return instance of Nyaplot::DataFrame" do
-      expect(Nyaplot::Countries.df.is_a? Nyaplot::DataFrame).to eq(true)
+    it "should return instance of Daru::DataFrame" do
+      expect(Nyaplot::Countries.df.is_a? Daru::DataFrame).to eq(true)
     end
 
     it "return DataFrame contains information about :name, :cca3, :capital, and others" do
       result = [:name, :nativeName, :tld, :cca2, :ccn3, :cca3, :currency, :callingCode, :capital, :altSpellings, :relevance, :region, :subregion, :language, :languageCodes, :translations, :demonym, :borders, :area, :lat, :lng].all? do |label|
-        !Nyaplot::Countries.df.column_labels.index(label).nil?
+        !Nyaplot::Countries.df.fields.index(label).nil?
       end
       expect(result).to eq(true)
     end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Nyaplot::Diagram do
   context ".df_name" do
     it "should return the name of dataframe from which the diagram created" do
-      df = Nyaplot::DataFrame.new({x:[0,1,2], y:[0,1,2]})
+      df = Daru::DataFrame.new({x:[0,1,2], y:[0,1,2]})
       sc = Nyaplot::Diagram.new(df, :scatter, [:x, :y])
       expect(sc.df_name).to eq(df.name)
     end
@@ -15,7 +15,7 @@ describe Nyaplot::Diagrams do
     @discrete = ['Persian', 'Maine Coon', 'American Shorthair']
     @continuous = [-20,-10,0]
     @continuous_range = [:min, :max].map {|name| @continuous.send(name)}
-    @df = Nyaplot::DataFrame.new({discrete: @discrete, continuous: @continuous})
+    @df = Daru::DataFrame.new({discrete: @discrete, continuous: @continuous})
   end
 
   context "::Bar" do

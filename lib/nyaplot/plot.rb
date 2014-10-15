@@ -56,7 +56,7 @@ module Nyaplot
     def add(type, *data)
       labels = data.map.with_index{|d, i| 'data' + i.to_s}
       raw_data = data.each.with_index.reduce({}){|memo, (d, i)| memo[labels[i]]=d; next memo}
-      df = DataFrame.new(raw_data)
+      df = Daru::DataFrame.new(raw_data)
       return add_with_df(df, type, *labels)
     end
 
@@ -65,7 +65,7 @@ module Nyaplot
     # @param [Symbol] type the type of diagram to add
     # @param [Array<Symbol>] *labels column labels for x, y or some other dimension
     # @example
-    #    df = Nyaplot::DataFrame.new({x: [0,1,2], y: [0,1,2]})
+    #    df = Daru::DataFrame.new({x: [0,1,2], y: [0,1,2]})
     #    plot.add(df, :scatter, :x, :y)
     def add_with_df(df, type, *labels)
       diagram = Diagram.new(df, type, labels)

@@ -23,7 +23,7 @@ module Nyaplot
     # @example
     #    plot.add(:surface, [0,1,2], [0,1,2], [0,1,2])
     def add(type, *data)
-      df = DataFrame.new({x: data[0], y: data[1], z: data[2]})
+      df = Daru::DataFrame.new({x: data[0], y: data[1], z: data[2]})
       return add_with_df(df, type, :x, :y, :z)
     end
 
@@ -32,7 +32,7 @@ module Nyaplot
     # @param [Symbol] type the type of diagram to add
     # @param [Array<Symbol>] *labels column labels for x, y or some other dimension
     # @example
-    #    df = Nyaplot::DataFrame.new({x: [0,1,2], y: [0,1,2], z: [0,1,2]})
+    #    df = Daru::DataFrame.new({x: [0,1,2], y: [0,1,2], z: [0,1,2]})
     #    plot.add(df, :surface, :x, :y, :z)
     def add_with_df(df, type, *labels)
       diagram = Diagram3D.new(df, type, labels)

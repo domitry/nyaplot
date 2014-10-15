@@ -9,7 +9,7 @@ describe Nyaplot::DataBase do
 
   context ".add" do
     it "should register dataframe specified in the first argument to database" do
-      df = Nyaplot::DataFrame.new({a: [0,1,2]})
+      df = Daru::DataFrame.new({a: [0,1,2]})
       Nyaplot::DataBase.instance.add(df)
       expect(Nyaplot::DataBase.instance.fetch(df.name)).to eq(df)
     end
