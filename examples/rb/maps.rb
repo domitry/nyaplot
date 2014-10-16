@@ -4,7 +4,7 @@ require 'mapnya'
 raw_df = Nyaplot::Countries.df
 
 hash = [:name, :lat, :lng, :area, :capital].map{|label| {label => raw_df.column(label).to_a}}.reduce({}){|memo, hash| memo.merge(hash)}
-df = Nyaplot::DataFrame.new(hash)
+df = Daru::DataFrame.new(hash)
 
 color = Nyaplot::Colors.Reds
 

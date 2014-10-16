@@ -9,7 +9,7 @@ x=[];y=[];home=[]
   y.push(5*rand)
   home.push(address.clone.sample)
 end
-df = Nyaplot::DataFrame.new({x: x,y: y,name: samples, home: home})
+df = Daru::DataFrame.new({x: x,y: y,name: samples, home: home})
 
 plot = Nyaplot::Plot.new
 plot.x_label("weight [kg]")

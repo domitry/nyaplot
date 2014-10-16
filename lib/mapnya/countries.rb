@@ -6,7 +6,7 @@ module Nyaplot
     class << self
       path = File.expand_path("../datasets/countries/countries.json", __FILE__)
       file = File.read(path)
-      df = Nyaplot::DataFrame.new(JSON.parse(file))
+      df = Daru::DataFrame.new(JSON.parse(file))
 
       # pre-process
       lat = []; lng = []
@@ -14,12 +14,12 @@ module Nyaplot
         lat.push(latlng[0])
         lng.push(latlng[1])
       end
-      df.insert_column(:lat, lat)
-      df.insert_column(:lng, lng)
-      df.delete_column(:latlng)
+      df.insert_vector(:lat, lat)
+      df.insert_vector(:lng, lng)
+      df.delete(:latlng)
 
       # ATA have a problem on coordinate and BMU will cause that all ocean are filled in the same color as BMU's
-      df.filter! {|row| !(row[:lat].nil? || row[:lng].nil? || ["BMU", "ATA"].index(row[:cca3]))}
+      df = df.filter_rows {|row| !(row[:lat].nil? || row[:lng].nil? || ["BMU", "ATA"].index(row[:cca3]))}
       df.each_row {|row| row[:area]=0 if row[:area]<0}
       @@df = df
 

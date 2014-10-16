@@ -56,7 +56,7 @@ end
 describe Nyaplot::Plot3D do
   before(:each) do
     @plot = Nyaplot::Plot3D.new
-    @df = Nyaplot::DataFrame.new({a: [0,1,2], b: [0,1,2], c: [0,1,2]})
+    @df = Daru::DataFrame.new({a: [0,1,2], b: [0,1,2], c: [0,1,2]})
   end
 
   context ".add" do

@@ -1,8 +1,8 @@
 require 'nyaplot'
 
 path = File.expand_path("../../notebook/data/first.tab", __FILE__)
-df = Nyaplot::DataFrame.from_csv(path, sep="\t")
-df.filter! {|row| row[:set1] != 0.0}
+df = Daru::DataFrame.from_csv(path, sep="\t")
+df = df.filter_rows {|row| row[:set1] != 0.0}
 
 plot4=Nyaplot::Plot.new
 plot4.add_with_df(df, :histogram, :set1)

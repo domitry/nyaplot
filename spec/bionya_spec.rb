@@ -12,15 +12,17 @@ end
 
 describe Nyaplot::CircularPlot do
   before(:each) do
-    df = Nyaplot::DataFrame.new([{name:'hoge', df: [{axis: 0, val: 3, label:'a'},{axis: 1, val: 3, label:'a'}]}, {name:'huga', df: [{axis: 2, val: 3, label:'a'},{axis: 3, val: 3, label:'a'}]}])
-    df.each_row{|row| row[:df] = Nyaplot::DataFrame.new(row[:df])}
+    df = Daru::DataFrame.new([{name:'hoge', 
+      df: [{axis: 0, val: 3, label:'a'},{axis: 1, val: 3, label:'a'}]}, 
+      {name:'huga', df: [{axis: 2, val: 3, label:'a'},{axis: 3, val: 3, label:'a'}]}])
+    df.each_row{|row| row[:df] = Daru::DataFrame.new(row[:df])}
     @df = df
     @plot = Nyaplot::CircularPlot.new(df, :name, :df)
   end
 
   context ".add_connector_with_df" do
     it "should register diagram" do
-      df = Nyaplot::DataFrame.new({from: ['hoge.1', 'huga.2'], to: ['hoge.1', 'huga.1']})
+      df = Daru::DataFrame.new({from: ['hoge.1', 'huga.2'], to: ['hoge.1', 'huga.1']})
       @plot.add_connector_with_df(df, :from, :to)
       expect(JSON.parse(@plot.to_json)["diagrams"].any?{|d| d["type"] == "connector"}).to eq(true)
     end
@@ -39,8 +41,8 @@ end
 
 describe Nyaplot::Diagrams do
   before(:each) do
-    df = Nyaplot::DataFrame.new([{name:'hoge', df: [{axis: 0, val: 3, label:'a'},{axis: 1, val: 3, label:'a'}]}, {name:'huga', df: [{axis: 2, val: 3, label:'a'},{axis: 3, val: 3, label:'a'}]}])
-    df.each_row{|row| row[:df] = Nyaplot::DataFrame.new(row[:df])}
+    df = Daru::DataFrame.new([{name:'hoge', df: [{axis: 0, val: 3, label:'a'},{axis: 1, val: 3, label:'a'}]}, {name:'huga', df: [{axis: 2, val: 3, label:'a'},{axis: 3, val: 3, label:'a'}]}])
+    df.each_row{|row| row[:df] = Daru::DataFrame.new(row[:df])}
     @df = df
     @plot = Nyaplot::CircularPlot.new(df, :name, :df)
   end
@@ -68,7 +70,7 @@ describe Nyaplot::Diagrams do
 
   context "::Connector#process_data"do
     it "should register 'from' and 'to'" do
-      df = Nyaplot::DataFrame.new({from: ['hoge.1', 'huga.2'], to: ['hoge.1', 'huga.1']})
+      df = Daru::DataFrame.new({from: ['hoge.1', 'huga.2'], to: ['hoge.1', 'huga.1']})
       connector = @plot.add_connector_with_df(df, :from, :to)
       expect(connector.from).to eq(:from)
       expect(connector.to).to eq(:to)

@@ -3,17 +3,17 @@ require 'bionya'
 
 arr = []
 10.times do |i|
-  arr.push({group: 'group' + i.to_s ,df: Nyaplot::DataFrame.new({axis: ['a', 'b', 'c'], val: [2, 3, 4]})})
+  arr.push({group: 'group' + i.to_s ,df: Daru::DataFrame.new({axis: ['a', 'b', 'c'], val: [2, 3, 4]})})
 end
-df = Nyaplot::DataFrame.new(arr)
+df = Daru::DataFrame.new(arr)
 
 plot = Nyaplot::CircularPlot.new(df, :group, :df)
 plot.add(1, :arc, :axis, :val)
 plot.export_html("example_bionya.html")
 
-df = Nyaplot::DataFrame.from_csv(File.expand_path('../../notebook/data/circular/category.csv',__FILE__))
-df2 = Nyaplot::DataFrame.from_csv(File.expand_path('../../notebook/data/circular/hgmd.tsv', __FILE__), {col_sep: "\t"})
-df3 = Nyaplot::DataFrame.from_csv(File.expand_path('../../notebook/data/circular/genes_hgmd.tsv', __FILE__), {col_sep: "\t"})
+df = Daru::DataFrame.from_csv(File.expand_path('../../notebook/data/circular/category.csv',__FILE__))
+df2 = Daru::DataFrame.from_csv(File.expand_path('../../notebook/data/circular/hgmd.tsv', __FILE__), {col_sep: "\t"})
+df3 = Daru::DataFrame.from_csv(File.expand_path('../../notebook/data/circular/genes_hgmd.tsv', __FILE__), {col_sep: "\t"})
 
 hash2 = {}
 df3.each_row do |row|
@@ -41,7 +41,7 @@ nested = df.column(:size).to_a.map.with_index do |size, i|
     name = names.select {|name| name[:locale] > i*bin_size && name[:locale] < (i+1)*bin_size}
     {axis: i*bin_size, val: val, name: (name.length==0 ? '' : name[0][:name])}
   }
-  Nyaplot::DataFrame.new(raw)
+  Daru::DataFrame.new(raw)
 end
 df.df = nested
 

@@ -28,7 +28,7 @@ describe Nyaplot::Plot do
 
   context ".add_with_df" do
     it "should register dataframe to itself" do
-      df = Nyaplot::DataFrame.new({hoge: [0,1,2], nya: [0,1,2]})
+      df = Daru::DataFrame.new({hoge: [0,1,2], nya: [0,1,2]})
       @plot.add_with_df(df, :line, :hoge, :nya)
       expect(@plot.df_list.index(df.name).nil?).to eq(false)
     end
