@@ -170,12 +170,14 @@ module Nyaplot
       @rows[0].keys
     end
 
-    def method_missing(name, *args)
+    def method_missing(name, *args, &block)
       if md = name.match(/(.+)\=/)
         self.insert_column(name[/(.+)\=/].delete("="), args[0])
         return
-      else
+      elsif column_labels.include?(name)
         return self.column(name)
+      else
+        super(name, *args, &block)
       end
     end
   end
