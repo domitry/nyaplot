@@ -41,6 +41,7 @@ module Nyaplot
           define_method(symbol) {|val=nil|
             return @properties[symbol] if val.nil?
             @properties[symbol] = val
+            return self
           }
         end
       end
@@ -61,6 +62,7 @@ module Nyaplot
           define_method(symbol) {|val=nil|
             return @properties[name][symbol] if val.nil?
             @properties[name][symbol] = val
+            return self
           }
         end
       end
