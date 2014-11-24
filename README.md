@@ -1,4 +1,6 @@
 # Nyaplot
+[![Gem Version](https://badge.fury.io/rb/nyaplot.svg)](http://badge.fury.io/rb/nyaplot)
+
 ![alt text](https://dl.dropboxusercontent.com/u/47978121/gsoc/nya_top.png)
 
 Nyaplot is an interactive plots generator for Ruby users. Its goal is to make it easy to create interactive plots in Ruby and still allows fast prototyping, customizability, and the integration with other scientific gems.
