@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Naoki Nishida"]
   spec.email         = ["domitry@gmail.com"]
   spec.summary       = %q{Nyaplot is an interactive plots generator based on Web technology like SVG, WebGL, and JavaScript.}
-  spec.description   = %q{Nyaplot is an Interactive plots generator based on Web technology like SVG, WebGL, and JavaScript. It enables us to create interactive plots interactively on IRuby notebook, a web-based Ruby environment. Nyaplot is totally web-based gem and plots can be embedded into Rails or Sinatra seemlesly. Supported charts include basic 2D plot, 3D plot, Map plot and plot for Biology. See nbviewer (http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb) to overview what plots can be done with nyaplot and how to create them.}
+  spec.description   = %q{Nyaplot is an Interactive plots generator based on Web technology like SVG, WebGL, and JavaScript. It enables us to create interactive plots interactively on IRuby notebook, a web-based Ruby environment. Nyaplot is totally web-based gem and plots can be embedded into Rails or Sinatra seemlesly. Supported charts include basic 2D plot, 3D plot, Map plot and plot for Biology. See nbviewer (http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb) to overview what plots can be created with nyaplot and how to do it.}
   spec.homepage      = "https://www.github.com/domitry/nyaplot"
   spec.license       = "MIT"
   spec.post_install_message = <<-EOF
@@ -48,7 +48,7 @@ EOF
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
-  spec.required_ruby_version = ">= 1.9"
+  spec.required_ruby_version = ">= 2.0"
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
