@@ -1,0 +1,54 @@
+<html lang='en'>
+<head>
+  <title>Nyaplot</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+  <script>if(window['d3'] === undefined ||
+   window['Nyaplot'] === undefined){
+    var path = {"d3":"http://d3js.org/d3.v3.min","THREE":"http://cdnjs.cloudflare.com/ajax/libs/three.js/r66/three.min","Elegans":"http://rawgit.com/domitry/elegans/nyaplot-extension/release/elegans","Hoge":"http://www.hoge.com","Bionya":"https://rawgit.com/domitry/nyaplot/master/lib/bionya/js/release/bionya","Mapnya":"https://rawgit.com/domitry/nyaplot/master/lib/mapnya/js/release/mapnya"};
+
+
+
+    var shim = {"d3":{"exports":"d3"},"THREE":{"exports":"THREE"},"Elegans":{"exports":"Elegans"},"Hoge":{"exports":"Hoge"},"Bionya":{"exports":"Bionya"},"Mapnya":{"exports":"Mapnya"}};
+
+    require.config({paths: path, shim:shim});
+
+
+require(['d3'], function(d3){window['d3']=d3;console.log('finished loading d3');require(['THREE'], function(THREE){window['THREE']=THREE;console.log('finished loading THREE');require(['Elegans'], function(Elegans){window['Elegans']=Elegans;console.log('finished loading Elegans');require(['Hoge'], function(Hoge){window['Hoge']=Hoge;console.log('finished loading Hoge');
+
+	var script = d3.select("head")
+	    .append("script")
+	    .attr("src", "https://rawgit.com/domitry/Nyaplotjs/master/release/nyaplot.js")
+	    .attr("async", true);
+
+	script[0][0].onload = script[0][0].onreadystatechange = function(){
+
+require(['Bionya'], function(Bionya){window['Bionya']=Bionya;console.log('finished loading Bionya');require(['Mapnya'], function(Mapnya){window['Mapnya']=Mapnya;console.log('finished loading Mapnya');require(['Hoge'], function(Hoge){window['Hoge']=Hoge;console.log('finished loading Hoge');
+	    var event = document.createEvent("HTMLEvents");
+	    event.initEvent("load_nyaplot",false,false);
+	    window.dispatchEvent(event);
+	    console.log('Finished loading Nyaplotjs');
+});});});
+	};
+
+
+});});});});
+}
+</script>
+</head>
+<body><div id='vis-ba762e58-4e2b-4951-85af-bd01be38d473'></div>
+<script>
+(function(){
+    var render = function(){
+        var model = {"panes":[{"diagrams":[{"type":"scatter","options":{"x":"data0","y":"data1"},"data":"a3da0671-4b18-4506-87f3-19cf28816e0e"}],"options":{"zoom":true,"width":700,"xrange":[0,2],"yrange":[0,2]}}],"data":{"a3da0671-4b18-4506-87f3-19cf28816e0e":[{"data0":0,"data1":0},{"data0":1,"data1":1},{"data0":2,"data1":2}]},"extension":["Bionya","Mapnya","Elegans","Hoge"]}
+        Nyaplot.core.parse(model, '#vis-ba762e58-4e2b-4951-85af-bd01be38d473');
+    };
+    if(window['Nyaplot']==undefined){
+        window.addEventListener('load_nyaplot', render, false);
+	return;
+    } else {
+       render();
+    }
+})();
+</script>
+</body>
+</html>
