@@ -2,7 +2,7 @@
 <script>
 (function(){
     var render = function(){
-        var model = <%= model %>
+        var model = <%= model %>;
         Nyaplot.core.parse(model, '#vis-<%= id %>');
     };
     if(window['Nyaplot']==undefined){

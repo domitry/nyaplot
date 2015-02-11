@@ -1,6 +1,21 @@
 require 'json'
 
 module Nyaplot
+  class Object
+    include Nyaplot::Jsonizable
+    define_properties :type, :args, :uuid
+    attr_reader :dependency
+
+    def initialize
+      uuid SecureRandom.uuid
+      @dependency= []
+    end
+
+    def add_dependency(obj)
+      unless obj.is_a? Nyaplot::Object raise RuntimeError
+      @dependency.push(obj)
+    end
+  end
 
   # The module to be included by internal classes
   module Jsonizable
