@@ -1,0 +1,4 @@
+[submodule "nyaplotjs"]
+	path = nyaplotjs
+	url = git@github.com:domitry/Nyaplotjs.git
+	branch = v2
