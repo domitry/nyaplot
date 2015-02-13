@@ -6,10 +6,10 @@ module Nyaplot
   #   p3.to_iruby
 
   class Pane
-    include Nyaplot::Object
+    include Nyaplot::Base
 
     type :pane
-    args :parent_id, :layout
+    required_args :parent_id, :layout
 
     def initialize
       super
