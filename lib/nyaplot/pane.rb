@@ -1,4 +1,7 @@
 module Nyaplot
+  # The wrapper for pane of Nyaplotjs
+  # (https://github.com/domitry/Nyaplotjs/blob/v2/src/parser/pane.js)
+  #
   # @example
   #   p1 = Pane.new.columns(s1, s2)
   #   p2 = Pane.new.columns(s3, s4)

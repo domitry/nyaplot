@@ -7,7 +7,7 @@ module Nyaplot
       @reciever = self
     end
 
-    # short-cut method for Nyaplot::Plot#add
+    # shortcut method for Nyaplot::Plot#add
     # @example
     #   Plot.add(:scatter, a, b)
     #
@@ -54,7 +54,7 @@ module Nyaplot
       @reciever = stage
     end
 
-    # shortcut method for method-chain
+    # shortcut method for method chaining
     # @example
     # Plot.add(df, :scatter, :x, :y)
     #  .color red
@@ -68,7 +68,7 @@ module Nyaplot
       self
     end
 
-    # shortcut method for method-chain
+    # shortcut method for method chaining
     def glyph
       @reciever = @glyphs.first
       self
