@@ -24,7 +24,7 @@ module Nyaplot
         args.each do |obj|
           if obj.is_a? Nyaplot::Glyph
             add_glyph(obj)
-          elsif obj.is_a? Nyaplot::Stage
+          elsif obj.is_a? Nyaplot::Stage2D
             add_stage(obj)
           end
         end
@@ -35,7 +35,7 @@ module Nyaplot
     private
     def add_glyph(glyph)
       if @stages.length == 0
-        stage = Nyaplot::Stage.new
+        stage = Nyaplot::Stage2D.new
         add_stage(stage)
         stage.add(glyph)
       elsif @stages.length == 1
