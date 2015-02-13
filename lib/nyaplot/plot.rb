@@ -75,7 +75,7 @@ module Nyaplot
     end
 
     def to_s
-      "#<Nyaplot::Plot : " + "reciever=" @receiver.to_s " : " + ("%x"%(self.object_id << 1)) +">"
+      "#<Nyaplot::Plot : "+"reciever="+@receiver.to_s+" : "+("%x"%(self.object_id << 1))+">"
     end
 
     def method_missing(name, *args)
