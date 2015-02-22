@@ -23,7 +23,7 @@ module Nyaplot
       contents = stages.map do |s|
         if s.is_a? Nyaplot::Pane
           s.layout
-        else s.is_a? Nyaplot::Stage
+        else s.is_a? Nyaplot::Stage2D
           add_dependency(s)
           {sync: s.uuid}
         end

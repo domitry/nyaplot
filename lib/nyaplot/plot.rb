@@ -15,6 +15,7 @@ module Nyaplot
       while stack.length > 0
         stack = stack.reduce([]) do |memo, obj|
           gen_list[obj] = gen
+          obj.resolve_dependency if obj.respond_to? :resolve_dependency
           memo.concat(obj.dependency)
           next memo
         end
@@ -22,7 +23,7 @@ module Nyaplot
       end
 
       # gen_list: {Obj1: 2, Obj2: 0, Obj3: 15, .., Objn: 0}
-      return gen_list.sort_by {|k, v| v}.reverse.map {|arr| arr.first}.to_json
+      "[" + gen_list.sort_by{|k, v| v}.map{|arr| arr.first.to_json}.reverse.join(",") + "]"
     end
 
     # generate html code for <body> tag
@@ -61,20 +62,6 @@ module Nyaplot
     def show
       IRuby.display(self)
     end
-
-    # shortcut method for Nyaplot::Plot#add
-    # @example
-    #   Plot.add(:scatter, a, b)
-    #
-    class << self
-      def add(*args)
-        self.new.add(*args)
-      end
-
-      def from(df)
-        self.new.from(df)
-      end
-    end
   end
 
   # Base class for general 2-dimentional plots
@@ -85,14 +72,30 @@ module Nyaplot
 
     def initialize
       super
-      @dependency = [@pane]
+      stage = Stage2D.new
+      @pane = Pane.rows(stage)
+      @dependency = [@pane, stage]
     end
 
-    # shortcut method for
-    # @example
-    #   df = DataFrame.new({hoge: [1,2,3], nya: [2,3,4]})
-    #   Plot.from(df).add(:scatter, :hoge, :nya)
-    #
+    class << self
+      # shortcut method for Plot#add
+      # @example
+      #   Plot.add(:scatter, a, b)
+      #
+      def add(*args)
+        self.new.add(*args)
+      end
+
+      # shortcut method for Plot#from
+      # @example
+      #   df = DataFrame.new({hoge: [1,2,3], nya: [2,3,4]})
+      #   Plot.from(df).add(:scatter, :hoge, :nya)
+      #
+      def from(df)
+        self.new.from(df)
+      end
+    end
+
     def from(df)
       if df.is_a? DataFrame
         @df = df
@@ -116,7 +119,7 @@ module Nyaplot
         else
           # hash: {x: [0, 1, 2], y: [1, 2, 3]}
           df = DataFrame.new(hash)
-          arg = hash.reduce({}){|memo, k, v| memo[k] = k; memo}
+          arg = hash.reduce({}){|memo, val| memo[val[0]] = val[0]; memo}
           glyph = Nyaplot::Glyph.instantiate(df, name, arg)
         end
         add_glyph(glyph)
@@ -134,12 +137,12 @@ module Nyaplot
 
     private
     def add_glyph(glyph)
-      stages = @dependency.select{|obj| obj.is_a? Stage2D}
-      if stage_num == 0
-        stage = Stage2D.new
-        self.add_stage(stage)
+      stages = @dependency.select{|obj| obj.is_a? Nyaplot::Stage2D}
+      if stages.length == 0
+        stage = Nyaplot::Stage2D.new
+        add_stage(stage)
         stage.context.add(glyph)
-      elsif stage_num == 1
+      elsif stages.length == 1
         stages.first.context.add(glyph)
       else
         raise "Specify stage to add the glyph."

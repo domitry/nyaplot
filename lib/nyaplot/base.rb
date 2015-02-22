@@ -17,28 +17,28 @@ module Nyaplot
       @dependency= []
       @args = {}
 
-      self.attr(args.first) if args.length == 1 && args[0].is_a?(Hash)
-    end
-
-    class << @args
-      def to_json(*args)
-        args = self.reduce({}) do |memo, k, v|
-          memo[k]= v.is_a? Nyaplot::Base ? {sync: v.uuid} : v
-          memo
+      class << @args
+        def to_json(*args)
+          args = self.reduce({}) do |memo, val|
+            memo[val[0]]= val[1].is_a?(Nyaplot::Base) ? {sync: val[1].uuid} : val[1]
+            memo
+          end
+          args.to_json
         end
-        args.to_json
       end
+
+      self.attr(args.first) if args.length == 1 && args.first.is_a?(Hash)
     end
 
     def attr(hash)
-      args[0].each do |k, v|
-        self.call(k, v)
+      hash.each do |val|
+        self.send(val[0], val[1])
       end
     end
 
     def add_dependency(*given)
       given.each do |obj|
-        raise RuntimeError unless obj.is_a? Nyaplot::Object
+        raise RuntimeError unless obj.is_a?(Nyaplot::Base)
         @dependency.push(obj)
       end
     end
@@ -48,8 +48,11 @@ module Nyaplot
     end
 
     def verify
-      raise RuntimeError if @@type.nil?
-      raise RuntimeError unless @@required_args.all?{|s| @args.has_key? s}
+      raise "Type name should be specified" if self.class.class_variable_get("@@type".to_sym).nil?
+      args = self.class.class_variable_get("@@required_args".to_sym)
+      args.each do |s|
+        raise s.to_s + " of " + self.to_s + " should be set" unless @args.has_key?(s)
+      end
     end
 
     # over-write it
@@ -60,7 +63,7 @@ module Nyaplot
       before_to_json
       verify
       {
-        type: @@type,
+        type: self.class.class_variable_get("@@type".to_sym),
         uuid: @uuid,
         args: @args
       }.to_json
@@ -68,7 +71,7 @@ module Nyaplot
 
     module ClassMethods
       def type(symbol)
-        @@type = symbol
+        self.class_variable_set("@@type".to_sym, symbol)
       end
 
       private
@@ -80,12 +83,14 @@ module Nyaplot
             add_dependency(val)
           end
           @args[s] = val
+          self
         end
       end
 
       def required_args(*symbols)
-        @@required_args ||= []
-        @@required_args.concat(symbols)
+        name = "@@required_args".to_sym
+        arr = (self.class_variable_defined?(name) ? self.class_variable_get(name) : [])
+        self.class_variable_set(name, arr.concat(symbols))
 
         symbols.each do |s|
           define_accessor s

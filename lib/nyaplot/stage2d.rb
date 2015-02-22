@@ -10,18 +10,17 @@ module Nyaplot
     attr_accessor :background, :context, :axis
 
     def initialize(*args)
+      super()
       attr({width: 700, height: 700})
-      super
       @background = Nyaplot::Sheet::Background.new
-      @context = Nyaplot::Context2D.new
+      @context = Nyaplot::Sheet::Context.new
       @axis = Nyaplot::Sheet::Axis.new
       add_sheet(@background, @context, @axis)
     end
 
     def add_sheet(*given)
-      raise RuntimeError unless given.all? {|s| s.is_a? Nyaplot::Sheet}
       sheets([]) if sheets.nil?
-      sheets.concat(given)
+      sheets.concat(given.map{|obj| obj.uuid})
       add_dependency(*given)
     end
 
@@ -37,9 +36,16 @@ module Nyaplot
     def adjust_margin
     end
 
-    def before_to_json
+    def resolve_dependency
       adjust_size
       adjust_margin
+
+      xscale = @context.xscale([0, width])
+      yscale = @context.yscale([0, height])
+      pos = Position2D.new(x: xscale, y: yscale)
+
+      @context.position(pos)
+      @axis.xscale(xscale).yscale(yscale)
     end
   end
 end

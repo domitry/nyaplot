@@ -17,7 +17,6 @@ module Nyaplot
       include Nyaplot::Base
       type :glyph
 
-      private
       def range(label)
         if data[label].all? {|v| v.is_a? Numeric}
           [data[label].min, data[label].max]
@@ -27,11 +26,11 @@ module Nyaplot
       end
 
       def range_x
-        self.range(x)
+        range(x)
       end
 
       def range_y
-        self.range(y)
+        range(y)
       end
     end
 

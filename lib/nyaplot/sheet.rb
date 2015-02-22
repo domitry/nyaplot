@@ -9,43 +9,42 @@ module Nyaplot
 
       def add_glyph(*glyph)
         glyphs([]) if glyphs.nil?
-        glyph = glyph.map{|g| g.uuid}
         glyphs.concat(glyph)
         add_dependency(*glyph)
-      end
 
-      private
-      def range(method_name)
-        return glyphs.reduce([Infinity, -Infinity]) do |memo, glyph|
-          min, max = glyphs.send(method_name)
-          memo[0] = [min, memo[0]].min
-          memo[1] = [max, memo[0]].max
+        class << glyphs
+          def to_json(*args)
+            self.map{|obj| obj.uuid}.to_json
+          end
         end
       end
 
-      private
-      def xscale
-        r = self.range(:range_x)
-        s = Scale.new(domain: r, range: [0, width])
-        s.type = (r.all? {|v| v.is_a? Numeric} ? :linear : :ordinal)
+      def range(method_name)
+        return glyphs.reduce([Float::INFINITY, -Float::INFINITY]) do |memo, g|
+          min, max = g.send(method_name)
+          memo[0] = [min, memo[0]].min
+          memo[1] = [max, memo[0]].max
+          memo
+        end
+      end
+
+      def xscale(range)
+        r = range(:range_x)
+        s = Scale.new(domain: r, range: range)
+        s.type(r.all? {|v| v.is_a? Numeric} ? :linear : :ordinal)
         s
       end
 
-      private
-      def yscale
-        r = self.range(:range_y)
-        s = Scale.new(domain: r, range: [0, height])
-        s.type = (r.all? {|v| v.is_a? Numeric} ? :linear : :ordinal)
+      def yscale(range)
+        r = range(:range_y)
+        s = Scale.new(domain: r, range: range)
+        s.type(r.all? {|v| v.is_a? Numeric} ? :linear : :ordinal)
         s
       end
 
-      def position
-        Position2D.new(x: xscale, y: yscale)
-      end
-
-      def before_to_json
+      def position(pos)
         @dependency.each do |g|
-          g.position()
+          g.position(pos)
         end
       end
 

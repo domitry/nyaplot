@@ -8,6 +8,8 @@ module Nyaplot
   # Ruby DataFrame for plotting
   class DataFrame
     include Nyaplot::Base
+    type :data
+    required_args :data
 
     DEFAULT_OPTS = {
       :col_sep => ',',
@@ -50,7 +52,7 @@ module Nyaplot
     def self.from_csv(*args)
       path   = args.shift
 
-      opts      = DEFAULT_OPTS
+pp      opts      = DEFAULT_OPTS
       if args.size > 0 && args.first.is_a?(Hash)
         opts    = opts.merge(args.shift)
       else
@@ -120,8 +122,8 @@ module Nyaplot
       @rows[index]
     end
 
-    def to_json(*args)
-      @rows.to_json
+    def before_to_json
+      data(@rows)
     end
 
     def each_column(&block)
