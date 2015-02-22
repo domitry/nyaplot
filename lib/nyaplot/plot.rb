@@ -84,7 +84,7 @@ module Nyaplot
     end
 
     # generate model
-    def to_json
+    def to_json(*args)
       gen = 0; gen_list = {}
       stack = [@pane]
 
