@@ -14,7 +14,6 @@ module Nyaplot
         glyph.new(hash).data(df)
       end
     end
-  end
 
   module Glyph2D
     include Nyaplot::Glyph
