@@ -2,8 +2,17 @@ module Nyaplot
   module Glyph
     include Nyaplot::Base
     type :glyph
+    class << self
+      #@example
+      # Nyaplot::Glyph.instantiate(:scatter)
+      def instantiate(df, name, hash)
+        glyph = Kernel
+          .const_get("Nyaplot")
+          .const_get("Glyph")
+          .const_get(name.to_s.capitalize)
 
-    def self.instantiate(name, *args)
+        glyph.new(hash).data(df)
+      end
     end
   end
 
