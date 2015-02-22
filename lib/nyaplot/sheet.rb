@@ -1,12 +1,18 @@
 module Nyaplot
   module Sheet
+    # Root class for glyphs
+    class Context
+      include Nyaplot::Base
+      type :context2d
+      required_args :glyphs
+      optional_args :width, :height
 
-  class Context
-    include Nyaplot::Base
-    type :context2d
-    required_args :glyphs
-    optional_args :width, :height
-  end
+      def add_glyph(*glyph)
+        glyphs([]) if glyphs.nil?
+        glyph = glyph.map{|g| g.uuid}
+        glyphs.concat(glyph)
+        add_dependency(*glyph)
+      end
 
       private
       def range(method_name)
