@@ -13,7 +13,7 @@ module Nyaplot
       end
     end
 
-    module Glyph2D
+    class Glyph2D
       include Nyaplot::Base
       type :glyph
 
@@ -35,8 +35,7 @@ module Nyaplot
       end
     end
 
-    class Scatter
-      include Nyaplot::Glyph2D
+    class Scatter < Glyph::Glyph2D
       required_args :data, :x, :y, :position
       optional_args :color, :shape, :size, :stroke_color, :stroke_width
 
@@ -64,8 +63,7 @@ module Nyaplot
       end
     end
 
-    class Line
-      include Nyaplot::Glyph2D
+    class Line < Glyph::Glyph2D
       required_args :data, :x, :y, :position
       optional_args :color, :stroke_width
     end

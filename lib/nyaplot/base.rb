@@ -17,15 +17,17 @@ module Nyaplot
       @dependency= []
       @args = {}
 
-      self.attr(args.first) if args.length == 1 && args[0].is_a? Hash
+      self.attr(args.first) if args.length == 1 && args[0].is_a?(Hash)
     end
 
-    def to_json(*args) << @args
-      args = self.reduce({}) do |memo, k, v|
-        memo[k]= v.is_a? Nyaplot::Base ? {sync: v.uuid} : v
-        memo
+    class << @args
+      def to_json(*args)
+        args = self.reduce({}) do |memo, k, v|
+          memo[k]= v.is_a? Nyaplot::Base ? {sync: v.uuid} : v
+          memo
+        end
+        args.to_json
       end
-      args.to_json
     end
 
     def attr(hash)

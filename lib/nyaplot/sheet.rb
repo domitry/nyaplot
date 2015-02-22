@@ -49,7 +49,7 @@ module Nyaplot
         end
       end
 
-      alias :add, :add_glyph
+      alias :add :add_glyph
     end
 
     class Axis
