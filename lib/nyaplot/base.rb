@@ -20,16 +20,29 @@ module Nyaplot
       self.attr(args.first) if args.length == 1 && args[0].is_a? Hash
     end
 
-    def add_dependency(obj)
-      unless obj.is_a? Nyaplot::Object raise RuntimeError
+    def to_json(*args) << @args
+      args = self.reduce({}) do |memo, k, v|
+        memo[k]= v.is_a? Nyaplot::Base ? {sync: v.uuid} : v
+        memo
+      end
+      args.to_json
+    end
+
     def attr(hash)
       args[0].each do |k, v|
         self.call(k, v)
       end
     end
 
+    def add_dependency(*given)
+      given.each do |obj|
+        raise RuntimeError unless obj.is_a? Nyaplot::Object
         @dependency.push(obj)
       end
+    end
+
+    def remove_dependency(obj)
+      @dependency.delete(obj)
     end
 
     def verify
@@ -37,6 +50,7 @@ module Nyaplot
       raise RuntimeError unless @@required_args.all?{|s| @args.has_key? s}
     end
 
+    # over-write it
     def before_to_json
     end
 
@@ -59,6 +73,10 @@ module Nyaplot
       def define_accessor(s)
         define_method(s) do |val=nil|
           next @args[s] if val.nil?
+          if val.is_a? Nyaplot::Base
+            remove_dependency(@args[s]) unless @args[s].nil?
+            add_dependency(val)
+          end
           @args[s] = val
         end
       end
