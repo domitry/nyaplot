@@ -42,5 +42,34 @@ module Nyaplot
     IRuby.display(IRuby.javascript(js))
   end
 
+  # Create multi-column layout
+  # @example
+  #   include Nyaplot
+  #   p1 = Plot.add(:scatter, x1, y1)
+  #   p2 = Plot.add(:line, x2, y2)
+  #   columns(p1, p2).draw
+  #
+  def self.columns(*plots)
+    panes = plots.map{|p| p.pane}
+    plot = Plot.new
+    plot.pane = Pane.new.columns(*panes)
+    plot
+  end
+
+  # Create multi-row layout
+  # @example
+  #   include Nyaplot
+  #   p1 = Plot.add(:scatter, x1, y1)
+  #   p2 = Plot.add(:line, x2, y2)
+  #   p3 = Plot.add(:bar, x3, y3)
+  #   rows(columns(p1, p2), p3).draw
+  #
+  def self.rows(*plots)
+    panes = plots.map{|p| p.pane}
+    plot = Plot.new
+    plot.pane = Pane.new.rows(*panes)
+    plot
+  end
+
   init_iruby if defined? IRuby
 end
