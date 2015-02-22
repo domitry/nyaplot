@@ -3,7 +3,7 @@
 (function(){
     var render = function(){
         var model = <%= model %>;
-        Nyaplot.core.parse(model, '#vis-<%= id %>');
+        Nyaplot.core.parse(model);
     };
     if(window['Nyaplot']==undefined){
         window.addEventListener('load_nyaplot', render, false);
