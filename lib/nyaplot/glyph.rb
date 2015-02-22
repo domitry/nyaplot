@@ -17,10 +17,6 @@ module Nyaplot
       include Nyaplot::Base
       type :glyph
 
-  class Scatter
-    include Nyaplot::Glyph
-    required_args :data, :x, :y, :position
-    optional_args :color, :shape, :size, :stroke_color, :stroke_width
       private
       def range(label)
         if data[label].all? {|v| v.is_a? Numeric}
@@ -30,9 +26,6 @@ module Nyaplot
         end
       end
 
-    def initialize(data, x, y)
-      self.data(data); self.x(x); self.y(y)
-    end
       def range_x
         self.range(x)
       end
@@ -42,22 +35,39 @@ module Nyaplot
       end
     end
 
-    def shape_by(sym)
-      scale = Nyaplot::DataFrameScale.new(df.uuid, sym)
-      range = shape.nil? ? ['circle','triangle-up', 'diamond', 'square', 'triangle-down', 'cross'] : shape
-      scale.range range
-      shape scale
+    class Scatter
+      include Nyaplot::Glyph2D
+      required_args :data, :x, :y, :position
+      optional_args :color, :shape, :size, :stroke_color, :stroke_width
+
+      # Change symbol size according to data in specified column
+      def size_by(column_name)
+        scale = Nyaplot::RowScale.new(data, column_name)
+        range = size.nil? ? [10, 100] : size
+        scale.range(range)
+        self.size(size)
+      end
+
+      # Change symbol shape according to data in specified column
+      # Value range (ex. "circle", "diamond", ...) can be specified using Scatter#shape
+      # @example
+      #   x = ["a", "b", "a"]; y = [1, 2, 3]
+      #   sc = Scatter.new(data: data, x: :x, y: :y)
+      #   sc.shape_by(:x) #-> circle, triangle-up, circle (default)
+      #   sc.shape([:square, :cross]).shape_by(:x) #-> square, cross, square
+      #
+      def shape_by(column_name)
+        scale = Nyaplot::RowScale.new(data, column_name)
+        range = shape.nil? ? ['circle','triangle-up', 'diamond', 'square', 'triangle-down', 'cross'] : shape
+        scale.range(range)
+        self.shape(scale)
+      end
     end
-  end
 
-  class Line
-    required_args :data, :x, :y, :position
-    optional_args :color, :stroke_width
-
-    def initialize(df, x, y)
-    end
-
-    def verify
+    class Line
+      include Nyaplot::Glyph2D
+      required_args :data, :x, :y, :position
+      optional_args :color, :stroke_width
     end
   end
 end
