@@ -32,12 +32,12 @@ module Nyaplot
       layout({type: name, contents: contents})
     end
 
-    def columns(*stages)
-      self.add(:columns, *stages)
+    def self.columns(*stages)
+      self.new.add(:columns, *stages)
     end
 
-    def rows(*stages)
-      self.add(:rows, *stages)
+    def self.rows(*stages)
+      self.new.add(:rows, *stages)
     end
   end
 end
