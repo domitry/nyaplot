@@ -22,7 +22,7 @@ module Nyaplot
       end
 
       # gen_list: {Obj1: 2, Obj2: 0, Obj3: 15, .., Objn: 0}
-      return gen_list.sort_by {|k, v| v}.map {|arr| arr.first}.to_json
+      return gen_list.sort_by {|k, v| v}.reverse.map {|arr| arr.first}.to_json
     end
 
     # generate html code for <body> tag
