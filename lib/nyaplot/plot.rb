@@ -71,6 +71,9 @@ module Nyaplot
         self.new.add(*args)
       end
 
+      def from(df)
+        self.new.from(df)
+      end
     end
   end
 
@@ -85,6 +88,19 @@ module Nyaplot
       @dependency = [@pane]
     end
 
+    # shortcut method for
+    # @example
+    #   df = DataFrame.new({hoge: [1,2,3], nya: [2,3,4]})
+    #   Plot.from(df).add(:scatter, :hoge, :nya)
+    #
+    def from(df)
+      if df.is_a? DataFrame
+        @df = df
+        self
+      else
+        raise ""
+      end
+    end
 
     # Add glyph, sheet or stage to Plot
     # @example
