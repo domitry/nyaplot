@@ -1,86 +1,10 @@
 module Nyaplot
-  class Plot
-    def initialize
+  # Base module for Plot-something of Nyaplot. (e.g. Nyaplot::Plot2D or Nyaplot::Plot)
+  # Plot have one root named "pane".
+  # Plot resolve dependency according to pane, create model, and generate html code according to it.
+  module PlotBase
+    def initialize(*args)
       @pane = Nyaplot::Pane.new
-      @stages = []
-      @glyphs = []
-      @reciever = self
-    end
-
-    # shortcut method for Nyaplot::Plot#add
-    # @example
-    #   Plot.add(:scatter, a, b)
-    #
-    def self.add(*args)
-      Nyaplot::Plot.new.add(*args)
-    end
-
-    # Add glyph, sheet or stage to Plot
-    def add(*args)
-      if args.first.is_a? Symbol
-        glyph = Nyaplot::Glyph.instantiate(*args)
-        add_glyph(glyph)
-      else
-        args.each do |obj|
-          if obj.is_a? Nyaplot::Glyph
-            add_glyph(obj)
-          elsif obj.is_a? Nyaplot::Stage2D
-            add_stage(obj)
-          end
-        end
-      end
-      self
-    end
-
-    private
-    def add_glyph(glyph)
-      if @stages.length == 0
-        stage = Nyaplot::Stage2D.new
-        add_stage(stage)
-        stage.add(glyph)
-      elsif @stages.length == 1
-        @stages.add(glyph)
-      else
-        raise "Specify stage to add the glyph."
-      end
-      @reciever = glyph
-      @glyphs.push(glyph)
-    end
-
-    private
-    def add_stage(stage)
-      @pane
-      @stages.push(stage)
-      @reciever = stage
-    end
-
-    # shortcut method for method chaining
-    # @example
-    # Plot.add(df, :scatter, :x, :y)
-    #  .color red
-    #  .fill_by :fill
-    #  .stage
-    #  .width 500
-    #  .height 500
-    #
-    def stage
-      @reciever = @stages.first
-      self
-    end
-
-    # shortcut method for method chaining
-    def glyph
-      @reciever = @glyphs.first
-      self
-    end
-
-    def to_s
-      "#<Nyaplot::Plot : "+"reciever="+@receiver.to_s+" : "+("%x"%(self.object_id << 1))+">"
-    end
-
-    def method_missing(name, *args)
-      @reciever.send(name, *args) if @reciever.respond_to? name
-      super
     end
 
     # generate model
@@ -137,5 +61,91 @@ module Nyaplot
     def show
       IRuby.display(self)
     end
+
+    # shortcut method for Nyaplot::Plot#add
+    # @example
+    #   Plot.add(:scatter, a, b)
+    #
+    class << self
+      def add(*args)
+        self.new.add(*args)
+      end
+
+    end
+  end
+
+  # Base class for general 2-dimentional plots
+  # Plot2D have one pane, some stage2ds and glyphs
+  class Plot2D
+    include PlotBase
+    attr_accessor :pane, :stages, :glyphs
+
+    def initialize
+      super
+      @dependency = [@pane]
+    end
+
+
+    # Add glyph, sheet or stage to Plot
+    # @example
+    #    Plot.add(:scatter, x, y)
+    #    Plot.add(sc)
+    #
+    def add(*args)
+      if args.first.is_a? Symbol
+        name = args.shift
+        raise "invalid arguments" unless args.length == 1 && args.first.is_a? Hash
+        if (hash = args.first) && hash.all?{|k, v| v.is_a? Symbol}
+          glyph = Nyaplot::Glyph.instantiate(@df, name, hash)
+        else
+          # hash: {x: [0, 1, 2], y: [1, 2, 3]}
+          df = DataFrame.new(hash)
+          arg = hash.reduce({}){|memo, k, v| memo[k] = k; memo}
+          glyph = Nyaplot::Glyph.instantiate(df, name, arg)
+        end
+        add_glyph(glyph)
+      else
+        args.each do |obj|
+          if obj.is_a? Nyaplot::Glyph2D
+            add_glyph(obj)
+          elsif obj.is_a? Nyaplot::Stage2D
+            add_stage(obj)
+          end
+        end
+      end
+      self
+    end
+
+    private
+    def add_glyph(glyph)
+      stages = @dependency.select{|obj| obj.is_a? Stage2D}
+      if stage_num == 0
+        stage = Stage2D.new
+        self.add_stage(stage)
+        stage.context.add(glyph)
+      elsif stage_num == 1
+        stages.first.context.add(glyph)
+      else
+        raise "Specify stage to add the glyph."
+      end
+      @dependency.push(glyph)
+    end
+
+    private
+    def add_stage(stage)
+      @pane = Pane.columns(@pane, stage)
+      @dependency.push(stage)
+    end
+
+    def method_missing(name, *args)
+      @dependency.each do |obj|
+        break obj.send(name, *args) if obj.respond_to? name
+      end
+      super
+    end
+  end
+
+  # shortcut for Nyaplot::Plot2D
+  class Plot < Plot2D
   end
 end
