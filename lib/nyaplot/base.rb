@@ -8,14 +8,26 @@ module Nyaplot
       cls.extend ClassMethods
     end
 
-    def initialize
+    # @example
+    #   Glyph::Scatter.new(data: data, x: :x, y: :y)
+    #   #-> #<Nyaplot::Glyph::Scatter|0aff1e>
+    #
+    def initialize(*args)
       @uuid = SecureRandom.uuid
       @dependency= []
       @args = {}
+
+      self.attr(args.first) if args.length == 1 && args[0].is_a? Hash
     end
 
     def add_dependency(obj)
       unless obj.is_a? Nyaplot::Object raise RuntimeError
+    def attr(hash)
+      args[0].each do |k, v|
+        self.call(k, v)
+      end
+    end
+
         @dependency.push(obj)
       end
     end
