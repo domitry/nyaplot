@@ -7,6 +7,8 @@ module Nyaplot
 
   # Ruby DataFrame for plotting
   class DataFrame
+    include Nyaplot::Base
+
     DEFAULT_OPTS = {
       :col_sep => ',',
       :headers => true,
@@ -16,8 +18,8 @@ module Nyaplot
 
     attr_reader :rows
 
-    def initialize(source, name=SecureRandom.uuid())
-      @name = name
+    def initialize(source)
+      super()
       @rows = []
       case
       when source.is_a?(Array)
@@ -85,7 +87,7 @@ module Nyaplot
 
     # @return [String] the name of dataframe. If not specified when initializing, uuid v4 will be set.
     def name
-      @name
+      @uuid
     end
 
     def insert_column(name, arr)
