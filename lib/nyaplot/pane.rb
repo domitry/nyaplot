@@ -14,9 +14,9 @@ module Nyaplot
     type :pane
     required_args :parent_id, :layout
 
-    def initialize
-      super
-      parent_id("vis" + uuid)
+    def before_to_json
+      @uuid = SecureRandom.uuid
+      parent_id("vis" + @uuid)
     end
 
     def add(name, *stages)
