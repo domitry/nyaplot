@@ -29,7 +29,7 @@ module Nyaplot
     def generate_body
       path = File.expand_path("../templates/iruby.erb", __FILE__)
       template = File.read(path)
-      id = SecureRandom.uuid()
+      id = @pane.uuid
       model = self.to_json
       ERB.new(template).result(binding)
     end
