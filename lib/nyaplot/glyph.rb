@@ -1,7 +1,5 @@
 module Nyaplot
   module Glyph
-    include Nyaplot::Base
-    type :glyph
     class << self
       #@example
       # Nyaplot::Glyph.instantiate(:scatter)
@@ -15,9 +13,9 @@ module Nyaplot
       end
     end
 
-  module Glyph2D
-    include Nyaplot::Glyph
-  end
+    module Glyph2D
+      include Nyaplot::Base
+      type :glyph
 
   class Scatter
     include Nyaplot::Glyph
