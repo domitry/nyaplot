@@ -44,10 +44,11 @@ module Nyaplot
       end
 
 
-  class Background
-    include Nyaplot::Base
-    type :background2d
-    required_args :width, :height
-    optional_args :bg_color, :stroke_width, :stroke_color
+    class Background
+      include Nyaplot::Base
+      type :background2d
+      required_args :width, :height
+      optional_args :bg_color, :stroke_width, :stroke_color
+    end
   end
 end
