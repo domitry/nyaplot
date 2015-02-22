@@ -21,12 +21,25 @@ module Nyaplot
     include Nyaplot::Glyph
     required_args :data, :x, :y, :position
     optional_args :color, :shape, :size, :stroke_color, :stroke_width
+      private
+      def range(label)
+        if data[label].all? {|v| v.is_a? Numeric}
+          [data[label].min, data[label].max]
+        else
+          data[label].uniq
+        end
+      end
 
     def initialize(data, x, y)
       self.data(data); self.x(x); self.y(y)
     end
+      def range_x
+        self.range(x)
+      end
 
-    def size_by(sym)
+      def range_y
+        self.range(y)
+      end
     end
 
     def shape_by(sym)
