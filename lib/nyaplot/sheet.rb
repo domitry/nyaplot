@@ -43,6 +43,25 @@ module Nyaplot
         Position2D.new(x: xscale, y: yscale)
       end
 
+      def before_to_json
+        @dependency.each do |g|
+          g.position()
+        end
+      end
+
+      alias :add, :add_glyph
+    end
+
+    class Axis
+      include Nyaplot::Base
+      type :axis2d
+      required_args :xscale, :yscale, :width, :height
+      optional_args :margin, :stroke_color, :stroke_width, :grid
+
+      def before_to_json
+        raise "width and height should be specified" if [width, height].any? {|a| a.nil?}
+      end
+    end
 
     class Background
       include Nyaplot::Base
