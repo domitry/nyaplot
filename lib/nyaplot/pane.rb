@@ -28,8 +28,8 @@ module Nyaplot
           {sync: s.uuid}
         end
       end
-
       layout({type: name, contents: contents})
+      self
     end
 
     def self.columns(*stages)
