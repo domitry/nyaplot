@@ -36,6 +36,16 @@ module Nyaplot
     js
   end
 
+  def self.start_debug(port=9996)
+    require 'webrick'
+    path = File.expand_path("../../../nyaplotjs/release", __FILE__)
+    `ruby -e httpd #{path} -p #{port}`
+
+    js = self.generate_init_code
+    js.gsub!("http.+nyaplot.js", "http://localhost:" + port.to_s + "/nyaplot.js")
+    IRuby.display(IRuby.javascript(js))
+  end
+
   # Enable to show plots on IRuby notebook
   def self.init_iruby
     js = self.generate_init_code
@@ -71,5 +81,9 @@ module Nyaplot
     plot
   end
 
-  init_iruby if defined? IRuby
+  if $DEBUG_NYAPLOT == true
+    start_debug
+  else
+    init_iruby if defined? IRuby
+  end
 end
