@@ -16,7 +16,7 @@ module Nyaplot
 
     def before_to_json
       @uuid = SecureRandom.uuid
-      parent_id("vis" + @uuid)
+      parent_id("vis-" + @uuid)
     end
 
     def add(name, *stages)

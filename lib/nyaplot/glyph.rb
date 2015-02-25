@@ -55,7 +55,7 @@ module Nyaplot
       #   sc.shape([:square, :cross]).shape_by(:x) #-> square, cross, square
       #
       def shape_by(column_name)
-        scale = Nyaplot::RowScale.new(data, column_name)
+        scale = Nyaplot::RowScale.new(data: data, column: column_name)
         range = shape.nil? ? ['circle','triangle-up', 'diamond', 'square', 'triangle-down', 'cross'] : shape
         scale.range(range)
         self.shape(scale)

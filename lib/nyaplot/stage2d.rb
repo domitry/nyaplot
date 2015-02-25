@@ -11,11 +11,11 @@ module Nyaplot
 
     def initialize(*args)
       super()
-      attr({width: 700, height: 700})
+      attr(width: 500, height: 400)
       @background = Nyaplot::Sheet::Background.new
       @context = Nyaplot::Sheet::Context.new
       @axis = Nyaplot::Sheet::Axis.new
-      add_sheet(@background, @context, @axis)
+      add_sheet(@background, @axis, @context)
     end
 
     def add_sheet(*given)

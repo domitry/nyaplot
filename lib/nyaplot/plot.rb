@@ -30,8 +30,8 @@ module Nyaplot
     def generate_body
       path = File.expand_path("../templates/iruby.erb", __FILE__)
       template = File.read(path)
-      id = @pane.uuid
       model = self.to_json
+      id = @pane.uuid
       ERB.new(template).result(binding)
     end
 
@@ -157,10 +157,11 @@ module Nyaplot
     end
 
     def method_missing(name, *args)
+      super if @dependency.all?{|obj| !(obj.respond_to? name)}
       @dependency.each do |obj|
         break obj.send(name, *args) if obj.respond_to? name
       end
-      super
+      self
     end
   end
 
