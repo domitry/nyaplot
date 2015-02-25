@@ -24,10 +24,11 @@ module Nyaplot
       add_dependency(*given)
     end
 
-    def adjust_size
-      [:width, :height].each do |name|
+    def adjust_size(width, height)
+      [[:width, width], [:height, height]].each do |val|
+        name, base = val
         if @axis.send(name).nil?
-          @axis.send(name, (val = @background.send(name)).nil? ? self.send(name) : val)
+          @axis.send(name, (val = @background.send(name)).nil? ? base : val)
         end
         @background.send(name, @axis.send(name)) if @background.send(name).nil?
       end
@@ -37,11 +38,15 @@ module Nyaplot
     end
 
     def resolve_dependency
-      adjust_size
+      child_width, child_height = [width*0.9, height*0.9]
+
+      adjust_size(child_width, child_height)
       adjust_margin
 
-      xscale = @context.xscale([0, width])
-      yscale = @context.yscale([0, height])
+      x_pad, y_pad = [child_width*0.05, child_height*0.05]
+      xscale = @context.xscale([x_pad, child_width - x_pad])
+      yscale = @context.yscale([child_height - y_pad, y_pad])
+
       pos = Position2D.new(x: xscale, y: yscale)
 
       @context.position(pos)
