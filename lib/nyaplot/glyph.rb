@@ -15,7 +15,6 @@ module Nyaplot
 
     class Glyph2D
       include Nyaplot::Base
-      type :glyph
 
       def range(label)
         if data[label].all? {|v| v.is_a? Numeric}
@@ -37,6 +36,7 @@ module Nyaplot
     class Scatter < Glyph::Glyph2D
       required_args :data, :x, :y, :position
       optional_args :color, :shape, :size, :stroke_color, :stroke_width
+      type :scatter
 
       # Change symbol size according to data in specified column
       def size_by(column_name)
@@ -65,6 +65,7 @@ module Nyaplot
     class Line < Glyph::Glyph2D
       required_args :data, :x, :y, :position
       optional_args :color, :stroke_width
+      type :line
     end
   end
 end
