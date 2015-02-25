@@ -49,10 +49,10 @@ module Nyaplot
   #   p2 = Plot.add(:line, x2, y2)
   #   columns(p1, p2).draw
   #
-  def self.columns(*plots)
+  def columns(*plots)
     panes = plots.map{|p| p.pane}
     plot = Plot.new
-    plot.pane = Pane.new.columns(*panes)
+    plot.pane = Pane.columns(*panes)
     plot
   end
 
@@ -64,10 +64,10 @@ module Nyaplot
   #   p3 = Plot.add(:bar, x3, y3)
   #   rows(columns(p1, p2), p3).draw
   #
-  def self.rows(*plots)
+  def rows(*plots)
     panes = plots.map{|p| p.pane}
     plot = Plot.new
-    plot.pane = Pane.new.rows(*panes)
+    plot.pane = Pane.rows(*panes)
     plot
   end
 
