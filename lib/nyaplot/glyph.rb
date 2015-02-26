@@ -67,5 +67,49 @@ module Nyaplot
       optional_args :color, :stroke_width
       type :line
     end
+
+    class Rect < Glyph::Glyph2D
+      required_args :data, :x, :y
+      optional_args :width, :height, :color, :stroke_width, :stroke_color, :x_base, :y_base
+      type :rect
+    end
+
+    class Bar < Glyph::Rect
+      # @example
+      # Plot.new(:bar, x: :[:hoge, :nya, :nyan], y: [100, 200, 10])
+      # -> df = DataFrame.new(x: [:hoge, :nya, :nyan], y: [100, 200, 10])
+      # -> Bar.new(x: :x, y: :y).data(df)
+      #
+      def initialize(*args)
+        super()
+        y_base "bottom"
+        x_base "center"
+      end
+
+      # descrete
+      def range_x
+        data[x]
+      end
+
+      def range_y
+        column = data[@y_label]
+        min = column.min < 0 ? column.min : 0
+        [min, column.max]
+      end
+
+      def position(pos)
+        yscale = pos.y # Nyaplot::Scale
+        RowScale.new()
+        height()
+      end
+    end
+
+    class HeatMap < Glyph::Rect
+    end
+
+    class Box < Glyph::Rect
+      def initialize
+      end
+    end
   end
 end
