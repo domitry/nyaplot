@@ -40,7 +40,7 @@ module Nyaplot
 
       # Change symbol size according to data in specified column
       def size_by(column_name)
-        scale = Nyaplot::RowScale.new(data, column_name)
+        scale = Nyaplot::RowScale.new(data: data, column: column_name)
         range = size.nil? ? [10, 100] : size
         scale.range(range)
         self.size(size)
