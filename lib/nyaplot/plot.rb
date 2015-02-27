@@ -7,10 +7,10 @@ module Nyaplot
       @pane = Nyaplot::Pane.new
     end
 
-    # generate model
-    def to_json(*args)
+    # @return
+    #   {Obj1: 2, Obj2: 0, Obj3: 15, .., Objn: 0}
+    def generate_gen_list(stack)
       gen = 0; gen_list = {}
-      stack = [@pane]
 
       while stack.length > 0
         stack = stack.reduce([]) do |memo, obj|
@@ -22,7 +22,12 @@ module Nyaplot
         gen += 1
       end
 
-      # gen_list: {Obj1: 2, Obj2: 0, Obj3: 15, .., Objn: 0}
+      gen_list
+    end
+
+    # generate model
+    def to_json(*args)
+      gen_list = generate_gen_list([@pane])
       "[" + gen_list.sort_by{|k, v| v}.map{|arr| arr.first.to_json}.reverse.join(",") + "]"
     end
 
@@ -135,7 +140,6 @@ module Nyaplot
       self
     end
 
-    private
     def add_glyph(glyph)
       stages = @dependency.select{|obj| obj.is_a? Nyaplot::Stage2D}
       if stages.length == 0
@@ -150,7 +154,6 @@ module Nyaplot
       @dependency.push(glyph)
     end
 
-    private
     def add_stage(stage)
       @pane = Pane.columns(@pane, stage)
       @dependency.push(stage)
