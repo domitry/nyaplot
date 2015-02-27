@@ -60,4 +60,35 @@ module Nyaplot
       end
     end
   end
+
+  class EmptyPlot
+    include PlotBase
+
+    def initialize(*args)
+      @pane = args.select{|a| a.is_a?(Nyaplot::Pane)}.first
+      args.delete(@pane)
+      @others = args
+    end
+
+    def update
+      # should be refactored
+      old_pane_uuid = @pane.uuid
+      msg = {
+        type: :update,
+        model: self.to_json
+      }
+      new_pane_uuid = @pane.uuid
+      msg[:model].gsub!(new_pane_uuid, old_pane_uuid)
+      @pane.uuid = old_pane_uuid
+      @@comm.send(msg)
+      STDERR.puts msg
+    end
+
+    def to_json(*args)
+      gen_list = generate_gen_list(@others)
+      list = gen_list.sort_by{|k, v| v}.map{|arr| arr.first.to_json}.reverse
+      list.push(@pane.to_json)
+      "[" + list.join(",") + "]"
+    end
+  end
 end
