@@ -78,6 +78,11 @@ module Nyaplot
       type :rect
     end
 
+    class LineSegment < Glyph::Glyph2D
+      required_args :data, :x1, :y1, :x2, :y2
+      optional_args :color, :stroke_width
+      type :line_segment
+    end
     class Bar < Glyph::Rect
       # @example
       # Plot.new(:bar, x: :[:hoge, :nya, :nyan], y: [100, 200, 10])
