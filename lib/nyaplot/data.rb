@@ -52,13 +52,13 @@ module Nyaplot
     def self.from_csv(*args)
       path   = args.shift
 
-pp      opts      = DEFAULT_OPTS
       if args.size > 0 && args.first.is_a?(Hash)
         opts    = opts.merge(args.shift)
       else
         opts[:col_sep] = args.shift if args.size > 0
         opts[:headers] = args.shift if args.size > 0
       end
+        opts      = DEFAULT_OPTS
 
       csv  = CSV.open(path, "r", opts)
       yield csv if block_given?
