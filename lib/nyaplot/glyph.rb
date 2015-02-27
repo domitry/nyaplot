@@ -37,6 +37,36 @@ module Nyaplot
       def position(*args) ; end
     end
 
+    class Histogram < Glyph::Glyph2D
+      required_args :data, :value, :position, :scalex
+      optional_args :bin_num, :width, :color, :stroke_color, :stroke_width
+      type :histogram
+
+      def initialize(*args)
+        super
+        bin_num(20)
+      end
+
+      def before_to_json
+        scalex(position.x)
+      end
+
+      def range_x
+        [data[value].min, data[value].max]
+      end
+
+      def range_y
+        min, max = range_x
+        bin = (max - min)/bin_num
+        max_bin = (1..bin_num).to_a
+          .map{|val| [min+bin*(val-1), min+bin*val]}
+          .map{|range| data[value].to_a.select{|val| val>=range[0] && val<range[1]}.length}
+          .max
+        print max_bin
+        [0, max_bin*1.2]
+      end
+    end
+
     class Scatter < Glyph::Glyph2D
       required_args :data, :x, :y, :position
       optional_args :color, :shape, :size, :stroke_color, :stroke_width
