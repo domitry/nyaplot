@@ -159,6 +159,31 @@ module Nyaplot
       @dependency.push(stage)
     end
 
+    def glyphs
+      if (s = self.stages).length == 1
+        context = s.first.context
+        context.glyphs
+      else
+        raise "Specify stage from which select glyphs from"
+      end
+    end
+
+    def glyph
+      self.glyphs.first
+    end
+
+    def stages
+      @pane.dependency.select{|d| d.is_a?(Nyaplot::Stage2D)}
+    end
+
+    def stage
+      if (s = self.stages).length == 1
+        s.first
+      else
+        raise "This plot has 2>= stages."
+      end
+    end
+
     def method_missing(name, *args)
       super if @dependency.all?{|obj| !(obj.respond_to? name)}
       @dependency.each do |obj|
