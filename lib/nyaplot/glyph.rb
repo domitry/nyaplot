@@ -33,6 +33,8 @@ module Nyaplot
       def range_y
         range(y)
       end
+
+      def position(*args) ; end
     end
 
     class Scatter < Glyph::Glyph2D
