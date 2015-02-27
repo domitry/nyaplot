@@ -34,7 +34,6 @@ module Nyaplot
             min, max = r
             memo[0] = [min, memo[0]].min
             memo[1] = [max, memo[1]].max
-            print memo
             memo
           end
         end
