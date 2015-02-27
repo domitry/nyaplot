@@ -15,6 +15,7 @@ module Nyaplot
 
     class Glyph2D
       include Nyaplot::Base
+      optional_args :transform
 
       def range(label)
         if data[label].all? {|v| v.is_a? Numeric}
