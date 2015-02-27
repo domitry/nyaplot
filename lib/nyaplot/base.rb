@@ -2,7 +2,7 @@ require 'json'
 
 module Nyaplot
   module Base
-    attr_reader :dependency, :uuid
+    attr_accessor :dependency, :uuid
 
     def self.included(cls)
       cls.extend ClassMethods
@@ -19,11 +19,11 @@ module Nyaplot
 
       class << @args
         def to_json(*args)
-          args = self.reduce({}) do |memo, val|
+          args_ = self.reduce({}) do |memo, val|
             memo[val[0]]= val[1].is_a?(Nyaplot::Base) ? {sync: val[1].uuid} : val[1]
             memo
           end
-          args.to_json
+          args_.to_json
         end
       end
 
