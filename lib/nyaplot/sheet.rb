@@ -25,11 +25,18 @@ module Nyaplot
       end
 
       def range(method_name)
-        return glyphs.reduce([Float::INFINITY, -Float::INFINITY]) do |memo, g|
-          min, max = g.send(method_name)
-          memo[0] = [min, memo[0]].min
-          memo[1] = [max, memo[0]].max
-          memo
+        glyphs.reduce([Float::INFINITY, -Float::INFINITY]) do |memo, g|
+          if (r = g.send(method_name)).length != 2 || r.any? {|val| !(val.is_a?(Numeric))}
+            memo.delete(Float::INFINITY)
+            memo.delete(-Float::INFINITY)
+            memo.concat(r.to_a).uniq
+          else
+            min, max = r
+            memo[0] = [min, memo[0]].min
+            memo[1] = [max, memo[1]].max
+            print memo
+            memo
+          end
         end
       end
 
