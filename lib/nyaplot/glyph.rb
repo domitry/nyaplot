@@ -92,12 +92,14 @@ module Nyaplot
       def initialize(*args)
         super()
         y_base "bottom"
-        x_base "center"
+        bin_size 0.8
+        data args.first[:data]
+        @x_label = args.first[:x]
+        @y_label = args.first[:y]
       end
 
-      # descrete
       def range_x
-        data[x]
+        data[@x_label]
       end
 
       def range_y
