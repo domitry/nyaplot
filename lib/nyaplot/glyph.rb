@@ -9,7 +9,8 @@ module Nyaplot
           .const_get("Glyph")
           .const_get(name.to_s.capitalize)
 
-        glyph.new(hash).data(df)
+        hash[:data] = df
+        glyph.new(hash)
       end
     end
 
