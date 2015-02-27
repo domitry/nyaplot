@@ -25,6 +25,12 @@ module Nyaplot
         data(@df)
       end
 
+      def select!(*args, &block)
+        @df = @df.select(*args, &block)
+        data(@df)
+        self
+      end
+
       def to_html
         @df.to_html
       end
