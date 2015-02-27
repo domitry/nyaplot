@@ -114,7 +114,7 @@ module Nyaplot
       if args.first.is_a? Symbol
         name = args.shift
         raise "invalid arguments" unless args.length == 1 && args.first.is_a?(Hash)
-        if (hash = args.first) && hash.all?{|k, v| v.is_a? Symbol}
+        if (hash = args.first) && !(@df.nil?)
           glyph = Nyaplot::Glyph.instantiate(@df, name, hash)
         else
           # hash: {x: [0, 1, 2], y: [1, 2, 3]}
