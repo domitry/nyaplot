@@ -83,7 +83,10 @@ module Nyaplot
       optional_args :color, :stroke_width
       type :line_segment
     end
+
     class Bar < Glyph::Rect
+      optional_args :bin_size
+
       # @example
       # Plot.new(:bar, x: :[:hoge, :nya, :nyan], y: [100, 200, 10])
       # -> df = DataFrame.new(x: [:hoge, :nya, :nyan], y: [100, 200, 10])
