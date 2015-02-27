@@ -9,6 +9,11 @@ module Nyaplot
 
       def add_glyph(*glyph)
         glyphs([]) if glyphs.nil?
+
+        glyph.each{|g|
+          glyph.push(g.child) if g.respond_to? :child
+        }
+
         glyphs.concat(glyph)
         add_dependency(*glyph)
 
