@@ -2,8 +2,7 @@ module Nyaplot
   class RowScale
     include Nyaplot::Base
     type :row_scale
-    required_args :data, :column, :range
-    optional_args :domain
+    required_args :scale, :column
   end
 
   class DataFrameScale

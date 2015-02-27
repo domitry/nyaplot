@@ -44,10 +44,10 @@ module Nyaplot
 
       # Change symbol size according to data in specified column
       def size_by(column_name)
-        scale = Nyaplot::RowScale.new(data: data, column: column_name)
         range = size.nil? ? [10, 100] : size
-        scale.range(range)
-        self.size(size)
+        df_scale = Nyaplot::DataFrameScale.new(data: data, column: column_name, range: range)
+        scale = Nyaplot::RowScale.new(column: column_name, scale: df_scale)
+        self.size(scale)
       end
 
       # Change symbol shape according to data in specified column
@@ -59,9 +59,9 @@ module Nyaplot
       #   sc.shape([:square, :cross]).shape_by(:x) #-> square, cross, square
       #
       def shape_by(column_name)
-        scale = Nyaplot::RowScale.new(data: data, column: column_name)
         range = shape.nil? ? ['circle','triangle-up', 'diamond', 'square', 'triangle-down', 'cross'] : shape
-        scale.range(range)
+        df_scale = Nyaplot::DataFrameScale.new(data: data, column: column_name, range: range)
+        scale = Nyaplot::RowScale.new(column: column_name, scale: df_scale)
         self.shape(scale)
       end
     end
@@ -107,9 +107,11 @@ module Nyaplot
       end
 
       def position(pos)
-        yscale = pos.y # Nyaplot::Scale
-        RowScale.new()
-        height()
+        x RowScale.new(column: @x_label, scale: pos.x)
+        y(pos.y.range.max)
+        scale = Scale.new(range: pos.y.range.reverse, domain: pos.y.domain, type: pos.y.type)
+        height RowScale.new(column: @y_label, scale: scale)
+        width((pos.x.range.max/self.range_x.length)*bin_size)
       end
     end
 
