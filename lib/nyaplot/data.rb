@@ -12,21 +12,35 @@ module Nyaplot
   if defined? Mikon
     class DataFrame
       include Nyaplot::Base
-      alias_method :base_initialize, :initialize
-      extend Forwardable
       type :data
       required_args :data
 
       def initialize(*args)
-        base_initialize
-        @df = Mikon::DataFrame.new(*args)
+        super()
+        if args.length == 1 && args.first.is_a?(Mikon::DataFrame)
+          @df = args.first
+        else
+          @df = Mikon::DataFrame.new(*args)
+        end
         data(@df)
       end
 
-      method_names = Mikon::DataFrame.instance_methods
-      [:to_s, :to_json, :__send__, :object_id, :class, :is_a?].each{|name| method_names.delete(name)}
-      print "delegating" + method_names.to_s
-      def_delegators("@df".to_sym, *method_names)
+      def to_html
+        @df.to_html
+      end
+
+      def method_missing(name, *args, &block)
+        if @df.respond_to? name
+          ret = @df.send(name, *args, &block)
+          if ret.is_a?(Mikon::DataFrame)
+            self.class.new(ret)
+          else
+            ret
+          end
+        else
+          super
+        end
+      end
     end
   else
     # Ruby DataFrame for plotting
