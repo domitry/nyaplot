@@ -34,8 +34,12 @@ module Nyaplot
     #   @return [Numeric] the angle to rotate x label (radian)
     # @!attribute rotate_y_label
     #   @return [Numeric] the angle to rotate y label (radian)
+    # @!attribute x_scale
+    #   @return [String] the type of scale ("linear", "log" and "pow" are supported.)
+    # @!attribute y_scale
+    #   @return [String] the type of scale ("linear", "log" and "pow" are supported.)
     define_properties(:diagrams, :filter)
-    define_group_properties(:options, [:width, :height, :margin, :xrange, :yrange, :x_label, :y_label, :bg_color, :grid_color, :legend, :legend_width, :legend_options, :zoom, :rotate_x_label, :rotate_y_label])
+    define_group_properties(:options, [:width, :height, :margin, :xrange, :yrange, :x_label, :y_label, :bg_color, :grid_color, :legend, :legend_width, :legend_options, :zoom, :rotate_x_label, :rotate_y_label, :x_scale, :y_scale])
 
     def initialize(&block)
       init_properties
