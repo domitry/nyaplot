@@ -1,0 +1,3 @@
+[submodule "lib/mapnya/datasets/geo-boundaries-world-110m"]
+	path = lib/mapnya/datasets/geo-boundaries-world-110m
+	url = https://github.com/datasets/geo-boundaries-world-110m.git
