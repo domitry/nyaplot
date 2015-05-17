@@ -3,7 +3,14 @@
 (function(){
     var render = function(){
         var model = <%= model %>
-        Nyaplot.core.parse(model, '#vis-<%= id %>');
+        var id_name = '#vis-<%= id %>';
+        Nyaplot.core.parse(model, id_name);
+
+        require(['downloadable'], function(downloadable){
+          var svg = d3.select(id_name).select("svg");
+	  if(!svg.empty())
+	    svg.call(downloadable().filename('fig'));
+	});
     };
     if(window['Nyaplot']==undefined){
         window.addEventListener('load_nyaplot', render, false);

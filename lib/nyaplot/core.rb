@@ -2,7 +2,10 @@ require 'erb'
 
 module Nyaplot
 
-  @@dep_libraries = {d3:'http://d3js.org/d3.v3.min'}
+  @@dep_libraries = {
+    d3:'http://d3js.org/d3.v3.min',
+    downloadable: 'http://cdn.rawgit.com/domitry/d3-downloadable/master/d3-downloadable'
+  }
   @@additional_libraries = {}
   @@extension_lists = []
 
