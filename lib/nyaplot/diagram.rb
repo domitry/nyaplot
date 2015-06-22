@@ -170,6 +170,10 @@ module Nyaplot
       #   @return [Bool] decide if the diagram prepare legend
       define_group_properties(:options, [:title, :x, :y, :fill_by, :shape_by, :size_by, :color, :shape, :size, :stroke_color, :stroke_width, :tooltip_contents, :legend])
 
+      def tooltips(labels)
+        tooltip_contents((labels.is_a?(Symbol) ? [labels] : labels))
+      end
+
       def process_data(df, labels)
         label_x = labels[0]
         label_y = labels[1]
