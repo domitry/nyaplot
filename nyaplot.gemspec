@@ -55,11 +55,12 @@ EOF
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
 
+  root_path = File.expand_path(File.dirname(__FILE__))
+
   # get an array of submodule dirs by executing 'pwd' inside each submodule
   `git submodule --quiet foreach pwd`.split($\).each do |submodule_path|
     # for each submodule, change working directory to that submodule
     Dir.chdir(submodule_path) do
-      
       # issue git ls-files in submodule's directory
       submodule_files = `git ls-files`.split($\)
       
@@ -71,9 +72,10 @@ EOF
       # remove leading path parts to get paths relative to the gem's root dir
       # (this assumes, that the gemspec resides in the gem's root dir)
       submodule_files_paths = submodule_files_fullpaths.map do |filename|
-        filename.gsub "#{File.dirname(__FILE__)}/", ""
+        str = filename.gsub root_path, ""
+        str[1..(str.length-1)]
       end
-      
+
       # add relative paths to gem.files
       spec.files += submodule_files_paths
     end
