@@ -282,6 +282,7 @@ module Nyaplot
         yrange = [Float::INFINITY, -Float::INFINITY]
 
         proc = Proc.new do |column|
+          column = column.select{|val| !(val.nil?)}
           yrange[0] = [yrange[0], column.min].min
           yrange[1] = [yrange[1], column.max].max
         end
