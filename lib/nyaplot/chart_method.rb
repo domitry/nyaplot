@@ -1,32 +1,41 @@
 require_relative './charts/bar'
+require_relative './charts/line'
+require_relative './charts/scatter'
 
 module Nyaplot
   module ChartMethods
-    def bar(**opts)
-      unless @df.nil?
-        data = @df
-      else
-        if opts[:data].nil?
-          data = opts[:data]
-        elsif opts[:df].nil?
-          data = opts[:df]
+    [
+      ["bar", Charts::Bar],
+      ["line", Charts::Line],
+      ["scatter", Charts::Scatter]
+    ].each do |pair|
+      mname, constant = pair
+      define_method(mname) do |**opts|
+        unless @df.nil?
+          data = @df
         else
-          raise ""
+          if opts[:data].nil?
+            data = opts[:data]
+          elsif opts[:df].nil?
+            data = opts[:df]
+          else
+            raise ""
+          end
         end
-      end
 
-      opts = @opts.merge({
-        data: data,
-        xscale: @xscale,
-        yscale: @yscale,
-        position: @position,
-      }).merge(opts)
-      
-      chart = Charts::Bar.new(opts)
-      @charts.push(chart)
-      @deps.concat(chart.deps)
-      @glyphs.concat(chart.glyphs)
-      self
+        args = {
+          data: data,
+          xscale: @xscale,
+          yscale: @yscale,
+          position: @position,
+        }
+        opts = @opts.merge(args).merge(opts)
+        chart = constant.new(opts)
+        @charts.push(chart)
+        @deps.concat(chart.deps)
+        @glyphs.concat(chart.glyphs)
+        self
+      end
     end
 
     ## short-cut methods for adding primitives
