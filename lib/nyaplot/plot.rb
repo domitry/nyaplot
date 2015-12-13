@@ -64,8 +64,17 @@ module Nyaplot
 
       @grid = ad ::Layers::Grid.new({xscale: @xscale, yscale: @yscale})
       @position = ad ::Layers::Position2d.new({x: @xscale, y: @yscale})
-      
-      @title = nil
+
+      arg = {
+        dx: (@y_axis_w/2),
+        text: "",
+        font_size: 26,
+        text_anchor: :start,
+        yalign: :center,
+        xalign: :center,
+        margin: {top: 0, bottom: 20, left: 5, right: 5}
+      }
+      @title = ad ::Layers::Label.new(arg)
       @xlabel = nil
       @ylabel = nil
     end
@@ -101,16 +110,7 @@ module Nyaplot
     end
     
     def title(txt)
-      arg = {
-        dx: (@y_axis_w/2),
-        text: txt,
-        font_size: 26,
-        text_anchor: :start,
-        yalign: :center,
-        xalign: :center,
-        margin: {top: 0, bottom: 20, left: 5, right: 5}
-      }
-      @title = ad ::Layers::Label.new(arg)
+      @title.text(txt)
       self
     end
 
