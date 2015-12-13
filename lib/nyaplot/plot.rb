@@ -84,35 +84,38 @@ module Nyaplot
     end
     
     def title(txt)
-      @title = Layers::Label.new {
-        dx: @y_axis_w/2,
+      arg = {
+        dx: (@y_axis_w/2),
         text: txt,
         font_size: 26,
         text_anchor: :start,
-        xalign: :center,
         yalign: :center,
+        xalign: :center,
         margin: {top: 0, bottom: 20, left: 5, right: 5}
       }
+      @title = ad ::Layers::Label.new(arg)
       self
     end
 
     def xlabel(txt)
-      @xlabel = ad Layers::Label.new {
+      arg = {
         dx: @y_axis_w/2,
         text: txt,
         xalign: :center,
         dominant_baseline: "text-before-edge"
       }
+      @xlabel = ad ::Layers::Label.new(arg)
       self
     end
 
     def ylabel(txt)
-      @ylabel = ad Layers::Label.new {
+      arg = {
         text: txt,
         rotate: -90,
         xalign: :center,
         yalign: :center
       }
+      @ylabel = ad ::Layers::Label.new(arg)
       self
     end
 
@@ -200,7 +203,7 @@ module Nyaplot
       c = stack(@background, [c])
       # c = stack(@tooltip, [c])
       # c = stack(@wheel_zoom, [c])
-      c = column(@yaxis, row(c, @xaxis, {margin: {top: 15, bottom: 5, left: 15, right: 15}}))
+      c = column(@yaxis, row(c, @xaxis), {margin: {top: 10, bottom: 15, left: 15, right: 15}})
       c = row(c, @xlabel) unless @xlabel.nil?
       c = column(@ylabel, c) unless @ylabel.nil?
       #c = column(c, @legend)
@@ -213,7 +216,7 @@ module Nyaplot
       
       {
         uuid: SecureRandom.uuid,
-        defs: @deps + deps,
+        defs: defs,
         layout: c
       }.to_json
     end
