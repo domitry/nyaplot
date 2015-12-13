@@ -4,7 +4,7 @@ module Nyaplot
   # 
   module Exportable
     def raise_display_failed
-      raise "This method works only on IRuby. Use #to_html or install IRuby."
+      raise "This method works only on IRuby. Use #export_html or install IRuby."
     end
 
     # generate static html file
@@ -24,7 +24,8 @@ module Nyaplot
       
       temp_path = File.expand_path("../templates/static_html.erb", __FILE__)
       template = File.read(temp_path)
-      File.write(path, ERB.new(template).result(binding))
+      num = File.write(path, ERB.new(template).result(binding))
+      "Plot was saved to " + path
     end
     
     def to_png
@@ -42,6 +43,7 @@ module Nyaplot
 
     # show plot on IRuby notebook
     def show
+      raise_display_failed unless defined? IRuby
       IRuby.display(self)
     end
   end
