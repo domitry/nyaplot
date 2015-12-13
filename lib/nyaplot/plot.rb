@@ -187,7 +187,7 @@ module Nyaplot
       end
     end
 
-    def to_json
+    def to_json(*args)
       ## decide domain
       xdomain = @xdomain.nil? ? decide_xdomain(@xscale.type) : @xdomain
       ydomain = @ydomain.nil? ? decide_ydomain(@yscale.type) : @ydomain

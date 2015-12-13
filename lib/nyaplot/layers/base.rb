@@ -20,7 +20,6 @@ module Nyaplot
       @props = props
     end
 
-    def to_json
       args = @props.reduce({}) do |memo, pair|
         memo[pair[0]] = pair[1] unless pari[1].is_a? LayerBase
         memo
@@ -36,6 +35,7 @@ module Nyaplot
         args: args,
         sync_args: sync_args
       }.to_json
+      def to_json(*args)
     end
   end
 end
