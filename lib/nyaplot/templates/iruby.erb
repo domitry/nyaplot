@@ -1,15 +1,14 @@
 <div id='vis-<%= id %>'></div>
 <script>
-(function(){
-    var render = function(){
-        var model = <%= model %>;
-        Nyaplot.core.parse(model);
-    };
-    if(window['Nyaplot']==undefined){
-        window.addEventListener('load_nyaplot', render, false);
-	return;
-    } else {
-       render();
-    }
-})();
+ require.config({paths: {
+   Nyaplot: "https://cdn.rawgit.com/domitry/Nyaplotjs/3caceff7e70c35f9e5a8306c69252de5f24f6792/release/nyaplot"
+ }});
+
+ require(["Nyaplot"], function(Nyaplot){
+   <% if to_png == true  %>
+   Nyaplot.core.to_png('#vis-<%= id %>', <%= model %>);
+   <% else %>
+   Nyaplot.core.parse('#vis-<%= id %>', <%= model %>);
+   <% end  %>
+ });
 </script>

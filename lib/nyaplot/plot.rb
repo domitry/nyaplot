@@ -1,199 +1,227 @@
+require_relative './exportable'
+require_relative './chart_method'
+
 module Nyaplot
-  # Base module for Plot-something of Nyaplot. (e.g. Nyaplot::Plot2D or Nyaplot::Plot)
-  # Plot have one root named "pane".
-  # Plot resolve dependency according to pane, create model, and generate html code according to it.
-  module PlotBase
-    def initialize(*args)
-      @pane = Nyaplot::Pane.new
-    end
-
-    # @return
-    #   {Obj1: 2, Obj2: 0, Obj3: 15, .., Objn: 0}
-    def generate_gen_list(stack)
-      gen = 0; gen_list = {}
-
-      while stack.length > 0
-        stack = stack.reduce([]) do |memo, obj|
-          gen_list[obj] = gen
-          obj.resolve_dependency if obj.respond_to? :resolve_dependency
-          memo.concat(obj.dependency)
-          next memo
-        end
-        gen += 1
-      end
-
-      gen_list
-    end
-
-    # generate model
-    def to_json(*args)
-      gen_list = generate_gen_list([@pane])
-      "[" + gen_list.sort_by{|k, v| v}.map{|arr| arr.first.to_json}.reverse.join(",") + "]"
-    end
-
-    # generate html code for <body> tag
-    def generate_body
-      path = File.expand_path("../templates/iruby.erb", __FILE__)
-      template = File.read(path)
-      model = self.to_json
-      id = @pane.uuid
-      ERB.new(template).result(binding)
-    end
-
-    # generate static html file
-    # @return [String] generated html
-    def generate_html
-      body = generate_body
-      init = Nyaplot.generate_init_code
-      path = File.expand_path("../templates/static_html.erb", __FILE__)
-      template = File.read(path)
-      ERB.new(template).result(binding)
-    end
-
-    # export static html file
-    def export_html(path="./plot.html")
-      path = File.expand_path(path, Dir::pwd)
-      str = generate_html
-      File.write(path, str)
-    end
-
-    # show plot automatically on IRuby notebook
-    def to_iruby
-      html = generate_body
-      ['text/html', html]
-    end
-
-    # show plot on IRuby notebook
-    def show
-      IRuby.display(self)
-    end
-  end
-
-  # Base class for general 2-dimentional plots
-  # Plot2D have one pane, some stage2ds and glyphs
-  class Plot2D
-    include PlotBase
-    attr_accessor :pane, :stages, :glyphs
-
-    def initialize
-      super
-      stage = Stage2D.new
-      @pane = Pane.rows(stage)
-      @dependency = [@pane, stage]
-    end
-
-    class << self
-      # shortcut method for Plot#add
-      # @example
-      #   Plot.add(:scatter, a, b)
-      #
-      def add(*args)
-        self.new.add(*args)
-      end
-
-      # shortcut method for Plot#from
-      # @example
-      #   df = DataFrame.new({hoge: [1,2,3], nya: [2,3,4]})
-      #   Plot.from(df).add(:scatter, :hoge, :nya)
-      #
-      def from(df)
-        self.new.from(df)
-      end
-    end
-
-    def from(df)
-      if df.is_a? DataFrame
-        @df = df
-        self
-      else
-        raise ""
-      end
-    end
-
-    # Add glyph, sheet or stage to Plot
+  class Plot
     # @example
-    #    Plot.add(:scatter, x, y)
-    #    Plot.add(sc)
+    # Plot.from(df, x: :hoge, y: :nya).bar
+    # Plot.from(df).scatter(x: hoge, y: nya)
+    # Plot.add(:scatter, xarr, yarr)
     #
-    def add(*args)
-      if args.first.is_a? Symbol
-        name = args.shift
-        raise "invalid arguments" unless args.length == 1 && args.first.is_a?(Hash)
-        if (hash = args.first) && !(@df.nil?)
-          glyph = Nyaplot::Glyph.instantiate(@df, name, hash)
-        else
-          # hash: {x: [0, 1, 2], y: [1, 2, 3]}
-          df = DataFrame.new(hash)
-          arg = hash.reduce({}){|memo, val| memo[val[0]] = val[0]; memo}
-          glyph = Nyaplot::Glyph.instantiate(df, name, arg)
-        end
-        add_glyph(glyph)
-      else
-        args.each do |obj|
-          if obj.is_a? Nyaplot::Glyph2D
-            add_glyph(obj)
-          elsif obj.is_a? Nyaplot::Stage2D
-            add_stage(obj)
-          end
-        end
+    include Exportable
+    include ChartMethods
+    
+    class << self
+      def from(df, **opts)
+        Plot.new(df, opts)
       end
+    end
+    
+    def initialize(df=nil, **opts)
+      @df = df
+      @opts = {
+        width: 400,
+        height: 400
+      }.merge(opts)
+      
+      @xdomain = []
+      @ydomain = []
+      
+      ## internal use
+      @glyphs = []
+      @charts = []
+      @deps = []
+      @temp_deps = []
+
+      ## properties
+      @x_axis_h = 35
+      @y_axis_w = 70
+      @with_layer
+      
+      ## layers
+      @xscale = ad Layers::Scale.new({type: :linear, range: [0, @opts[:width]]})
+      @yscale = ad Layers::Scale.new({type: :linear, range: [@opts[:height], 0]})
+
+      @xaxis = ad Layer::Axis.new({scale: xscale, height: @x_axis_h})
+      @yaxis = ad Layers::Axis.new({scale: yscale, orient: :left, width: @y_axis_w})
+
+      @grid = ad Layers::Grid.new({xscale: @xscale, yscale: @yscale})
+      @position = ad Layers::Position2d.new({x: @xscale, y: @yscale})
+      
+      @title = nil
+      @xlabel = nil
+      @ylabel = nil
+    end
+
+    private
+    def add_dependency(layer)
+      raise "Layer should be an instance of LayerBase" unless layer.is_a? Layers::LayerBase
+      @deps.push(layer)
+      layer
+    end
+    alias :add_dependency :ad
+
+    private
+    def add_temp_dependency(layer)
+      @temp_deps.push(layer)
+      layer
+    end
+    alias :add_temp_dependency :atd
+
+    private
+    def clear_temp_dependency
+      @temp_deps = []
+    end
+    
+    def add(chart_type, xarr=nil, yarr=nil, **opts)
+      self.send(chart_type, @opts.merge(opts))
       self
     end
 
-    def add_glyph(glyph)
-      stages = @dependency.select{|obj| obj.is_a? Nyaplot::Stage2D}
-      if stages.length == 0
-        stage = Nyaplot::Stage2D.new
-        add_stage(stage)
-        stage.context.add(glyph)
-      elsif stages.length == 1
-        stages.first.context.add(glyph)
-      else
-        raise "Specify stage to add the glyph."
-      end
-      @dependency.push(glyph)
-    end
-
-    def add_stage(stage)
-      @pane = Pane.columns(@pane, stage)
-      @dependency.push(stage)
-    end
-
-    def glyphs
-      if (s = self.stages).length == 1
-        context = s.first.context
-        context.glyphs
-      else
-        raise "Specify stage from which select glyphs from"
-      end
-    end
-
-    def glyph
-      self.glyphs.first
-    end
-
-    def stages
-      @pane.dependency.select{|d| d.is_a?(Nyaplot::Stage2D)}
-    end
-
-    def stage
-      if (s = self.stages).length == 1
-        s.first
-      else
-        raise "This plot has 2>= stages."
-      end
-    end
-
-    def method_missing(name, *args)
-      super if @dependency.all?{|obj| !(obj.respond_to? name)}
-      @dependency.each do |obj|
-        break obj.send(name, *args) if obj.respond_to? name
-      end
+    # deprecated.
+    def add_with_df(df, chart_type, xlabel, ylabel)
+      # TODO
       self
     end
-  end
+    
+    def title(txt)
+      @title = Layers::Label.new {
+        dx: @y_axis_w/2,
+        text: txt,
+        font_size: 26,
+        text_anchor: :start,
+        xalign: :center,
+        yalign: :center,
+        margin: {top: 0, bottom: 20, left: 5, right: 5}
+      }
+      self
+    end
 
-  # shortcut for Nyaplot::Plot2D
-  class Plot < Plot2D
+    def xlabel(txt)
+      @xlabel = ad Layers::Label.new {
+        dx: @y_axis_w/2,
+        text: txt,
+        xalign: :center,
+        dominant_baseline: "text-before-edge"
+      }
+      self
+    end
+
+    def ylabel(txt)
+      @ylabel = ad Layers::Label.new {
+        text: txt,
+        rotate: -90,
+        xalign: :center,
+        yalign: :center
+      }
+      self
+    end
+
+    def xscale(type)
+      raise "Not supported." unless [:time, :linear, :log, :power, :ordinal].index type
+      @xscale.type type
+      self
+    end
+
+    def yscale(type)
+      raise "Not supported." unless [:time, :linear, :log, :power, :ordinal].index type
+      @yscale.type type
+      self
+    end
+
+    def xdomain(arr)
+      @xdomain = arr
+      self
+    end
+
+    def ydomain(arr)
+      @ydomain = arr
+      self
+    end
+
+    ## privates methods for #to_json ##
+    private
+    def stack(me, children)
+      children = children.map{|c| c.is_a? Layers::LayerBase ? c.to_node([]) : c}
+      me.to_node(children)
+    end
+
+    private
+    def column(r, l, opts={})
+      r = r.to_node if r.is_a? Layers::LayerBase
+      l = l.to_node if l.is_a? Layers::LayerBase
+      cl = atd Layers::Column.new(opts)
+      cl.to_node([r, l])
+    end
+
+    private
+    def row(t, b, opts={})
+      t = t.to_node if t.is_a? Layers::LayerBase
+      b = b.to_node if b.is_a? Layers::LayerBase
+      rw = atd Layers::Row.new(opts)
+      rw.to_node([t, b])
+    end
+
+    private
+    def decide_xdomain(scale_type)
+      arrs = @charts.map{|c| c.xdomain}
+      decide_domain(arrs, scale_type)
+    end
+
+    private
+    def decide_ydomain(scale_type)
+      arrs = @charts.map{|c| c.xdomain}
+      decide_domain(arrs, scale_type)
+    end
+
+    private
+    def decide_domain(arrs, scale_type)
+      if scale_type.nil?
+        scale_type = arrs.all?{|arr| arr.length==2 && arr.all?{|v| v.is_a? Numeric}} ? "linear" : "ordinal"
+      end
+
+      case scale_type.to_s
+      when "time" then
+        [] # TODO
+      when "ordinal"then
+        arrs.flatten.uniq
+      when "linear", "power", "log" then
+        [
+          arrs.map{|arr| arr[0]}.min,
+          arrs.map{|arr| arr[1]}.max
+        ]
+      end
+    end
+
+    def to_json
+      ## decide domain
+      xdomain = @xdomain.nil? ? decide_xdomain(@xscale.type) : @xdomain
+      ydomain = @ydomain.nil? ? decide_ydomain(@yscale.type) : @ydomain
+      @xscale.domain xdomain
+      @yscale.domain ydomain
+      
+      ## create layout tree
+      c = stack(@context, @glyphs)
+      c = stack(@grid, [c])
+      c = stack(@background, [c])
+      # c = stack(@tooltip, [c])
+      # c = stack(@wheel_zoom, [c])
+      c = column(@yaxis, row(c, @xaxis, {margin: {top: 15, bottom: 5, left: 15, right: 15}}))
+      c = row(c, @xlabel) unless @xlabel.nil?
+      c = column(@ylabel, c) unless @ylabel.nil?
+      #c = column(c, @legend)
+      c = row(@title, c) unless @title.nil?
+      c = stack(@stage, [c])
+      c[:parser_type] = "svg"
+
+      defs = @deps + @temp_deps + @glyphs
+      clear_temp_dependency
+      
+      {
+        uuid: SecureRandom.uuid,
+        defs: @deps + deps,
+        layout: c
+      }.to_json
+    end
   end
 end

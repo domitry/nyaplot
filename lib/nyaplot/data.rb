@@ -4,11 +4,6 @@ require 'json'
 require 'csv'
 
 module Nyaplot
-  begin
-    require "mikon"
-  rescue
-  end
-
   if defined? Mikon
     class DataFrame
       include Nyaplot::Base
