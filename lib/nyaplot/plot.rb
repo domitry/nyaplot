@@ -58,13 +58,14 @@ module Nyaplot
       @deps.push(layer)
       layer
     end
-    alias :add_dependency :ad
+    alias :ad :add_dependency
 
+    
     def add_temp_dependency(layer)
       @temp_deps.push(layer)
       layer
     end
-    alias :add_temp_dependency :atd
+    alias :atd :add_temp_dependency
 
     
     def clear_temp_dependency
