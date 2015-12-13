@@ -18,7 +18,7 @@ module Nyaplot
         @deps = []
 
         @@needs.each do |sym|
-          raise "lack argument" if opts[sym].nil?
+          raise "lack argument " + sym.to_s if opts[sym].nil?
         end
         
         create(**opts)
