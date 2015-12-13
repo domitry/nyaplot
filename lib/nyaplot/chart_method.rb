@@ -3,7 +3,7 @@ require_relative './charts/bar'
 module Nyaplot
   module ChartMethods
     def bar(**opts)
-      if @df.nil?
+      unless @df.nil?
         data = @df
       else
         if opts[:data].nil?
@@ -15,14 +15,15 @@ module Nyaplot
         end
       end
 
-      opts = {
+      opts = @opts.merge({
         data: data,
         xscale: @xscale,
         yscale: @yscale,
         position: @position,
-      }.merge(opts)
+      }).merge(opts)
       
-      chart = Bar.new(opts)
+      chart = Charts::Bar.new(opts)
+      @charts.push(chart)
       @deps.concat(chart.deps)
       @glyphs.concat(chart.glyphs)
       self
