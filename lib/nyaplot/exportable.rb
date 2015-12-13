@@ -30,7 +30,7 @@ module Nyaplot
     def to_png
       raise_display_failed unless defined? IRuby
       html = generate_html(true)
-      ['text/html', html]
+      IRuby.display html, mime: 'text/html'
     end
 
     # show plot automatically on IRuby notebook
