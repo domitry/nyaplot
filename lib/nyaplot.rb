@@ -1,5 +1,4 @@
 require_relative 'nyaplot/version'
-require_relative 'nyaplot/data'
 require_relative 'nyaplot/color'
 require_relative 'nyaplot/monkeys'
 require_relative 'nyaplot/core'
