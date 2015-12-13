@@ -23,6 +23,11 @@ module Nyaplot
         width: 400,
         height: 400
       }.merge(opts)
+
+      wh = {
+        width: @opts[:width],
+        height: @opts[:height]
+      }
       
       @xdomain = nil
       @ydomain = nil
@@ -39,6 +44,17 @@ module Nyaplot
       @with_layer
       
       ## layers
+      @stage = ad ::Layers::Stage.new({})
+      @context = ad ::Layers::Context.new(wh)
+      @background = ad ::Layers::Background.new(
+        {
+          width: wh[:width]+4,
+          height: wh[:height]+4,
+          dx: -2,
+          dy: -2
+        })
+      @grid = ad ::Layers::Grid.new(wh)
+      
       @xscale = ad ::Layers::Scale.new({type: :linear, range: [0, @opts[:width]]})
       @yscale = ad ::Layers::Scale.new({type: :linear, range: [@opts[:height], 0]})
 
