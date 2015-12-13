@@ -19,7 +19,7 @@ module Nyaplot
     end
 
     # export static html file
-    def to_html(path="./plot.html", to_png=false)
+    def export_html(path="./plot.html", to_png=false)
       path = File.expand_path(path, Dir::pwd)
       body = generate_html(to_png)
       
@@ -27,7 +27,6 @@ module Nyaplot
       template = File.read(temp_path)
       File.write(path, ERB.new(template).result(binding))
     end
-    alias :to_html, :export_html
     
     def to_png
       raise_display_failed unless defined? IRuby
