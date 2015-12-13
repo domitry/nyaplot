@@ -53,7 +53,6 @@ module Nyaplot
       @ylabel = nil
     end
 
-    private
     def add_dependency(layer)
       raise "Layer should be an instance of LayerBase" unless layer.is_a? Layers::LayerBase
       @deps.push(layer)
@@ -61,14 +60,13 @@ module Nyaplot
     end
     alias :add_dependency :ad
 
-    private
     def add_temp_dependency(layer)
       @temp_deps.push(layer)
       layer
     end
     alias :add_temp_dependency :atd
 
-    private
+    
     def clear_temp_dependency
       @temp_deps = []
     end
@@ -139,42 +137,37 @@ module Nyaplot
       self
     end
 
-    ## privates methods for #to_json ##
-    private
+    ## s methods for #to_json ##
+    
     def stack(me, children)
       children = children.map{|c| c.is_a? Layers::LayerBase ? c.to_node([]) : c}
       me.to_node(children)
     end
-
-    private
+    
     def column(r, l, opts={})
       r = r.to_node if r.is_a? Layers::LayerBase
       l = l.to_node if l.is_a? Layers::LayerBase
       cl = atd Layers::Column.new(opts)
       cl.to_node([r, l])
     end
-
-    private
+    
     def row(t, b, opts={})
       t = t.to_node if t.is_a? Layers::LayerBase
       b = b.to_node if b.is_a? Layers::LayerBase
       rw = atd Layers::Row.new(opts)
       rw.to_node([t, b])
     end
-
-    private
+    
     def decide_xdomain(scale_type)
       arrs = @charts.map{|c| c.xdomain}
       decide_domain(arrs, scale_type)
     end
-
-    private
+    
     def decide_ydomain(scale_type)
       arrs = @charts.map{|c| c.xdomain}
       decide_domain(arrs, scale_type)
     end
 
-    private
     def decide_domain(arrs, scale_type)
       if scale_type.nil?
         scale_type = arrs.all?{|arr| arr.length==2 && arr.all?{|v| v.is_a? Numeric}} ? "linear" : "ordinal"

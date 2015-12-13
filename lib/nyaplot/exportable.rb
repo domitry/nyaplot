@@ -3,7 +3,6 @@ module Nyaplot
   # !! Classes to include PlotBase should have #to_json. !!
   # 
   module Exportable
-    private
     def raise_display_failed
       raise "This method works only on IRuby. Use #to_html or install IRuby."
     end
