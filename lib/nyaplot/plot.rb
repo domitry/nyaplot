@@ -24,8 +24,8 @@ module Nyaplot
         height: 400
       }.merge(opts)
       
-      @xdomain = []
-      @ydomain = []
+      @xdomain = nil
+      @ydomain = nil
       
       ## internal use
       @glyphs = []
@@ -170,28 +170,28 @@ module Nyaplot
     end
 
     def decide_domain(arrs, scale_type)
-      if scale_type.nil?
-        scale_type = arrs.all?{|arr| arr.length==2 && arr.all?{|v| v.is_a? Numeric}} ? "linear" : "ordinal"
-      end
+      scale_type = (arrs.all?{|arr| arr.length==2 && arr.all?{|v| v.is_a?(Numeric)}}) ? "linear" : "ordinal"
 
-      case scale_type.to_s
-      when "time" then
-        [] # TODO
-      when "ordinal"then
-        arrs.flatten.uniq
-      when "linear", "power", "log" then
-        [
-          arrs.map{|arr| arr[0]}.min,
-          arrs.map{|arr| arr[1]}.max
-        ]
-      end
+      [scale_type, (case scale_type.to_s
+       when "time" then
+         [] # TODO
+       when "ordinal"then
+         arrs.flatten.uniq
+       when "linear", "power", "log" then
+         [
+           arrs.map{|arr| arr[0]}.min,
+           arrs.map{|arr| arr[1]}.max
+         ]
+       end)]
     end
 
     def to_json(*args)
       ## decide domain
-      xdomain = @xdomain.nil? ? decide_xdomain(@xscale.type) : @xdomain
-      ydomain = @ydomain.nil? ? decide_ydomain(@yscale.type) : @ydomain
+      xscale_, xdomain = @xdomain.nil? ? decide_xdomain(@xscale.type) : @xdomain
+      yscale_, ydomain = @ydomain.nil? ? decide_ydomain(@yscale.type) : @ydomain
+      @xscale.type xscale_
       @xscale.domain xdomain
+      @yscale.type yscale_
       @yscale.domain ydomain
       
       ## create layout tree
