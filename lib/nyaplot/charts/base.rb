@@ -12,7 +12,7 @@ module Nyaplot
         end
       end
 
-      attr_reader :glyphs, :deps
+      attr_reader :glyphs, :deps, :xdomain, :ydomain
       def initialize(**opts)
         @glyphs = []
         @deps = []
