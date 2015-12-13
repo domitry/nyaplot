@@ -33,14 +33,14 @@ module Nyaplot
         @deps.push(layer)
         layer
       end
-      alias :add_dependency :ad
+      alias :ad :add_dependency
 
       private
       def add_glyph(glyph)
         @glyphs.push(glyph)
         glyph
       end
-      alias :add_glyph :ag
+      alias :ag :add_glyph
 
       private
       def create_ordinal_position(xscale, yscale, label, xy=:x)
