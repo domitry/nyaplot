@@ -1,5 +1,6 @@
 require_relative './exportable'
 require_relative './chart_method'
+require_relative './layers/layers'
 
 module Nyaplot
   class Plot
@@ -13,7 +14,7 @@ module Nyaplot
     
     class << self
       def from(df, **opts)
-        Plot.new(df, opts)
+        Plot.new(df, **opts)
       end
     end
     
