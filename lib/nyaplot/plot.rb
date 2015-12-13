@@ -165,7 +165,7 @@ module Nyaplot
     end
     
     def decide_ydomain(scale_type)
-      arrs = @charts.map{|c| c.xdomain}
+      arrs = @charts.map{|c| c.ydomain}
       decide_domain(arrs, scale_type)
     end
 
