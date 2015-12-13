@@ -39,14 +39,14 @@ module Nyaplot
       @with_layer
       
       ## layers
-      @xscale = ad Layers::Scale.new({type: :linear, range: [0, @opts[:width]]})
-      @yscale = ad Layers::Scale.new({type: :linear, range: [@opts[:height], 0]})
+      @xscale = ad ::Layers::Scale.new({type: :linear, range: [0, @opts[:width]]})
+      @yscale = ad ::Layers::Scale.new({type: :linear, range: [@opts[:height], 0]})
 
-      @xaxis = ad Layer::Axis.new({scale: xscale, height: @x_axis_h})
-      @yaxis = ad Layers::Axis.new({scale: yscale, orient: :left, width: @y_axis_w})
+      @xaxis = ad ::Layers::Axis.new({scale: @xscale, height: @x_axis_h})
+      @yaxis = ad ::Layers::Axis.new({scale: @yscale, orient: :left, width: @y_axis_w})
 
-      @grid = ad Layers::Grid.new({xscale: @xscale, yscale: @yscale})
-      @position = ad Layers::Position2d.new({x: @xscale, y: @yscale})
+      @grid = ad ::Layers::Grid.new({xscale: @xscale, yscale: @yscale})
+      @position = ad ::Layers::Position2d.new({x: @xscale, y: @yscale})
       
       @title = nil
       @xlabel = nil
@@ -54,7 +54,7 @@ module Nyaplot
     end
 
     def add_dependency(layer)
-      raise "Layer should be an instance of LayerBase" unless layer.is_a? Layers::LayerBase
+      raise "Layer should be an instance of LayerBase" unless layer.is_a? ::Layers::LayerBase
       @deps.push(layer)
       layer
     end
@@ -140,21 +140,21 @@ module Nyaplot
     ## s methods for #to_json ##
     
     def stack(me, children)
-      children = children.map{|c| c.is_a? Layers::LayerBase ? c.to_node([]) : c}
+      children = children.map{|c| c.is_a?(::Layers::LayerBase) ? c.to_node([]) : c}
       me.to_node(children)
     end
     
     def column(r, l, opts={})
-      r = r.to_node if r.is_a? Layers::LayerBase
-      l = l.to_node if l.is_a? Layers::LayerBase
-      cl = atd Layers::Column.new(opts)
+      r = r.to_node if r.is_a? ::Layers::LayerBase
+      l = l.to_node if l.is_a? ::Layers::LayerBase
+      cl = atd ::Layers::Column.new(opts)
       cl.to_node([r, l])
     end
     
     def row(t, b, opts={})
-      t = t.to_node if t.is_a? Layers::LayerBase
-      b = b.to_node if b.is_a? Layers::LayerBase
-      rw = atd Layers::Row.new(opts)
+      t = t.to_node if t.is_a? ::Layers::LayerBase
+      b = b.to_node if b.is_a? ::Layers::LayerBase
+      rw = atd ::Layers::Row.new(opts)
       rw.to_node([t, b])
     end
     
