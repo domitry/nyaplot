@@ -1,15 +1,10 @@
 <div id='vis-<%= id %>'></div>
 <script>
-(function(){
-    var render = function(){
-        var model = <%= model %>;
-        Nyaplot.core.parse(model);
-    };
-    if(window['Nyaplot']==undefined){
-        window.addEventListener('load_nyaplot', render, false);
-	return;
-    } else {
-       render();
-    }
-})();
+ require.config({paths: {
+   Nyaplot: "<%= PATH_NYAPLOT %>"
+ }});
+
+ require(["Nyaplot"], function(Nyaplot){
+   Nyaplot.core.parse('#vis-<%= id %>', <%= model %>);
+ });
 </script>

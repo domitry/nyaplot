@@ -51,7 +51,6 @@ EOF
   spec.required_ruby_version = ">= 2.0"
 
   spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_runtime_dependency "mikon", "~> 0.1.2.rc1"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
