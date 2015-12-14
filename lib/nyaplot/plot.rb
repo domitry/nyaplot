@@ -137,13 +137,13 @@ module Nyaplot
     end
 
     def xscale(type)
-      raise "Not supported." unless [:time, :linear, :log, :power, :ordinal].index type
+      raise "Not supported." unless [:time, :linear, :log, :pow, :ordinal].index type
       @xscale.type type
       self
     end
 
     def yscale(type)
-      raise "Not supported." unless [:time, :linear, :log, :power, :ordinal].index type
+      raise "Not supported." unless [:time, :linear, :log, :pow, :ordinal].index type
       @yscale.type type
       self
     end
@@ -197,7 +197,7 @@ module Nyaplot
          [] # TODO
        when "ordinal"then
          arrs.flatten.uniq
-       when "linear", "power", "log" then
+       when "linear", "pow", "log" then
          [
            arrs.map{|arr| arr[0]}.min,
            arrs.map{|arr| arr[1]}.max
