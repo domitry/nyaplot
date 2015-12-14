@@ -190,7 +190,9 @@ module Nyaplot
     end
 
     def decide_domain(arrs, scale_type)
-      scale_type = (arrs.all?{|arr| arr.length==2 && arr.all?{|v| v.is_a?(Numeric)}}) ? "linear" : "ordinal"
+      if scale_type.nil?
+        scale_type = (arrs.all?{|arr| arr.length==2 && arr.all?{|v| v.is_a?(Numeric)}}) ? "linear" : "ordinal"
+      end
 
       [scale_type, (case scale_type.to_s
        when "time" then
@@ -207,8 +209,8 @@ module Nyaplot
 
     def to_json(*args)
       ## decide domain
-      xscale_, xdomain = @xdomain.nil? ? decide_xdomain(@xscale.type) : @xdomain
-      yscale_, ydomain = @ydomain.nil? ? decide_ydomain(@yscale.type) : @ydomain
+      xscale_, xdomain = @xdomain.nil? ? decide_xdomain(@xscale.type) : [@xscale.type, @xdomain]
+      yscale_, ydomain = @ydomain.nil? ? decide_ydomain(@yscale.type) : [@yscale.type, @ydomain]
       @xscale.type xscale_
       @xscale.domain xdomain
       @yscale.type yscale_
