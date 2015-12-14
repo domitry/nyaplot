@@ -1,0 +1,40 @@
+<div id='vis-<%= id %>'></div>
+<script>
+ require.config({paths: {
+   Nyaplot: "<%= PATH_NYAPLOT %>"
+ }});
+
+ require(["Nyaplot"], function(Nyaplot){
+   var vis_id = "vis-<%= id %>";
+   var pr = Nyaplot.core.to_png('#'+vis_id, <%= model %>);
+
+   function searchCell(uuid){
+     var n = IPython.notebook.ncells();
+     for(var i=0; i<n; i++){
+       var cell = IPython.notebook.get_cell(i);
+       var outputs = cell.output_area.outputs.filter(function(out){
+         var html = out.data["text/html"];
+         if(typeof html == "undefined")return false;
+         if(html.includes(uuid))return true;
+         return false;
+       });
+       if(outputs.length>0)return cell;
+     }
+     return null;
+   }
+
+   if(typeof window.IPython != "undefined"){
+     pr.then(function(selection){
+       try{
+         var html = selection.node().outerHTML;
+         var cell = searchCell(vis_id);
+         if(cell == null)throw new Error("The cell whose id is " + vis_id + " not found.");
+         cell.output_area.outputs[0].data["text/html"] = html;
+       }
+       catch(e){
+         console.warn("Maybe the front-end API of Jupyter has changed.\nmessage:" + e.message);
+       }
+     });
+   }
+ });
+</script>
