@@ -11,6 +11,7 @@ module Nyaplot
     #
     include Exportable
     include ChartMethods
+    attr_accessor :xaxis, :yaxis, :grid, :background
     
     class << self
       def from(df, **opts)
