@@ -31,13 +31,19 @@ module Nyaplot
       end
 
       def to_json(*args)
+        is_sync = Proc.new do |l|
+          l.is_a?(LayerBase) || ((l.is_a?(Array) && l.all? {|cl| cl.is_a?(LayerBase)}))
+        end
+        
         args = @props.reduce({}) do |memo, pair|
-          memo[pair[0]] = pair[1] unless pair[1].is_a? LayerBase
+          memo[pair[0]] = pair[1] unless is_sync.call(pair[1])
           memo
         end
         
         sync_args = @props.reduce({}) do |memo, pair|
-          memo[pair[0]] = pair[1].uuid if pair[1].is_a? LayerBase
+          if is_sync.call(pair[1])
+            memo[pair[0]] = (pair[1].is_a? LayerBase) ? pair[1].uuid : pair[1].map{|l| l.uuid}
+          end
           memo
         end
 

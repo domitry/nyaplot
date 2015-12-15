@@ -44,6 +44,7 @@ module Nyaplot
       @x_axis_h = 35
       @y_axis_w = 70
       @with_layer
+      @is_interactive = true
       
       ## layers
       @stage = ad ::Layers::Stage.new({})
@@ -55,16 +56,16 @@ module Nyaplot
           dx: -2,
           dy: -2
         })
-      @grid = ad ::Layers::Grid.new(wh)
       
-      @xscale = ad ::Layers::Scale.new({type: :linear, range: [0, @opts[:width]]})
-      @yscale = ad ::Layers::Scale.new({type: :linear, range: [@opts[:height], 0]})
+      @xscale = ad ::Layers::Scale.new({type: nil, range: [0, @opts[:width]]})
+      @yscale = ad ::Layers::Scale.new({type: nil, range: [@opts[:height], 0]})
 
       @xaxis = ad ::Layers::Axis.new({scale: @xscale, height: @x_axis_h})
       @yaxis = ad ::Layers::Axis.new({scale: @yscale, orient: :left, width: @y_axis_w})
 
       @grid = ad ::Layers::Grid.new({xscale: @xscale, yscale: @yscale})
       @position = ad ::Layers::Position2d.new({x: @xscale, y: @yscale})
+      @wheel_zoom = ad ::Layers::Wheelzoom.new({xscale: @xscale, yscale: @yscale, updates: [@grid, @xaxis, @yaxis]}.merge(wh))
 
       arg = {
         dx: (@y_axis_w/2),
@@ -222,7 +223,10 @@ module Nyaplot
       c = stack(@grid, [c])
       c = stack(@background, [c])
       # c = stack(@tooltip, [c])
-      # c = stack(@wheel_zoom, [c])
+      if xscale_ != "ordinal" && yscale_ != "ordinal"
+        @wheel_zoom.updates(@wheel_zoom.updates + @glyphs)
+        c = stack(@wheel_zoom, [c]) 
+      end
       c = column(@yaxis, row(c, @xaxis), {margin: {top: 10, bottom: 15, left: 15, right: 15}})
       c = row(c, @xlabel) unless @xlabel.nil?
       c = column(@ylabel, c) unless @ylabel.nil?

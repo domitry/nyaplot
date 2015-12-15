@@ -48,7 +48,7 @@ module Nyaplot
       define_args :width, :height
     end
 
-    class Wheel_zoom < LayerBase
+    class Wheelzoom < LayerBase
       define_args :updates, :width, :height
     end
 
