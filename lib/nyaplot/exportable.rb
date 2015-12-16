@@ -13,6 +13,7 @@ module Nyaplot
     # @return [String] generated html
     def generate_html(temp_path)
       path = File.expand_path(temp_path, __FILE__)
+      url = Nyaplot.get_url
       id = SecureRandom.uuid
       model = to_json
       template = File.read(path)
@@ -47,5 +48,15 @@ module Nyaplot
       raise_display_failed unless defined? IRuby
       IRuby.display(self)
     end
+  end
+
+  @@url = "http://http://nbviewer.ipython.org/"
+  
+  def self.set_url(url)
+    @@url = url
+  end
+
+  def self.get_url
+    @@url
   end
 end

@@ -1,5 +1,12 @@
+<div id="msg-<%= id %>" style="background-color: #555; width: 100%; color: #fff; padding: 5px; border-radius: 8px">
+  <img src="https://dl.dropboxusercontent.com/u/47978121/cat.png" style="display: inline; margin: 0px 5px;">
+  <span>Inline JavaScript is disabled for some reason. Use <a href="<%= url %>" target="_blank" style="color: rgb(58, 171, 210)">nbviewer</a> to see plots.</span>
+</div>
 <div id='vis-<%= id %>'></div>
 <script>
+ var dom = document.getElementById('msg-<%= id %>');
+ dom.parentElement.removeChild(dom);
+ 
  require.config({paths: {
    Nyaplot: "<%= PATH_NYAPLOT %>"
  }});
