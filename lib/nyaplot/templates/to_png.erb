@@ -12,13 +12,15 @@
      var n = IPython.notebook.ncells();
      for(var i=0; i<n; i++){
        var cell = IPython.notebook.get_cell(i);
-       var outputs = cell.output_area.outputs.filter(function(out){
-         var html = out.data["text/html"];
-         if(typeof html == "undefined")return false;
-         if(html.includes(uuid))return true;
-         return false;
-       });
-       if(outputs.length>0)return cell;
+       if(typeof cell.output_area != "undefined"){
+         var outputs = cell.output_area.outputs.filter(function(out){
+           var html = out.data["text/html"];
+           if(typeof html == "undefined")return false;
+           if(html.includes(uuid))return true;
+           return false;
+         });
+         if(outputs.length>0)return cell;
+       }
      }
      return null;
    }
