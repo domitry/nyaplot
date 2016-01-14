@@ -118,6 +118,10 @@ module Nyaplot
       @rows[index]
     end
 
+    def as_json(*args)
+      @rows.map { |item| item.as_json(*args) }
+    end
+
     def to_json(*args)
       @rows.to_json
     end
@@ -201,6 +205,10 @@ module Nyaplot
         html.concat('<tr><td>' + content  + '</td></tr>')
       end
       html += '</table>'
+    end
+
+    def as_json(*args)
+      @arr.map { |item| item.as_json(*args) }
     end
 
     def to_json(*args)
