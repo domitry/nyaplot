@@ -41,14 +41,14 @@ describe Nyaplot::DataFrame do
 
   context ".filter" do
     it "should iterate row" do
-      @df.filte{|row| expect(row[:a].nil?).to eq(false)}
+      @df.filter{|row| expect(row[:a].nil?).to eq(false)}
     end
   end
 
   context ".filter!" do
     it "should be destructive" do
       arr_before = @df.a.to_a
-      @df.filter!{|row| row[:a]/2 == 1}
+      @df.filter!{|row| row[:a]/10 == 1}
       arr_after = @df.a.to_a
       expect(arr_after == arr_before).to eq(false)
     end
