@@ -1,4 +1,5 @@
 # Nyaplot
+[![Build Status](https://travis-ci.org/domitry/nyaplot.svg?branch=v2)](https://travis-ci.org/domitry/nyaplot)
 [![Gem Version](https://badge.fury.io/rb/nyaplot.svg)](http://badge.fury.io/rb/nyaplot)
 
 ![alt text](https://dl.dropboxusercontent.com/u/47978121/gsoc/nya_top.png)
