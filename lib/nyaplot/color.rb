@@ -76,6 +76,10 @@ module Nyaplot
       return html
     end
 
+    def as_json(*args)
+      @source.as_json(*args)
+    end
+
     def to_json(*args)
       @source.to_json
     end

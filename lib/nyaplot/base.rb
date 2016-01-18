@@ -17,6 +17,11 @@ module Nyaplot
       @properties = {}
     end
 
+    def as_json(*args)
+      before_to_json
+      @properties.as_json(*args)
+    end
+
     def to_json(*args)
       before_to_json
       @properties.to_json
