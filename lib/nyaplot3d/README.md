@@ -6,7 +6,7 @@ Nyaplot extension library for 3D visualization
 
 ## Demo
 
-+ [Notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/3DPlot.ipynb)
++ [Notebook](https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/3DPlot.ipynb)
 
 ## License
 

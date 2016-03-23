@@ -29,8 +29,8 @@
   "licenses": [
     {
       "name": "Open Database License",
-      "url": "http://opendatacommons.org/licenses/odbl/1.0/"
+      "url": "https://opendatacommons.org/licenses/odbl/1.0/"
     }
   ],
-  "homepage": "http://mledoze.github.io/countries/"
+  "homepage": "https://mledoze.github.io/countries/"
 }

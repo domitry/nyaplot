@@ -125,16 +125,16 @@ See an example for [Germany](https://github.com/mledoze/countries/blob/bb61a1cdd
 
 #### About the relevance factor
 To understand the usefulness of the relevance parameter, please read this:
-- http://uxdesign.smashingmagazine.com/2011/11/10/redesigning-the-country-selector/
-- http://baymard.com/labs/country-selector
+- https://uxdesign.smashingmagazine.com/2011/11/10/redesigning-the-country-selector/
+- https://baymard.com/labs/country-selector
 
 ## Showcase
 Projects using this dataset:
 
-- [REST Countries](http://restcountries.eu/)
-- [International Telephone Input](http://jackocnr.com/intl-tel-input.html)
+- [REST Countries](https://restcountries.eu/)
+- [International Telephone Input](https://jackocnr.com/intl-tel-input.html)
 - [Country Prefix Codes For Go](https://github.com/relops/prefixes)
-- [Ask the NSA](http://askthensa.com/)
+- [Ask the NSA](https://askthensa.com/)
 
 ## How to contribute?
 Please refer to [CONTRIBUTING](https://github.com/mledoze/countries/blob/master/CONTRIBUTING.md).
@@ -145,13 +145,13 @@ Please refer to [CONTRIBUTING](https://github.com/mledoze/countries/blob/master/
  - add missing translations
 
 ## Sources
-http://www.currency-iso.org/ for currency codes.
+https://www.currency-iso.org/ for currency codes.
 
 Relevance are inspired by https://github.com/JamieAppleseed/selectToAutocomplete.
 
 Region and subregion are taken from https://github.com/hexorx/countries.
 
-GeoJSON outlines come from http://thematicmapping.org/downloads/world_borders.php.
+GeoJSON outlines come from https://thematicmapping.org/downloads/world_borders.php.
 
 The rest comes from Wikipedia.
 
