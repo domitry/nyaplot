@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg id="svg559" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="480" width="640" version="1.0" y="0" x="0" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<!-- Created with Inkscape (https://www.inkscape.org/) -->
+<svg id="svg559" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="https://www.w3.org/2000/svg" height="480" width="640" version="1.0" y="0" x="0" xmlns:cc="https://creativecommons.org/ns#" xmlns:dc="https://purl.org/dc/elements/1.1/">
  <metadata id="metadata3">
   <rdf:RDF>
    <cc:Work rdf:about="">
@@ -16,7 +16,7 @@
      </rdf:Bag>
     </dc:subject>
     <dc:publisher>
-     <cc:Agent rdf:about="http://www.openclipart.org">
+     <cc:Agent rdf:about="https://www.openclipart.org">
       <dc:title/>
      </cc:Agent>
     </dc:publisher>
@@ -32,7 +32,7 @@
     </dc:rights>
     <dc:date/>
     <dc:format>image/svg+xml</dc:format>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:type rdf:resource="https://purl.org/dc/dcmitype/StillImage"/>
     <cc:license rdf:resource=""/>
     <dc:language>en</dc:language>
    </cc:Work>

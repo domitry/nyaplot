@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Naoki Nishida"]
   spec.email         = ["domitry@gmail.com"]
   spec.summary       = %q{Nyaplot is an interactive plots generator based on Web technology like SVG, WebGL, and JavaScript.}
-  spec.description   = %q{Nyaplot is an Interactive plots generator based on Web technology like SVG, WebGL, and JavaScript. It enables us to create interactive plots interactively on IRuby notebook, a web-based Ruby environment. Nyaplot is totally web-based gem and plots can be embedded into Rails or Sinatra seemlesly. Supported charts include basic 2D plot, 3D plot, Map plot and plot for Biology. See nbviewer (http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb) to overview what plots can be created with nyaplot and how to do it.}
+  spec.description   = %q{Nyaplot is an Interactive plots generator based on Web technology like SVG, WebGL, and JavaScript. It enables us to create interactive plots interactively on IRuby notebook, a web-based Ruby environment. Nyaplot is totally web-based gem and plots can be embedded into Rails or Sinatra seemlesly. Supported charts include basic 2D plot, 3D plot, Map plot and plot for Biology. See nbviewer (https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb) to overview what plots can be created with nyaplot and how to do it.}
   spec.homepage      = "https://www.github.com/domitry/nyaplot"
   spec.license       = "MIT"
   spec.post_install_message = <<-EOF
@@ -31,7 +31,7 @@ $ gem install iruby
 If you wonder how to use Nyaplot, see /path/to/nyaplot/examples/notebook
 and run `iruby notebook` in the directory.
 You can find these notebook on your browser:
-http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb
+https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb
 
 You can also use nyaplot without IRuby like /path/to/nyaplot/examples/rb
 or on your browser:

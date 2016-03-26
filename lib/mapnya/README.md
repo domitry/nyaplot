@@ -5,8 +5,8 @@ Nyaplot extension library for map visualization
 ![Mapnya](https://dl.dropboxusercontent.com/u/47978121/gsoc/mapnya_top.png)
 
 ## Demo
-+ [Notebook1](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb)
-+ [Notebook2](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
++ [Notebook1](https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb)
++ [Notebook2](https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya2.ipynb)
 
 ## License
 * datasets/geo-boundaries-world-110m -- the Open Data Commons Public Domain Dedication and License

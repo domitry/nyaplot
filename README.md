@@ -1,6 +1,6 @@
 # Nyaplot
 [![Build Status](https://travis-ci.org/domitry/nyaplot.svg?branch=master)](https://travis-ci.org/domitry/nyaplot)
-[![Gem Version](https://badge.fury.io/rb/nyaplot.svg)](http://badge.fury.io/rb/nyaplot)
+[![Gem Version](https://badge.fury.io/rb/nyaplot.svg)](https://badge.fury.io/rb/nyaplot)
 
 ![alt text](https://dl.dropboxusercontent.com/u/47978121/gsoc/nya_top.png)
 
@@ -8,20 +8,20 @@ Nyaplot is an interactive plots generator for Ruby users. Its goal is to make it
 
 Nyaplot is a compound word from 'Nya' and 'plot.' The word 'Nya' comes from an onomatopoeia of cat's meow in Japanese.
 
-This software has been developed as a product in Google Summer of Code 2014 (GSoC2014). Visit the [website]((http://sciruby.com/blog/)) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) of SciRuby to see the progress of this project.
+This software has been developed as a product in Google Summer of Code 2014 (GSoC2014). Visit the [website]((https://sciruby.com/blog/)) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) of SciRuby to see the progress of this project.
 
 **Attention: Nyaplotjs was banned by rawgit.js and nyaplot v0.1.3 was released to fix that. Please update your nyaplot and re-excute each notebooks.**
 
 ## Demo
 
 + [Movie demo on YouTube](https://www.youtube.com/watch?v=ZxjqsIluM88)
-+ [Nyaplot Tutorial & Case study](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb)
++ [Nyaplot Tutorial & Case study](https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Index.ipynb)
 
 Visit [nyaplot-notebooks on GitHub](https://github.com/domitry/nyaplot-notebooks) to see more example.
 
 ## Documents
 
-Documents are [here](http://rubydoc.info/github/domitry/nyaplot/master/frames).
+Documents are [here](https://rubydoc.info/github/domitry/nyaplot/master/frames).
 
 ## Extensions
 
@@ -37,15 +37,15 @@ Its back-end library is [Elegans](https://github.com/domitry/elegans), a 3D plot
 
 ![Nyaplot3D](https://dl.dropboxusercontent.com/u/47978121/gsoc/nyaplot3d_top.png)
 
-To learn more, see [the notebook](http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb).
+To learn more, see [the notebook](https://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/3DPlot.ipynb).
 
 ### Bionya
 
-Bionya is an extension library for Nyaplot that allows us to create plots for Biology. The main content of Bionya is the circular plot, that is usually used to visualize information of genes like relationship among them. This library is inspired by [circos](http://circos.ca/).
+Bionya is an extension library for Nyaplot that allows us to create plots for Biology. The main content of Bionya is the circular plot, that is usually used to visualize information of genes like relationship among them. This library is inspired by [circos](https://circos.ca/).
 
 ![Bionya](https://dl.dropboxusercontent.com/u/47978121/gsoc/bionya_top.png)
 
-See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb) to learn more.
+See [this notebook](https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Bionya.ipynb) to learn more.
 
 ### Mapnya
 
@@ -53,7 +53,7 @@ Mapnya is an extension library for map visualization.
 
 ![Mapnya](https://dl.dropboxusercontent.com/u/47978121/gsoc/mapnya_top.png)
 
-See [this notebook](http://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb) to learn more.
+See [this notebook](https://nbviewer.ipython.org/github/domitry/nyaplot/blob/master/examples/notebook/Mapnya.ipynb) to learn more.
 
 ## Installation
 ### Install nyaplot
@@ -126,7 +126,7 @@ First, install IPython and its dependencies using [Enthought Canopy](https://www
 
 Then install IRuby by running `gem install iruby`.
 
-After that, install ZeroMQ from [here](http://zeromq.org/area:download). Be sure to install stable release of the version **3.2.?**.  
+After that, install ZeroMQ from [here](https://zeromq.org/area:download). Be sure to install stable release of the version **3.2.?**.  
 **Attention: install 32bit version of Zeromq even if your Windows is built for 64-bit.**
 
 Add the path to the directory of ZeroMQ binaries (Maybe the path is `Program Files (x86)/ZeroMQ 3.2.4/bin`) to environment variables `PATH`.
@@ -137,12 +137,12 @@ At last, pure IRuby do not work on Windows, so please apply [patches I sent befo
 
 ## Acknowledgments
 
-This software has been developed by [Naoki Nishida](https://github.com/domitry) as a product in Google Summer of Code 2014 (GSoC2014). Visit the [website]((http://sciruby.com/blog/)) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) of SciRuby to see the progress of this project.
+This software has been developed by [Naoki Nishida](https://github.com/domitry) as a product in Google Summer of Code 2014 (GSoC2014). Visit the [website]((https://sciruby.com/blog/)) or [mailing list](https://groups.google.com/forum/#!forum/sciruby-dev) of SciRuby to see the progress of this project.
 
 
 ## Contributing
 
-1. Fork it ( http://github.com/domitry/nyaplot/fork )
+1. Fork it ( https://github.com/domitry/nyaplot/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

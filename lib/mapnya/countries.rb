@@ -1,7 +1,7 @@
 module Nyaplot
   # The wrapper for countries
   # @see https://github.com/mledoze/countries
-  # @see http://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Mapnya.ipynb
+  # @see https://nbviewer.ipython.org/github/domitry/Nyaplot/blob/master/examples/notebook/Mapnya.ipynb
   class Countries
     class << self
       path = File.expand_path("../datasets/countries/countries.json", __FILE__)

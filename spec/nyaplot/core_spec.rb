@@ -13,24 +13,24 @@ describe Nyaplot do
   # Add extension libraries loaded before Nyaplot.js
   context ".add_dependency" do
     it "should register name and url of the new dependent library" do
-      Nyaplot.add_dependency("Hoge","http://www.hoge.com")
+      Nyaplot.add_dependency("Hoge","https://www.hoge.com")
       module Nyaplot
         $dep_libraries = @@dep_libraries
       end
       expect($dep_libraries.keys.index("Hoge").nil?).to eq(false)
-      expect($dep_libraries.values.index("http://www.hoge.com").nil?).to eq(false)
+      expect($dep_libraries.values.index("https://www.hoge.com").nil?).to eq(false)
     end
   end
 
   # Add extension libraries loaded after Nyaplot.js
   context ".add_additional_library" do
     it "should register name and url of the new additional library" do
-      Nyaplot.add_additional_library("Hoge","http://www.hoge.com")
+      Nyaplot.add_additional_library("Hoge","https://www.hoge.com")
       module Nyaplot
         $additional_libraries = @@additional_libraries
       end
       expect($additional_libraries.keys.index("Hoge").nil?).to eq(false)
-      expect($additional_libraries.values.index("http://www.hoge.com").nil?).to eq(false)
+      expect($additional_libraries.values.index("https://www.hoge.com").nil?).to eq(false)
     end
   end
 end
