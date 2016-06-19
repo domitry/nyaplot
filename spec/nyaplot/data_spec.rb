@@ -176,4 +176,60 @@ describe Nyaplot::Series do
       expect(@series.size).to eq(@series.to_a.size)
     end
   end
+
+  context "#+" do
+    it "should add each element of the two Series" do
+      another_series = Nyaplot::Series.new('another_series', [20, 40])
+
+      expect((@series + another_series).to_a).to eq( [30, 70] )
+    end
+
+    it "should add the number to each element of the Series" do
+      number = 10
+
+      expect((@series + number).to_a).to eq( [20, 40] )
+    end
+  end
+
+  context "#-" do
+    it "should subtract the passed Series from the Series" do
+      another_series = Nyaplot::Series.new('another_series', [20, 40])
+
+      expect((@series - another_series).to_a).to eq( [-10, -10] )
+    end
+
+    it "should subtract the number from the Series" do
+      number = 10
+
+      expect((@series - number).to_a).to eq( [0, 20] )
+    end
+  end
+
+  context "#/" do
+    it "should divide each element of the Series by the each element of the passed Series" do
+      another_series = Nyaplot::Series.new('another_series', [20.to_f, 40.to_f])
+
+      expect((@series / another_series).to_a).to eq( [10/20.to_f, 30/40.to_f] )
+    end
+
+    it "should divide each element of the Series by the passed number" do
+      number = 10.to_f
+
+      expect((@series / number).to_a).to eq( [10/10.to_f, 30/10.to_f] )
+    end
+  end
+
+  context "#*" do
+    it "should multiply each element of the two Series together" do
+      another_series = Nyaplot::Series.new('another_series', [20, 40])
+
+      expect((@series * another_series).to_a).to eq( [200, 1200] )
+    end
+
+    it "should multiply each element of the Series by the number" do
+      number = 10
+
+      expect((@series * number).to_a).to eq( [100, 300] )
+    end
+  end
 end
