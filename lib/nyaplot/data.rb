@@ -223,6 +223,16 @@ module Nyaplot
       @label
     end
 
+		[:+, :-, :/, :*].each do |operator|
+			define_method(operator) do |obj|
+				if obj.is_a? Nyaplot::Series
+					Nyaplot::Series.new(label, (self.zip obj.to_a).map { |arr| arr.inject(&operator) })
+				elsif obj.is_a? Numeric
+					Nyaplot::Series.new(label, self.map { |e| e.send(operator, obj) })
+				end
+			end
+		end
+
     def method_missing(meth, *args, &block)
       if @arr.respond_to?(meth)
         @arr.send(meth, *args, &block)
