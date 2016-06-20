@@ -54,6 +54,7 @@ EOF
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "iruby"
 
   root_path = File.expand_path(File.dirname(__FILE__))
 
