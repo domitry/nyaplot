@@ -1,0 +1,18 @@
+if (window['d3'] === undefined || window['Nyaplot'] === undefined) {
+  <%
+  all_libraries = dep_libraries.merge(additional_libraries)
+  all_libraries['nyaplot'] = 'nyaplot'
+  all_libraries.each do |name, path|
+    basename = File.basename(path + '.js')
+    contents = IO.read(File.join(js_dir, basename), mode: 'r:UTF-8')
+  %>
+    /* BEGIN <%= name %>.js */
+<%= contents %>
+    /* END <%= name %>.js */
+  <% end %>
+
+  var event = document.createEvent("HTMLEvents");
+  event.initEvent("load_nyaplot", false, false);
+  window.dispatchEvent(event);
+  console.log("Finish loading Nyaplotjs");
+}
