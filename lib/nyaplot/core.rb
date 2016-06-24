@@ -62,5 +62,6 @@ module Nyaplot
 </script>
 END_HTML
     end
+    true
   end
 end

@@ -23,7 +23,7 @@ describe Nyaplot do
           # nyaplot.js
           expect(rep.object).to match(/var Nyaplot = initialize\(\);/)
         end
-        load_notebook
+        expect(load_notebook).to eq(nil)
       end
     end
 
@@ -50,7 +50,7 @@ describe Nyaplot do
           expect(rep.object).to include('http://cdn.rawgit.com/domitry/d3-downloadable/master/d3-downloadable')
           expect(rep.object).to include('http://cdn.rawgit.com/domitry/Nyaplotjs/master/release/nyaplot.js')
         end
-        load_notebook
+        expect(load_notebook).to eq(nil)
       end
     end
   end
